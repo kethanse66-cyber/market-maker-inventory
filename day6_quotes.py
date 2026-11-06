@@ -30,7 +30,9 @@ FIRMS = r"E:\hl_data\firm_wallets_all.csv"
 COINS = {"SOL": 2, "XRP": 0}                     # coin -> szDecimals (sets the smallest allowed tick)
 DAYS = list(pd.date_range("2026-06-01", "2026-06-14").strftime("%Y-%m-%d")) + \
        list(pd.date_range("2026-08-15", "2026-10-25").strftime("%Y-%m-%d"))
-BOOK_SHIFT_S = 0.25                              # book time - 0.25 s = true time (decision 6)
+BOOK_SHIFT_S = 0.25                              # fallback delay (decision 6) if an hour is missing below
+LAG_FILE = r"E:\p3\data\book_lag.csv"          # delay measured hour by hour (Day 6c)
+POOR_BOOK = 0.02                                 # hour flagged poor if > 2% of quotes cross even at its best delay
 MAX_BOOK_AGE_S = 1.0                             # older book row -> market unknown for that quote
 GAPS = [("2026-06-05 22:00:10", "2026-06-05 22:24:16"),      # order-data gaps (decision 11)
         ("2026-08-29 20:21:00", "2026-08-29 20:32:00"),
@@ -57,6 +59,9 @@ def pick(cols, options, what):
     sys.exit(f"STOP: cannot find the {what} column in the book file. Columns are: {cols}")
 
 
+lag = pd.read_csv(LAG_FILE)
+lag_of = {(r.coin, r.day, int(r.hour)): (float(r.lag_s), float(r.crossed_at_best) if pd.notna(r.crossed_at_best)
+                                          else np.nan) for r in lag.itertuples()}
 fw = pd.read_csv(FIRMS)
 firm_of = dict(zip(fw["wallet"].str.lower(), fw["firm"].str.lower()))
 con = duckdb.connect()
@@ -70,7 +75,7 @@ for coin, szd in COINS.items():
         if old.endswith(".parquet"):
             os.remove(os.path.join(OUT, coin, old))
     tot = dict(quotes=0, no_file=0, no_prior=0, stale=0, crossed=0, locked=0, gap=0, no_inv=0, near=0,
-               near_main=0, unmapped=0, off_grid=0, dup_open=0)
+               near_main=0, poor=0, cross=0, unmapped=0, off_grid=0, dup_open=0)
     sample = []
     carry = {}                                   # wallet -> position after its last fill on any earlier day
     for d in DAYS:
@@ -112,8 +117,10 @@ for coin, szd in COINS.items():
             c_t = pick(bc, ["timestamp", "ts", "time", "local_timestamp"], "time")
             c_b = pick(bc, ["bid_px", "best_bid", "bid_price", "bid", "bid_price_1", "bid_px_0", "bid_0_px"], "best bid")
             c_a = pick(bc, ["ask_px", "best_ask", "ask_price", "ask", "ask_price_1", "ask_px_0", "ask_0_px"], "best ask")
-            b = pd.DataFrame({"bts": pd.to_datetime(b[c_t], utc=True, format="ISO8601").dt.as_unit("ns").astype("int64")
-                              - int(BOOK_SHIFT_S * NS),
+            raw_t = pd.to_datetime(b[c_t], utc=True, format="ISO8601").dt.as_unit("ns").astype("int64")
+            hrs = ((raw_t // (3600 * NS)) % 24).astype(int)
+            shift = hrs.map(lambda h: lag_of.get((coin, d, h), (BOOK_SHIFT_S, np.nan))[0])
+            b = pd.DataFrame({"bts": raw_t - (shift * NS).round().astype("int64"),    # each hour's own delay
                               "best_bid": pd.to_numeric(b[c_b]), "best_ask": pd.to_numeric(b[c_a])})
             b = b.dropna().drop_duplicates("bts", keep="last").sort_values("bts")
             q = pd.merge_asof(q.sort_values("ts"), b, left_on="ts", right_on="bts", direction="backward")
@@ -134,6 +141,12 @@ for coin, szd in COINS.items():
         q["mid"] = (q["best_bid"] + q["best_ask"]) / 2
         q["spread_bp"] = (q["best_ask"] - q["best_bid"]) / q["mid"] * 1e4
         is_bid = q["side"].astype(str) == "B"
+        qh = ((q["ts"] // (3600 * NS)) % 24).astype(int)
+        q["book_lag_s"] = qh.map(lambda h: lag_of.get((coin, d, h), (BOOK_SHIFT_S, np.nan))[0])
+        q["hour_crossed"] = qh.map(lambda h: lag_of.get((coin, d, h), (BOOK_SHIFT_S, np.nan))[1])
+        q["poor_book"] = q["hour_crossed"] > POOR_BOOK
+        q["crosses_book"] = np.where(is_bid, q["price"] >= q["best_ask"], q["price"] <= q["best_bid"]) \
+            & q["mid"].notna()                    # a post-only quote cannot really do this: book out of date
         q["rel_mid_bp"] = (q["price"] - q["mid"]) / q["mid"] * 1e4          # signed: + above mid
         q["tick"] = tick_of(q["price"], szd)                              # from the order's OWN price
         units = q["price"] / q["tick"]
@@ -172,7 +185,10 @@ for coin, szd in COINS.items():
         tot["gap"] += int(q["in_gap"].sum())
         tot["quotes"] += len(q)
         tot["near"] += int(q["near_best"].sum())
-        tot["near_main"] += int((q["near_best"] & ~q["in_gap"]).sum())
+        main = ~q["in_gap"] & ~q["poor_book"] & ~q["crosses_book"]
+        tot["near_main"] += int((q["near_best"] & main).sum())
+        tot["poor"] += int(q["poor_book"].sum())
+        tot["cross"] += int(q["crosses_book"].sum())
 
         q.to_parquet(os.path.join(OUT, coin, f"{d}.parquet"), index=False)
         ok = q.dropna(subset=["mid", "inventory"])
@@ -187,7 +203,9 @@ for coin, szd in COINS.items():
     print(f"   quotes: {tot['quotes']:,} | repeated 'open' rows dropped {tot['dup_open']:,} | "
           f"from wallets not in the firm list {tot['unmapped']:,}")
     print(f"   near the best price (within 2 ticks): all {tot['near']:,} ({tot['near'] / n:.1%}) | "
-          f"MAIN SAMPLE (outside data gaps) {tot['near_main']:,}")
+          f"MAIN SAMPLE (outside data gaps, poor-book hours and crossing quotes) {tot['near_main']:,}")
+    print(f"   in poor-book hours (> {POOR_BOOK:.0%} crossed even at the best delay): {tot['poor']:,} "
+          f"({tot['poor'] / n:.1%}) | quotes that still cross the book: {tot['cross']:,} ({tot['cross'] / n:.2%})")
     print(f"   prices off the legal tick grid: {tot['off_grid']:,} (want 0)")
     print(f"   market unknown: no book that day {tot['no_file']:,} | no earlier book row {tot['no_prior']:,} | "
           f"book older than {MAX_BOOK_AGE_S:.0f} s {tot['stale']:,} | crossed {tot['crossed']:,} | "
