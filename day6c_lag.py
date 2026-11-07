@@ -20,7 +20,7 @@ import pandas as pd
 EXPORT = ["E:/hl_export", "E:/hl_export/delivery-2"]
 BOOK = r"E:\hl_data\book"
 OUT = r"E:\p3\data\book_lag.csv"
-COINS = ["SOL", "XRP"]
+COINS = [c.upper() for c in sys.argv[1:]] or ["SOL", "XRP"]     # e.g. python day6c_lag.py BTC ETH HYPE
 DAYS = list(pd.date_range("2026-06-01", "2026-06-14").strftime("%Y-%m-%d")) + \
        list(pd.date_range("2026-08-15", "2026-10-25").strftime("%Y-%m-%d"))
 BOOK_GAP_DAYS = {"2026-06-07", "2026-06-08", "2026-06-09", "2026-06-14"}
@@ -98,7 +98,11 @@ for coin in COINS:
             f"| {time.time() - t0:,.0f}s")
 
 lag = pd.DataFrame(out, columns=["coin", "day", "hour", "lag_s", "crossed_at_best", "quotes", "source"])
+if os.path.exists(OUT):                          # keep the other coins already measured
+    old = pd.read_csv(OUT)
+    lag = pd.concat([old[~old["coin"].isin(COINS)], lag], ignore_index=True)
 lag.to_csv(OUT, index=False)
+lag = lag[lag["coin"].isin(COINS)]
 
 print("\nBOOK CLOCK DELAY, MEASURED HOUR BY HOUR")
 for coin, g in lag.groupby("coin"):

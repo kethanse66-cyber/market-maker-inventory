@@ -1,6 +1,7 @@
 """Day 5 (schedule: Wed Nov 4): inventory of every firm account over time, plus firm totals.
 
-Run:  python E:\\p3\\day5_inventory.py > E:\\p3\\day5_output.txt
+Run:  python E:\\p3\\day5_inventory.py > E:\\p3\\day5_output.txt          (SOL, XRP)
+      python E:\\p3\\day5_inventory.py BTC ETH HYPE > E:\\p3\\day5b_output.txt
 (progress on screen, results in the file; about 30-60 minutes)
 
 Idea: every trade row carries the account's position just BEFORE the trade (start_position).
@@ -24,7 +25,7 @@ import pandas as pd
 
 OURS = r"E:\hl_data"
 OUT = r"E:\p3\data\inventory"
-COINS = ["SOL", "XRP"]
+COINS = [c.upper() for c in sys.argv[1:]] or ["SOL", "XRP"]     # e.g. python day5_inventory.py BTC ETH HYPE
 WINDOWS = {"June": pd.date_range("2026-06-01", "2026-06-14"),
            "Aug-Oct": pd.date_range("2026-08-15", "2026-10-25")}
 TOL = 1e-6
@@ -106,7 +107,7 @@ for coin in COINS:
         prev_end = {}                            # wallet -> position after its last fill (restarts per window)
         prev_day_end = {}                        # wallet -> position at the end of the previous day
         for d in days.strftime("%Y-%m-%d"):
-            p = os.path.join(OURS, coin, "trades", f"{coin}_{d}.parquet")
+            p = os.path.join(OURS if coin == "BTC" else os.path.join(OURS, coin), "trades", f"{coin}_{d}.parquet")
             if not os.path.exists(p):
                 missing_days.append(d)
                 unverified += len(prev_end)      # these accounts lose their baseline
