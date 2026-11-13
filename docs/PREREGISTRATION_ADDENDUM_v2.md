@@ -1,6 +1,6 @@
 # Pre-registration addendum v2: round-number test
 
-**Status:** frozen on November 14, 2026 (git tag `prereg-v2`), after the results of `prereg-v1` were seen
+**Status:** frozen on November 13, 2026 (git tag `prereg-v2`), after the results of `prereg-v1` were seen
 (main test, three secondary outcomes, eight placebo levels, PENGU $0.01) and **before** any outcome was
 computed for STRK, FARTCOIN or the 15 replication coin-boundaries. Everything in `prereg-v1` stays in force;
 this addendum only adds tests.
@@ -27,6 +27,8 @@ level than below it, **whether or not the tick changes there** (tau_price > 0).
   model, maker weights, minute labels, circular shifts.
 - **Estimate:** tau_price pooled over the two coins (one model, maker x side x episode fixed effects).
 - **Inference:** circular-shift randomization, **2,000 draws**, seed 20261114, two-sided, 5% level.
+- **Exact run:** `day15_placebos.py` with `P3_EXTRA="STRK+FARTCOIN:0.1"`, `P3_ONLY=STRK`, `P3_TEST_DRAWS=2000`,
+  `P3_SEED=20261114`, `P3_ALL_DAYS=1`, `P3_EPISODES=episodes_d3.csv` (one pooled model over both coins).
 - **Decision:** H-R is supported if tau_price > 0 with p < 0.05.
   If p >= 0.05 it is reported as not confirmed, with its interval.
 - **Known limit, stated now:** these coins have few episodes (STRK 5 coin-days, FARTCOIN 3), so power is low.
