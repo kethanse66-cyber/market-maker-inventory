@@ -4,8 +4,8 @@ Run (after day26, both runs):  python -W ignore E:\\p3\\day27_fig_pressure.py
 Reads   E:\\p3\\results\\part1_pressure_minutes.parquet, part1_pressure.csv (+ _replication if present)
 Saves   E:\\p3\\figures\\fig6_price_pressure.png / .pdf
 
-Panel A: the gap B (bp, minus its coin-day mean) by bins of maker inventory z; every coin weighted equally,
-         95% band across days.
+Panel A: the gap B (bp, minus its coin-day mean) by 0.5-sd bins of maker inventory z (also minus its coin-day mean, as in the regression); minutes pooled within a coin,
+         every coin weighted equally; 95% band from resampling days; dashed line = the H7a regression slope.
 Panel B: how much of the gap has closed h minutes later: b(h) / |a| for h = 1, 5, 15, 60 (H7b at each horizon
          divided by the H7a level), 5 main coins and the replication coins.
 """
@@ -42,14 +42,34 @@ plt.rcParams.update({"figure.facecolor": SURF, "axes.facecolor": SURF, "savefig.
 # ---- panel A data
 A = pd.read_parquet(mf, columns=["coin", "day", "z", "B"]).dropna()
 A["Bd"] = A["B"] - A.groupby(["coin", "day"])["B"].transform("mean")
-edges = np.arange(-5, 5.01, 1.0)
-A["bin"] = np.clip(np.searchsorted(edges, A["z"], side="right") - 1, 0, len(edges) - 2)
-per = A.groupby(["day", "coin", "bin"])["Bd"].mean().groupby(["day", "bin"]).mean()   # coins equal within a day
-g = per.groupby("bin")
+edges = np.arange(-3, 3.01, 0.5)
+A["zd"] = A["z"] - A.groupby(["coin", "day"])["z"].transform("mean")    # x within coin-day too, as the regression
+A["bin"] = np.clip(np.searchsorted(edges, A["zd"], side="right") - 1, 0, len(edges) - 2)
+# minutes pooled (as in the regression), every coin equal; 95% band by resampling days (500 draws, seed fixed)
+S = A.groupby(["day", "coin", "bin"])["Bd"].agg(["sum", "count"]).reset_index()
 mid = (edges[:-1] + edges[1:]) / 2
-mean = g.mean().reindex(range(len(mid)))
-se = (g.std() / np.sqrt(g.count())).reindex(range(len(mid)))
-ok = (g.count().reindex(range(len(mid))) >= 5).to_numpy()   # a bin needs 5+ days
+nb = len(mid)
+
+
+def curve(Sx):
+    cb = Sx.groupby(["coin", "bin"])[["sum", "count"]].sum()
+    cm = (cb["sum"] / cb["count"]).where(cb["count"] >= 200)            # a coin-bin needs 200+ minutes
+    return cm.groupby("bin").mean().reindex(range(nb))                  # coins equal
+
+
+mean = curve(S)
+days = S["day"].unique()
+rng = np.random.default_rng(20261114)
+idx = {d: g for d, g in S.groupby("day")}
+boot = []
+for _ in range(500):
+    pick = rng.choice(days, len(days), replace=True)
+    boot.append(curve(pd.concat([idx[d] for d in pick], ignore_index=True)).to_numpy())
+boot = np.array(boot)
+lo_b, hi_b = np.nanpercentile(boot, 2.5, axis=0), np.nanpercentile(boot, 97.5, axis=0)
+ok = mean.notna().to_numpy()
+r0 = pd.read_csv(cf)
+a_main = float(r0.loc[r0["test"] == "H7a", "value"].iat[0]) if (r0["test"] == "H7a").any() else np.nan
 
 # ---- panel B data
 def path(csv):
@@ -73,12 +93,16 @@ rep = path(os.path.join(RES, "part1_pressure_replication.csv"))
 
 fig, ax = plt.subplots(1, 2, figsize=(10.5, 4.2))
 a0 = ax[0]
-a0.fill_between(mid[ok], (mean - 1.96 * se)[ok], (mean + 1.96 * se)[ok], color=C1, alpha=0.18, linewidth=0)
-a0.plot(mid[ok], mean[ok], color=C1, linewidth=2, marker="o", markersize=5)
+a0.fill_between(mid[ok], lo_b[ok], hi_b[ok], color=C1, alpha=0.18, linewidth=0)
+a0.plot(mid[ok], mean[ok], color=C1, linewidth=2, marker="o", markersize=5, label="average gap (minutes pooled)")
+if np.isfinite(a_main):
+    xs = np.array([mid[ok].min(), mid[ok].max()])
+    a0.plot(xs, a_main * xs, color=INK2, linewidth=1.2, linestyle="--", label=f"regression slope {a_main:+.2f} bp per sd")
+    a0.legend(fontsize=8, loc="lower left")
 a0.axhline(0, color=INK2, linewidth=0.8)
 a0.axvline(0, color=INK2, linewidth=0.8)
 a0.set_title("A. Makers long -> Hyperliquid trades below Binance", loc="left")
-a0.set_xlabel("makers' combined inventory z (sd; + = long)")
+a0.set_xlabel("makers' combined inventory z, vs its coin-day average (sd; + = more long)")
 a0.set_ylabel("Hyperliquid minus Binance, bp\n(vs the coin-day average)")
 
 a1 = ax[1]
