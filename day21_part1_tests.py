@@ -1,6 +1,8 @@
 """Day 21 (Nov 14): PART 1 TESTS - pre-registration addendum v3 (tag prereg-v3), sections 3-5.
 
 Run (after day20_part1_build.py finished):  python E:\\p3\\day21_part1_tests.py > E:\\p3\\results\\day21_output.txt
+Other coins (descriptive replication, results saved with suffix _replication):
+      python E:\\p3\\day21_part1_tests.py AAVE DOGE ...
 About 20-60 minutes (reads every E:\\p3\\part1\\<COIN>\\<day>.parquet twice). Results also in E:\\p3\\results\\part1_*.csv
 
 How it is computed (exact, not approximate): every fixed-effect group (maker x day, or maker x side x day) lies
@@ -31,7 +33,8 @@ import pandas as pd
 PART1 = os.environ.get("P3_PART1", r"E:\p3\part1")
 DATA = os.environ.get("P3_DATA", r"E:\p3\data")
 OUT = os.environ.get("P3_RESULTS", r"E:\p3\results")
-COINS = ["SOL", "XRP", "BTC", "ETH", "HYPE"]
+COINS = [c.upper() for c in sys.argv[1:]] or ["SOL", "XRP", "BTC", "ETH", "HYPE"]
+SUFFIX = "" if not sys.argv[1:] else "_replication"   # other coins never overwrite the frozen 5-coin results
 MIN_QUOTES = 1000
 t00 = time.time()
 
@@ -59,10 +62,15 @@ for c, f in files:
     for w, n in d["wallet"].value_counts().items():
         cnt[(c, w)] += int(n)
     v = vs[c]
-    v[0] += int(d["vol5"].notna().sum())                           # NaN vol5 rows do not count in the moments
-    v[1] += float(d["vol5"].sum())
-    v[2] += float((d["vol5"] ** 2).sum())
+    fv = d["vol5"].to_numpy(float)
+    fv = fv[np.isfinite(fv)]                                       # only finite vol5 counts in the moments
+    v[0] += len(fv)
+    v[1] += float(fv.sum())
+    v[2] += float((fv ** 2).sum())
     tick_med[c].append(float(d["tick_bp"].median()))
+bad = [c for c in COINS if c in vs and vs[c][0] == 0]
+if bad:
+    sys.exit(f"STOP: no finite vol5 for {bad}")
 VMEAN = {c: v[1] / v[0] for c, v in vs.items()}
 VSD = {c: np.sqrt(max(v[2] / v[0] - (v[1] / v[0]) ** 2, 1e-12)) for c, v in vs.items()}
 TICK = {c: float(np.median(x)) for c, x in tick_med.items()}
@@ -114,6 +122,8 @@ for i, (c, f) in enumerate(files):
     d = d[d["wallet"].isin({w for cc, w in keep if cc == c})]
     if d.empty:
         continue
+    if d["day"].astype(str).str[:10].nunique() != 1:
+        sys.exit(f"STOP: {f} holds more than one day - the fixed effects assume one coin-day per file")
     day = str(d["day"].iat[0])[:10]                                # always "YYYY-MM-DD" text (date filters below)
     d = d[np.isfinite(d[["vol5", "price_bp", "tick_bp", "log_size"]].to_numpy(float)).all(axis=1)]
     if d.empty:
@@ -256,7 +266,7 @@ rows.append(dict(test="T1 verdict", estimate="side not price", value=float(a_ok 
 pmt = pd.DataFrame([dict(coin=k[0], wallet=k[1], b_side=pm_side[k][0], se_side=pm_side[k][1],
                          b_price_ticks=pm_price[k][0], se_price=pm_price[k][1], days=pm_side[k][2],
                          quotes=pm_side[k][3]) for k in both])
-pmt.assign(wallet=pmt["wallet"].str[:8]).to_csv(os.path.join(OUT, "part1_per_maker.csv"), index=False)  # 8 chars only
+pmt.assign(wallet=pmt["wallet"].str[:8]).to_csv(os.path.join(OUT, f"part1_per_maker{SUFFIX}.csv"), index=False)  # 8 chars only
 if len(pmt):
     print(f"   days per maker: median {pmt['days'].median():.0f}, makers with < 10 days {int((pmt['days'] < 10).sum())} "
           f"(their individual p-values are rough - few day clusters)")
@@ -363,11 +373,12 @@ for lab, var, fn in groups:
     if rs is None or rp is None:
         print(f"   {lab:<26} (no data)")
         continue
-    print(f"   {lab:<26} side {rs[0][0]:+.4f} (p {pval(rs[0][0] / rs[1][0]):.3f}) | price {rp[0][0]:+.4f} ticks "
+    bp = f" = {rp[0][0] * TICK[lab[5:]]:+.3f} bp" if lab.startswith("coin ") and lab[5:] in TICK else ""
+    print(f"   {lab:<26} side {rs[0][0]:+.4f} (p {pval(rs[0][0] / rs[1][0]):.3f}) | price {rp[0][0]:+.4f} ticks{bp} "
           f"(p {pval(rp[0][0] / rp[1][0]):.3f}) | {rs[3]} makers")
     rec("robust", f"{lab} side", rs)
     rec("robust", f"{lab} price_ticks", rp)
 
-pd.DataFrame(rows).to_csv(os.path.join(OUT, "part1_results.csv"), index=False)
-print(f"\nSaved part1_results.csv and part1_per_maker.csv (8-character wallets only) in {OUT} | "
+pd.DataFrame(rows).to_csv(os.path.join(OUT, f"part1_results{SUFFIX}.csv"), index=False)
+print(f"\nSaved part1_results{SUFFIX}.csv and part1_per_maker{SUFFIX}.csv (8-character wallets only) in {OUT} | "
       f"{(time.time() - t00) / 60:.0f} min")
