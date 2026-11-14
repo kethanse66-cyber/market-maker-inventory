@@ -1,0 +1,47 @@
+   LIT 2026-03-10: day delay +0.250 s | crossed at that delay 0.03% | 1s
+   LIT 2026-03-11: day delay +0.250 s | crossed at that delay 0.27% | 3s
+   LIT 2026-03-12: day delay +0.250 s | crossed at that delay 0.12% | 5s
+   LIT 2026-03-21: day delay +0.125 s | crossed at that delay 0.75% | 8s
+   LIT 2026-03-22: day delay +0.250 s | crossed at that delay 0.05% | 10s
+   LIT 2026-03-23: day delay +0.250 s | crossed at that delay 0.84% | 13s
+   LIT 2026-03-24: day delay +0.250 s | crossed at that delay 3.13% | 16s
+   LIT 2026-03-25: day delay +0.125 s | crossed at that delay 2.28% | 18s
+   LIT 2026-03-26: day delay +0.250 s | crossed at that delay 2.72% | 21s
+   LIT 2026-04-02: day delay +0.250 s | crossed at that delay 0.12% | 23s
+   LIT 2026-04-03: day delay +0.250 s | crossed at that delay 0.14% | 26s
+   LIT 2026-04-04: day delay +0.250 s | crossed at that delay 0.09% | 29s
+   LIT 2026-04-05: day delay +0.250 s | crossed at that delay 0.07% | 31s
+   LIT 2026-04-06: day delay +0.250 s | crossed at that delay 0.10% | 34s
+   LIT 2026-04-07: day delay +0.250 s | crossed at that delay 0.11% | 37s
+   LIT 2026-04-08: day delay +0.250 s | crossed at that delay 0.13% | 39s
+   LIT 2026-04-09: day delay +0.250 s | crossed at that delay 0.10% | 42s
+   LIT 2026-04-10: day delay +0.250 s | crossed at that delay 0.15% | 44s
+   LIT 2026-04-14: day delay +0.250 s | crossed at that delay 0.10% | 46s
+   LIT 2026-04-15: day delay +0.250 s | crossed at that delay 0.08% | 49s
+   LIT 2026-04-16: day delay +0.250 s | crossed at that delay 0.06% | 51s
+   LIT 2026-04-17: day delay +0.250 s | crossed at that delay 0.07% | 54s
+   LIT 2026-04-18: day delay +0.250 s | crossed at that delay 0.07% | 56s
+   LIT 2026-04-19: day delay +0.250 s | crossed at that delay 0.07% | 59s
+   LIT 2026-05-04: day delay +0.250 s | crossed at that delay 0.04% | 62s
+   LIT 2026-05-05: day delay +0.250 s | crossed at that delay 0.07% | 64s
+   LIT 2026-05-06: day delay +0.250 s | crossed at that delay 0.07% | 67s
+   LIT 2026-05-07: day delay +0.250 s | crossed at that delay 0.06% | 70s
+   LIT 2026-05-08: day delay +0.250 s | crossed at that delay 0.08% | 72s
+   LIT 2026-05-09: day delay +0.250 s | crossed at that delay 0.09% | 74s
+   LIT 2026-05-10: day delay +0.250 s | crossed at that delay 0.08% | 77s
+   LIT 2026-05-11: day delay +0.250 s | crossed at that delay 0.07% | 79s
+   LIT 2026-05-12: day delay +0.250 s | crossed at that delay 0.03% | 82s
+   LIT 2026-05-13: day delay +0.250 s | crossed at that delay 0.03% | 84s
+   LIT 2026-05-18: day delay +0.250 s | crossed at that delay 0.09% | 87s
+   LIT 2026-05-19: day delay +0.250 s | crossed at that delay 0.18% | 90s
+   LIT 2026-05-20: day delay +0.250 s | crossed at that delay 0.36% | 93s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   LIT: 888 hours | measured directly 843 | from the day 45 | default 0.25 s 0
+      delay: median +0.250 s | middle 50% +0.250 to +0.250 s | at 1 s or more: 0.0% of hours
+      quotes still crossed at the best delay: median 0.07% | hours above 2%: 7.1% (poor book data, flagged)
+      median delay by month: 2026-03 +0.12 s | 2026-04 +0.25 s | 2026-05 +0.25 s
+      worst hours: 2026-03-24 04h (6.2% at +0.12 s), 2026-03-24 06h (5.6% at +0.25 s), 2026-03-24 05h (5.6% at +0.25 s), 2026-03-21 07h (5.5% at +0.12 s), 2026-03-26 19h (5.5% at +0.25 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (93 seconds)

@@ -1,0 +1,55 @@
+
+BOOK COVERAGE
+   AAVE: missing book days 0 [] | bad rows rejected 0 of 6,529,473 | duplicate minutes 0 | gaps > 10 min 10
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   AAVE      95   30 min |       45    18 |    44     1        0 |        17
+   AAVE      95   60 min |       36    18 |    35     1        0 |        17
+   AAVE     100   30 min |       66    23 |    61     5        0 |        21  <- MAIN
+   AAVE     100   60 min |       51    23 |    46     5        0 |        21  <- MAIN
+   AAVE     105   30 min |       17     6 |    17     0        0 |         6
+   AAVE     105   60 min |       11     6 |    11     0        0 |         6
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      AAVE 2026-03-26:   3 /   3
+      AAVE 2026-03-27:   3 /   3
+      AAVE 2026-04-01:   4 /   4
+      AAVE 2026-04-02:   5 /   5
+      AAVE 2026-04-13:   5 /   5
+      AAVE 2026-04-14:   4 /   4
+      AAVE 2026-04-15:   7 /   7
+      AAVE 2026-04-16:   1 /   1
+      AAVE 2026-04-18:   3 /   3
+      AAVE 2026-04-19:   2 /   2
+      AAVE 2026-04-26:   3 /   3
+      AAVE 2026-04-27:   1 /   1
+      AAVE 2026-05-09:   2 /   2
+      AAVE 2026-05-10:   4 /   4
+      AAVE 2026-05-11:   3 /   3
+      AAVE 2026-05-12:   2 /   2
+      AAVE 2026-05-13:   1 /   1
+      AAVE 2026-05-14:   4 /   4
+      AAVE 2026-05-15:   1 /   1
+      AAVE 2026-07-10:   4 /   4
+      AAVE 2026-07-11:   5 /   5
+      AAVE 2026-07-12:   1 /   1
+      AAVE 2026-07-13:   4 /   4
+      AAVE 2026-07-14:   3 /   3
+      AAVE 2026-07-15:   1 /   1
+      AAVE 2026-07-16:   2 /   2
+      AAVE 2026-07-26:   2 /   1
+      AAVE 2026-07-27:   2 /   1
+      AAVE 2026-07-28:   3 /   2
+      AAVE 2026-07-29:   3 /   1
+      AAVE 2026-07-30:   4 /   4
+      AAVE 2026-07-31:   3 /   3
+      AAVE 2026-08-20:   1 /   1
+      AAVE 2026-08-21:   2 /   1
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

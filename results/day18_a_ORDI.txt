@@ -1,0 +1,27 @@
+   ORDI delivery-3 2026-04-15:     2,704 firm fills |   26 accounts traded | chain so far 100.0000% | 0s
+   ORDI delivery-3 2026-04-16:    37,720 firm fills |   27 accounts traded | chain so far 100.0000% | 1s
+   ORDI delivery-3 2026-04-17:    29,898 firm fills |   28 accounts traded | chain so far 100.0000% | 2s
+   ORDI delivery-3 2026-04-18:    10,365 firm fills |   27 accounts traded | chain so far 100.0000% | 2s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== ORDI ====================
+   days: missing trade file 0 [] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 80,687 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 29 of 1,029
+   CHAIN: 80,658 of 80,658 links match = 100.0000%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 0
+   DATA COMPLETENESS: PASS (no missing days, no duplicates)
+   OVERALL: PASS
+   same-millisecond groups: 12,386 | one clear order 12,374 | unclear order 12 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 27
+   firm-minute table (traded-account inventory): 47,520 rows, 9 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x7717a7a2...: 86,881 ORDI
+      firm 0x57dd78cd...: 61,334 ORDI
+      firm 0xff4cd382...: 11,921 ORDI
+      firm 0x023a3d05...: 7,498 ORDI
+      firm 0x399965e1...: 5,435 ORDI
+   (2 seconds)
+

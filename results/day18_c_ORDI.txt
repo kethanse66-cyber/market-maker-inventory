@@ -1,0 +1,31 @@
+   ORDI 2026-04-16:  4,117,680 quotes | market known 100.0% | inventory known  37.8% | near best  14.8% | 19s
+   ORDI 2026-04-17:  3,731,779 quotes | market known 100.0% | inventory known  43.5% | near best  19.8% | 38s
+   ORDI 2026-04-18:  2,318,259 quotes | market known 100.0% | inventory known  50.2% | near best  22.0% | 49s
+   ORDI: size decimals 0 -> 100.0000% of 300,000 sample prices on the tick grid
+   ORDI: size decimals 1 -> 100.0000% of 300,000 sample prices on the tick grid
+   ORDI: size decimals 2 -> 100.0000% of 300,000 sample prices on the tick grid
+   ORDI: size decimals 3 -> 10.2900% of 300,000 sample prices on the tick grid
+   ORDI: size decimals 4 -> 1.0880% of 300,000 sample prices on the tick grid
+   ORDI: size decimals 5 -> 0.1150% of 300,000 sample prices on the tick grid
+   ORDI: size decimals used = 2
+
+==================== ORDI ====================
+   quotes: 10,167,718 | repeated 'open' rows dropped 0 | from wallets not in the firm list 5,822,047
+   near the best price (within 2 ticks): all 1,857,819 (18.3%) | MAIN SAMPLE (outside data gaps, poor-book hours and crossing quotes) 1,851,407
+   in poor-book hours (> 2% crossed even at the best delay): 0 (0.0%) | hour quality unmeasured (UNKNOWN, kept out of the main sample): 0 | quotes that still cross the book: 6,412 (0.06%)
+   prices off the legal tick grid: 0 (want 0)
+   market unknown: no book that day 0 | no earlier book row 34 | book older than 1 s 1,766 | crossed 0 | locked (bid = ask) 0
+   inventory unknown: 5,822,047 (57.26%)  (accounts with no SOL/XRP fill in the window - their inventory is unknown, not zero)
+   inside an excluded data gap (kept, flagged in_gap): 0
+
+   HAND CHECK: 20 random quotes. For each, check: a bid sits at or below best_bid, an ask at or above best_ask;
+   rel_mid_bp = (price - mid) / mid x 10,000; ticks_behind = distance to own best / tick; book_age <= 1 s.
+              time   wallet side  price    size  best_bid  best_ask     mid  rel_mid_bp  ticks_behind_best  book_age_s  inventory
+04-17 00:21:19.077 0x818440    A 9.2261  407.59    9.2086    9.2087 9.20865       18.95              174.0       0.268    1227.62
+04-16 09:48:34.807 0xaf9f72    B 4.9902 1994.53    4.9902    5.0044 4.99730      -14.21                0.0       0.124    2452.35
+04-18 17:25:41.046 0x818440    A 5.3460   91.00    5.3440    5.3456 5.34480        2.25                4.0       0.327     118.76
+04-16 12:20:13.670 0x7717a7    B 6.1955  328.22    6.1954    6.2007 6.19805       -4.11               -1.0       0.291   26605.37
+04-17 18:26:39.212 0x4389a0    B 6.3811   50.00    6.3864    6.3890 6.38770      -10.33               53.0       0.389      43.62
+04-18 02:05:30.235 0xf36c56    A 5.9996  794.83    5.9662    5.9679 5.96705       54.55              317.0       0.125    1184.63
+   (49 seconds)
+

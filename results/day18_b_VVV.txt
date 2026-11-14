@@ -1,0 +1,16 @@
+   VVV 2026-05-04: day delay +0.125 s | crossed at that delay 0.00% | 3s
+   VVV 2026-05-05: day delay +0.125 s | crossed at that delay 0.01% | 5s
+   VVV 2026-05-06: day delay +0.125 s | crossed at that delay 0.02% | 8s
+   VVV 2026-07-16: day delay +0.250 s | crossed at that delay 0.04% | 10s
+   VVV 2026-07-17: day delay +0.250 s | crossed at that delay 0.04% | 12s
+   VVV 2026-07-18: day delay +0.250 s | crossed at that delay 0.06% | 15s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   VVV: 144 hours | measured directly 144 | from the day 0 | default 0.25 s 0
+      delay: median +0.125 s | middle 50% +0.125 to +0.250 s | at 1 s or more: 0.0% of hours
+      quotes still crossed at the best delay: median 0.01% | hours above 2%: 0.0% (poor book data, flagged)
+      median delay by month: 2026-05 +0.12 s | 2026-07 +0.25 s
+      worst hours: 2026-07-17 17h (0.1% at +0.25 s), 2026-07-18 21h (0.1% at +0.25 s), 2026-07-17 18h (0.1% at +0.25 s), 2026-07-18 06h (0.1% at +0.25 s), 2026-07-18 13h (0.1% at +0.25 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (15 seconds)

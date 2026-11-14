@@ -1,0 +1,127 @@
+   XPL delivery-3 2026-03-09:    11,135 firm fills |   42 accounts traded | chain so far 100.0000% | 1s
+   XPL delivery-3 2026-03-10:    17,378 firm fills |   42 accounts traded | chain so far 100.0000% | 1s
+   XPL delivery-3 2026-03-11:    19,077 firm fills |   45 accounts traded | chain so far 100.0000% | 2s
+   XPL delivery-3 2026-03-12:    19,276 firm fills |   43 accounts traded | chain so far 100.0000% | 2s
+   XPL delivery-3 2026-03-13:    21,710 firm fills |   45 accounts traded | chain so far 100.0000% | 3s
+   XPL delivery-3 2026-03-17:    18,462 firm fills |   44 accounts traded | chain so far 99.9944% | 4s
+   XPL delivery-3 2026-03-18:    12,902 firm fills |   45 accounts traded | chain so far 99.9950% | 4s
+   XPL delivery-3 2026-03-19:    13,484 firm fills |   43 accounts traded | chain so far 99.9955% | 4s
+   XPL delivery-3 2026-03-20:    21,557 firm fills |   44 accounts traded | chain so far 99.9961% | 5s
+   XPL delivery-3 2026-03-21:    11,713 firm fills |   38 accounts traded | chain so far 99.9964% | 6s
+   XPL delivery-3 2026-03-23:    19,932 firm fills |   45 accounts traded | chain so far 99.9861% | 6s
+   XPL delivery-3 2026-03-24:    13,448 firm fills |   38 accounts traded | chain so far 99.9870% | 7s
+   XPL delivery-3 2026-03-25:    13,816 firm fills |   45 accounts traded | chain so far 99.9878% | 7s
+   XPL delivery-3 2026-03-26:    15,422 firm fills |   44 accounts traded | chain so far 99.9887% | 8s
+   XPL delivery-3 2026-03-27:    14,554 firm fills |   45 accounts traded | chain so far 99.9893% | 8s
+   XPL delivery-3 2026-03-30:    11,400 firm fills |   38 accounts traded | chain so far 99.9867% | 9s
+   XPL delivery-3 2026-03-31:    15,415 firm fills |   43 accounts traded | chain so far 99.9874% | 9s
+   XPL delivery-3 2026-04-01:    25,111 firm fills |   45 accounts traded | chain so far 99.9885% | 10s
+   XPL delivery-3 2026-04-02:   117,482 firm fills |   52 accounts traded | chain so far 99.9918% | 12s
+   XPL delivery-3 2026-04-19:    16,984 firm fills |   44 accounts traded | chain so far 99.9921% | 13s
+   XPL delivery-3 2026-04-20:    13,984 firm fills |   45 accounts traded | chain so far 99.9923% | 13s
+   XPL delivery-3 2026-04-21:    12,176 firm fills |   48 accounts traded | chain so far 99.9925% | 14s
+   XPL delivery-3 2026-04-22:    13,808 firm fills |   48 accounts traded | chain so far 99.9928% | 14s
+   XPL delivery-3 2026-04-23:    12,051 firm fills |   47 accounts traded | chain so far 99.9929% | 15s
+   XPL delivery-3 2026-04-24:     8,951 firm fills |   45 accounts traded | chain so far 99.9931% | 15s
+   XPL delivery-3 2026-04-25:     5,546 firm fills |   35 accounts traded | chain so far 99.9932% | 15s
+   XPL delivery-3 2026-04-26:     6,017 firm fills |   45 accounts traded | chain so far 99.9932% | 16s
+   XPL delivery-3 2026-04-27:     9,950 firm fills |   46 accounts traded | chain so far 99.9934% | 16s
+   XPL delivery-3 2026-04-28:     9,964 firm fills |   48 accounts traded | chain so far 99.9935% | 17s
+   XPL delivery-3 2026-05-04:    13,057 firm fills |   46 accounts traded | chain so far 99.9937% | 17s
+   XPL delivery-3 2026-05-05:    10,207 firm fills |   45 accounts traded | chain so far 99.9938% | 18s
+   XPL delivery-3 2026-05-06:    17,778 firm fills |   45 accounts traded | chain so far 99.9940% | 18s
+   XPL delivery-3 2026-05-07:    15,311 firm fills |   45 accounts traded | chain so far 99.9941% | 19s
+   XPL delivery-3 2026-05-08:    12,862 firm fills |   44 accounts traded | chain so far 99.9943% | 19s
+   XPL delivery-3 2026-05-10:    16,953 firm fills |   44 accounts traded | chain so far 99.9944% | 20s
+   XPL delivery-3 2026-05-11:    14,789 firm fills |   45 accounts traded | chain so far 99.9945% | 21s
+   XPL delivery-3 2026-05-12:     9,081 firm fills |   46 accounts traded | chain so far 99.9946% | 21s
+   XPL delivery-3 2026-05-13:     8,701 firm fills |   43 accounts traded | chain so far 99.9947% | 21s
+   XPL delivery-3 2026-05-14:    14,357 firm fills |   45 accounts traded | chain so far 99.9948% | 22s
+   XPL delivery-3 2026-05-15:    13,112 firm fills |   45 accounts traded | chain so far 99.9949% | 22s
+   XPL delivery-3 2026-05-27:    16,885 firm fills |   45 accounts traded | chain so far 99.9950% | 23s
+   XPL delivery-3 2026-05-28:    17,192 firm fills |   45 accounts traded | chain so far 99.9952% | 24s
+   XPL delivery-3 2026-05-29:    22,092 firm fills |   45 accounts traded | chain so far 99.9953% | 24s
+   XPL delivery-3 2026-05-30:    11,284 firm fills |   45 accounts traded | chain so far 99.9954% | 25s
+   XPL delivery-3 2026-06-01:    19,387 firm fills |   45 accounts traded | chain so far 99.9950% | 25s
+   XPL delivery-3 2026-06-02:    20,037 firm fills |   46 accounts traded | chain so far 99.9951% | 26s
+   XPL delivery-3 2026-06-03:    27,351 firm fills |   45 accounts traded | chain so far 99.9953% | 27s
+   XPL delivery-3 2026-06-04:    32,877 firm fills |   47 accounts traded | chain so far 99.9955% | 27s
+   XPL delivery-3 2026-06-15:    18,061 firm fills |   43 accounts traded | chain so far 99.9951% | 28s
+   XPL delivery-3 2026-06-16:    21,194 firm fills |   47 accounts traded | chain so far 99.9952% | 29s
+   XPL delivery-3 2026-06-17:    63,705 firm fills |   52 accounts traded | chain so far 99.9955% | 30s
+   XPL delivery-3 2026-06-18:    47,177 firm fills |   50 accounts traded | chain so far 99.9957% | 31s
+   XPL delivery-3 2026-06-19:    30,481 firm fills |   49 accounts traded | chain so far 99.9959% | 31s
+   XPL delivery-3 2026-06-20:    14,451 firm fills |   48 accounts traded | chain so far 99.9959% | 32s
+   XPL delivery-3 2026-06-21:    17,811 firm fills |   49 accounts traded | chain so far 99.9960% | 32s
+   XPL delivery-3 2026-06-22:    14,917 firm fills |   49 accounts traded | chain so far 99.9961% | 33s
+   XPL delivery-3 2026-06-23:    13,639 firm fills |   49 accounts traded | chain so far 99.9961% | 34s
+   XPL delivery-3 2026-06-24:    15,874 firm fills |   50 accounts traded | chain so far 99.9962% | 34s
+   XPL delivery-3 2026-06-25:    33,836 firm fills |   50 accounts traded | chain so far 99.9963% | 35s
+   XPL delivery-3 2026-06-26:    49,304 firm fills |   51 accounts traded | chain so far 99.9964% | 36s
+   XPL delivery-3 2026-06-27:    16,362 firm fills |   48 accounts traded | chain so far 99.9965% | 36s
+   XPL delivery-3 2026-06-28:    16,435 firm fills |   50 accounts traded | chain so far 99.9965% | 37s
+   XPL delivery-3 2026-06-29:    18,675 firm fills |   50 accounts traded | chain so far 99.9966% | 38s
+   XPL delivery-3 2026-06-30:    21,011 firm fills |   48 accounts traded | chain so far 99.9966% | 38s
+   XPL delivery-3 2026-07-01:    16,272 firm fills |   48 accounts traded | chain so far 99.9967% | 39s
+   XPL delivery-3 2026-07-02:    11,980 firm fills |   50 accounts traded | chain so far 99.9967% | 39s
+   XPL delivery-3 2026-07-03:    30,549 firm fills |   49 accounts traded | chain so far 99.9968% | 40s
+   XPL delivery-3 2026-07-04:    19,879 firm fills |   49 accounts traded | chain so far 99.9968% | 41s
+   XPL delivery-3 2026-07-05:    15,377 firm fills |   47 accounts traded | chain so far 99.9967% | 41s
+   XPL delivery-3 2026-07-06:    21,083 firm fills |   49 accounts traded | chain so far 99.9968% | 42s
+   XPL delivery-3 2026-07-07:    17,654 firm fills |   49 accounts traded | chain so far 99.9968% | 42s
+   XPL delivery-3 2026-07-08:    18,915 firm fills |   49 accounts traded | chain so far 99.9969% | 43s
+   XPL delivery-3 2026-08-19:    21,501 firm fills |   48 accounts traded | chain so far 99.9966% | 44s
+   XPL delivery-3 2026-08-20:    36,456 firm fills |   59 accounts traded | chain so far 99.9967% | 44s
+   XPL delivery-3 2026-08-21:    70,783 firm fills |   59 accounts traded | chain so far 99.9969% | 46s
+   XPL delivery-3 2026-08-22:    78,624 firm fills |   59 accounts traded | chain so far 99.9970% | 47s
+   XPL delivery-3 2026-08-23:    68,772 firm fills |   56 accounts traded | chain so far 99.9971% | 48s
+   XPL delivery-3 2026-08-24:    58,411 firm fills |   61 accounts traded | chain so far 99.9972% | 49s
+   XPL delivery-3 2026-08-25:    61,814 firm fills |   59 accounts traded | chain so far 99.9973% | 50s
+   XPL delivery-3 2026-08-26:    40,105 firm fills |   59 accounts traded | chain so far 99.9974% | 51s
+   XPL delivery-3 2026-09-02:    20,921 firm fills |   56 accounts traded | chain so far 99.9969% | 52s
+   XPL delivery-3 2026-09-03:    70,853 firm fills |   58 accounts traded | chain so far 99.9970% | 53s
+   XPL delivery-3 2026-09-04:    52,554 firm fills |   59 accounts traded | chain so far 99.9971% | 54s
+   XPL delivery-3 2026-09-05:    17,785 firm fills |   53 accounts traded | chain so far 99.9971% | 55s
+   XPL delivery-3 2026-09-06:    21,159 firm fills |   56 accounts traded | chain so far 99.9970% | 56s
+   XPL delivery-3 2026-09-07:    30,069 firm fills |   58 accounts traded | chain so far 99.9971% | 56s
+   XPL delivery-3 2026-09-08:    39,331 firm fills |   56 accounts traded | chain so far 99.9971% | 57s
+   XPL delivery-3 2026-09-09:    33,483 firm fills |   68 accounts traded | chain so far 99.9972% | 58s
+   XPL delivery-3 2026-09-10:    19,418 firm fills |   60 accounts traded | chain so far 99.9972% | 58s
+   XPL delivery-3 2026-09-19:    35,329 firm fills |   63 accounts traded | chain so far 99.9972% | 60s
+   XPL delivery-3 2026-09-20:    30,204 firm fills |   64 accounts traded | chain so far 99.9972% | 60s
+   XPL delivery-3 2026-09-21:    88,888 firm fills |   68 accounts traded | chain so far 99.9973% | 62s
+   XPL delivery-3 2026-09-22:    55,035 firm fills |   66 accounts traded | chain so far 99.9974% | 63s
+   XPL delivery-3 2026-09-23:    68,840 firm fills |   67 accounts traded | chain so far 99.9974% | 64s
+   XPL delivery-3 2026-09-24:    85,463 firm fills |   68 accounts traded | chain so far 99.9975% | 66s
+   XPL delivery-3 2026-09-25:   131,193 firm fills |   70 accounts traded | chain so far 99.9976% | 67s
+   XPL delivery-3 2026-09-26:   118,833 firm fills |   68 accounts traded | chain so far 99.9966% | 71s
+   XPL delivery-3 2026-09-27:    91,959 firm fills |   70 accounts traded | chain so far 99.9967% | 72s
+   XPL delivery-3 2026-09-28:    89,797 firm fills |   71 accounts traded | chain so far 99.9968% | 74s
+   XPL delivery-3 2026-09-29:    80,844 firm fills |   70 accounts traded | chain so far 99.9969% | 75s
+   XPL delivery-3 2026-09-30:    92,641 firm fills |   74 accounts traded | chain so far 99.9970% | 77s
+   XPL delivery-3 2026-10-01:    73,893 firm fills |   73 accounts traded | chain so far 99.9970% | 78s
+   XPL delivery-3 2026-10-02:   113,600 firm fills |   74 accounts traded | chain so far 99.9972% | 80s
+   XPL delivery-3 2026-10-03:    50,728 firm fills |   73 accounts traded | chain so far 99.9972% | 81s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== XPL ====================
+   days: missing trade file 105 ['2026-03-14', '2026-03-15', '2026-03-16', '2026-03-22', '2026-03-28'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 3,349,946 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 111 of 1,029
+   CHAIN: 3,349,132 of 3,349,226 links match = 99.9972%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 639
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 461,233 | one clear order 460,532 | unclear order 701 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 107
+   firm-minute table (traded-account inventory): 3,502,080 rows, 37 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x023a3d05...: 53,472,606 XPL
+      firm 0xdd53c529...: 35,618,341 XPL
+      firm 0x856c3503...: 32,152,727 XPL
+      firm 0xecb63caa...: 29,930,816 XPL
+      firm 0x152e41f0...: 27,298,912 XPL
+   (82 seconds)
+

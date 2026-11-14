@@ -1,0 +1,129 @@
+   XPL 2026-03-10:     89,690 quotes | market known 100.0% | inventory known  73.5% | near best  12.5% | 1s
+   XPL 2026-03-11:  1,402,935 quotes | market known  99.7% | inventory known  76.0% | near best  13.7% | 8s
+   XPL 2026-03-12:  1,498,061 quotes | market known  99.8% | inventory known  72.7% | near best  18.4% | 15s
+   XPL 2026-03-13:  1,275,019 quotes | market known 100.0% | inventory known  72.0% | near best  19.3% | 22s
+   XPL 2026-03-18:  1,245,750 quotes | market known 100.0% | inventory known  65.3% | near best  18.3% | 28s
+   XPL 2026-03-19:  1,039,880 quotes | market known 100.0% | inventory known  69.5% | near best  16.4% | 33s
+   XPL 2026-03-20:  1,325,128 quotes | market known  99.9% | inventory known  75.9% | near best  12.4% | 40s
+   XPL 2026-03-21:    730,965 quotes | market known  99.9% | inventory known  80.1% | near best  10.4% | 44s
+   XPL 2026-03-24:  1,228,208 quotes | market known 100.0% | inventory known  79.6% | near best  10.7% | 50s
+   XPL 2026-03-25:  1,130,662 quotes | market known 100.0% | inventory known  77.5% | near best  13.4% | 56s
+   XPL 2026-03-26:  1,075,226 quotes | market known 100.0% | inventory known  77.9% | near best  11.6% | 62s
+   XPL 2026-03-27:  1,064,589 quotes | market known  99.9% | inventory known  77.6% | near best  10.5% | 67s
+   XPL 2026-03-31:  1,213,425 quotes | market known  99.9% | inventory known  79.2% | near best  10.4% | 73s
+   XPL 2026-04-01:  1,550,706 quotes | market known  99.9% | inventory known  76.5% | near best  13.7% | 81s
+   XPL 2026-04-02:  3,273,894 quotes | market known  99.9% | inventory known  74.3% | near best  16.3% | 97s
+   XPL 2026-04-20:  1,067,048 quotes | market known 100.0% | inventory known  68.7% | near best  21.7% | 103s
+   XPL 2026-04-21:  1,161,949 quotes | market known  99.4% | inventory known  68.2% | near best  21.3% | 108s
+   XPL 2026-04-22:  1,032,663 quotes | market known 100.0% | inventory known  70.4% | near best  23.3% | 114s
+   XPL 2026-04-23:  1,144,129 quotes | market known  99.9% | inventory known  70.9% | near best  15.1% | 119s
+   XPL 2026-04-24:    899,484 quotes | market known 100.0% | inventory known  74.8% | near best  18.0% | 124s
+   XPL 2026-04-25:    614,276 quotes | market known  99.9% | inventory known  66.3% | near best  14.4% | 127s
+   XPL 2026-04-26:    586,785 quotes | market known 100.0% | inventory known  71.8% | near best  19.6% | 130s
+   XPL 2026-04-27:  1,076,161 quotes | market known 100.0% | inventory known  70.1% | near best  14.1% | 136s
+   XPL 2026-04-28:    908,870 quotes | market known 100.0% | inventory known  63.4% | near best  11.7% | 140s
+   XPL 2026-05-05:  1,026,375 quotes | market known 100.0% | inventory known  70.5% | near best  11.3% | 145s
+   XPL 2026-05-06:  1,457,421 quotes | market known 100.0% | inventory known  70.7% | near best  11.5% | 153s
+   XPL 2026-05-07:  1,581,185 quotes | market known 100.0% | inventory known  70.2% | near best  14.9% | 160s
+   XPL 2026-05-08:  1,225,068 quotes | market known  71.3% | inventory known  70.5% | near best  13.5% | 166s
+   XPL 2026-05-11:  1,161,717 quotes | market known 100.0% | inventory known  69.3% | near best  22.4% | 172s
+   XPL 2026-05-12:  1,103,654 quotes | market known  58.0% | inventory known  62.0% | near best   9.2% | 178s
+   XPL 2026-05-13:    951,772 quotes | market known  91.3% | inventory known  64.0% | near best  12.0% | 182s
+   XPL 2026-05-14:    931,264 quotes | market known 100.0% | inventory known  66.5% | near best  12.6% | 187s
+   XPL 2026-05-15:    917,688 quotes | market known  99.8% | inventory known  64.5% | near best  10.2% | 192s
+   XPL 2026-05-28:  1,632,852 quotes | market known  86.9% | inventory known  68.5% | near best   8.8% | 200s
+   XPL 2026-05-29:  1,713,414 quotes | market known  99.9% | inventory known  70.4% | near best  11.7% | 208s
+   XPL 2026-05-30:    968,923 quotes | market known 100.0% | inventory known  72.2% | near best  11.9% | 213s
+   XPL 2026-06-02:  1,714,072 quotes | market known 100.0% | inventory known  70.8% | near best  11.5% | 222s
+   XPL 2026-06-03:  1,924,602 quotes | market known  99.9% | inventory known  67.7% | near best  10.8% | 231s
+   XPL 2026-06-04:  2,355,615 quotes | market known  99.9% | inventory known  68.0% | near best  10.8% | 244s
+   XPL 2026-06-16:  2,452,847 quotes | market known 100.0% | inventory known  63.1% | near best  16.5% | 256s
+   XPL 2026-06-17:  4,508,437 quotes | market known 100.0% | inventory known  70.1% | near best  26.8% | 280s
+   XPL 2026-06-18:  3,855,769 quotes | market known 100.0% | inventory known  74.0% | near best  29.7% | 299s
+   XPL 2026-06-19:  2,899,565 quotes | market known 100.0% | inventory known  70.4% | near best  25.7% | 314s
+   XPL 2026-06-20:  1,758,772 quotes | market known 100.0% | inventory known  68.1% | near best  23.5% | 323s
+   XPL 2026-06-21:  1,620,717 quotes | market known 100.0% | inventory known  69.2% | near best  20.9% | 331s
+   XPL 2026-06-22:  1,618,138 quotes | market known 100.0% | inventory known  69.6% | near best  23.4% | 340s
+   XPL 2026-06-24:  2,295,028 quotes | market known 100.0% | inventory known  73.2% | near best  25.1% | 352s
+   XPL 2026-06-25:  3,873,544 quotes | market known 100.0% | inventory known  72.3% | near best  26.0% | 372s
+   XPL 2026-06-26:  3,664,927 quotes | market known 100.0% | inventory known  79.4% | near best  36.3% | 391s
+   XPL 2026-06-27:  1,931,401 quotes | market known 100.0% | inventory known  78.9% | near best  37.6% | 401s
+   XPL 2026-06-28:  1,606,818 quotes | market known 100.0% | inventory known  75.2% | near best  26.9% | 410s
+   XPL 2026-06-29:  2,199,947 quotes | market known 100.0% | inventory known  75.8% | near best  26.6% | 421s
+   XPL 2026-06-30:  1,757,820 quotes | market known 100.0% | inventory known  72.8% | near best  26.3% | 429s
+   XPL 2026-07-01:  2,237,113 quotes | market known 100.0% | inventory known  73.2% | near best  25.3% | 441s
+   XPL 2026-07-02:  1,957,881 quotes | market known 100.0% | inventory known  71.6% | near best  24.8% | 451s
+   XPL 2026-07-03:  2,873,004 quotes | market known 100.0% | inventory known  72.5% | near best  27.6% | 465s
+   XPL 2026-07-04:  2,148,270 quotes | market known 100.0% | inventory known  71.4% | near best  30.7% | 476s
+   XPL 2026-07-06:  1,961,954 quotes | market known 100.0% | inventory known  76.1% | near best  33.7% | 486s
+   XPL 2026-07-07:  1,734,771 quotes | market known 100.0% | inventory known  77.1% | near best  33.2% | 495s
+   XPL 2026-07-08:  2,341,416 quotes | market known 100.0% | inventory known  76.1% | near best  25.0% | 507s
+   XPL 2026-08-20:  3,070,439 quotes | market known  99.9% | inventory known  75.9% | near best  12.1% | 523s
+   XPL 2026-08-21:  4,123,858 quotes | market known  99.9% | inventory known  81.2% | near best  16.1% | 547s
+   XPL 2026-08-22:  3,291,646 quotes | market known  99.9% | inventory known  75.4% | near best  14.8% | 565s
+   XPL 2026-08-23:  3,131,177 quotes | market known 100.0% | inventory known  74.5% | near best  17.0% | 580s
+   XPL 2026-08-24:  3,388,378 quotes | market known 100.0% | inventory known  76.6% | near best  11.7% | 598s
+   XPL 2026-08-25:  3,632,952 quotes | market known 100.0% | inventory known  79.1% | near best   9.1% | 618s
+   XPL 2026-08-26:  3,606,830 quotes | market known  99.8% | inventory known  79.9% | near best   9.1% | 636s
+   XPL 2026-09-03:  4,425,656 quotes | market known  99.9% | inventory known  81.9% | near best  11.1% | 660s
+   XPL 2026-09-04:  3,547,007 quotes | market known 100.0% | inventory known  79.4% | near best  17.9% | 678s
+   XPL 2026-09-05:  2,331,420 quotes | market known 100.0% | inventory known  68.8% | near best  10.7% | 691s
+   XPL 2026-09-07:  2,820,297 quotes | market known 100.0% | inventory known  73.6% | near best  11.2% | 705s
+   XPL 2026-09-08:  3,268,345 quotes | market known 100.0% | inventory known  76.8% | near best  12.2% | 722s
+   XPL 2026-09-09:  2,885,576 quotes | market known  99.9% | inventory known  73.6% | near best  11.2% | 737s
+   XPL 2026-09-10:  2,702,155 quotes | market known 100.0% | inventory known  71.2% | near best  10.1% | 751s
+   XPL 2026-09-20:  3,192,162 quotes | market known  99.9% | inventory known  76.2% | near best  11.4% | 767s
+   XPL 2026-09-21:  4,208,733 quotes | market known  99.3% | inventory known  80.5% | near best  16.1% | 789s
+   XPL 2026-09-22:  3,252,134 quotes | market known  99.8% | inventory known  75.4% | near best  12.8% | 806s
+   XPL 2026-09-23:  3,420,437 quotes | market known  98.4% | inventory known  76.9% | near best  16.6% | 824s
+   XPL 2026-09-24:  3,579,130 quotes | market known  99.9% | inventory known  80.7% | near best  21.6% | 843s
+   XPL 2026-09-25:  5,443,800 quotes | market known 100.0% | inventory known  86.4% | near best  26.4% | 871s
+   XPL 2026-09-27:  2,786,640 quotes | market known 100.0% | inventory known  75.5% | near best  21.9% | 886s
+   XPL 2026-09-28:  4,850,580 quotes | market known  95.2% | inventory known  82.1% | near best  17.7% | 911s
+   XPL 2026-09-29:  4,603,902 quotes | market known  99.5% | inventory known  81.6% | near best  15.0% | 935s
+   XPL 2026-09-30:  5,250,534 quotes | market known  99.7% | inventory known  83.0% | near best  11.8% | 963s
+   XPL 2026-10-01:  4,699,124 quotes | market known  99.2% | inventory known  82.4% | near best  11.4% | 988s
+   XPL 2026-10-02:  5,302,620 quotes | market known  94.8% | inventory known  84.3% | near best  12.6% | 1,015s
+   XPL 2026-10-03:  2,475,934 quotes | market known 100.0% | inventory known  69.9% | near best  10.1% | 1,028s
+   XPL: size decimals 0 -> 100.0000% of 90,725 sample prices on the tick grid
+   XPL: size decimals 1 -> 14.6542% of 90,725 sample prices on the tick grid
+   XPL: size decimals 2 -> 1.4825% of 90,725 sample prices on the tick grid
+   XPL: size decimals 3 -> 0.1664% of 90,725 sample prices on the tick grid
+   XPL: size decimals 4 -> 0.0320% of 90,725 sample prices on the tick grid
+   XPL: size decimals 5 -> 0.0320% of 90,725 sample prices on the tick grid
+   XPL: size decimals used = 0
+
+==================== XPL ====================
+   quotes: 198,890,730 | repeated 'open' rows dropped 0 | from wallets not in the firm list 48,730,648
+   near the best price (within 2 ticks): all 35,104,730 (17.7%) | MAIN SAMPLE (outside data gaps, poor-book hours and crossing quotes) 30,388,156
+   in poor-book hours (> 2% crossed even at the best delay): 13,695,196 (6.9%) | hour quality unmeasured (UNKNOWN, kept out of the main sample): 737,191 | quotes that still cross the book: 3,103,015 (1.56%)
+   prices off the legal tick grid: 0 (want 0)
+   market unknown: no book that day 0 | no earlier book row 76,897 | book older than 1 s 1,783,202 | crossed 0 | locked (bid = ask) 0
+   inventory unknown: 48,777,966 (24.53%)  (accounts with no SOL/XRP fill in the window - their inventory is unknown, not zero)
+   inside an excluded data gap (kept, flagged in_gap): 15,967
+
+   HAND CHECK: 20 random quotes. For each, check: a bid sits at or below best_bid, an ask at or above best_ask;
+   rel_mid_bp = (price - mid) / mid x 10,000; ticks_behind = distance to own best / tick; book_age <= 1 s.
+              time   wallet side    price     size  best_bid  best_ask      mid  rel_mid_bp  ticks_behind_best  book_age_s   inventory
+06-24 16:01:13.897 0x13558b    B 0.086923   4000.0  0.086924  0.086952 0.086938       -1.73                1.0       0.272    -83958.0
+07-06 02:08:19.484 0x13558b    B 0.106410   4000.0  0.106360  0.106440 0.106400        0.94               -5.0       0.859    -13798.0
+03-25 15:17:55.996 0xe2990c    A 0.098141 105239.0  0.098140  0.098210 0.098175       -3.46              -69.0       0.204         0.0
+05-29 03:41:26.456 0xbeccae    A 0.096538  82972.0  0.096355  0.096426 0.096390       15.30              112.0       0.115    112362.0
+05-07 13:20:41.185 0x6ba889    B 0.107370   4169.0  0.107380  0.107460 0.107420       -4.65                1.0       0.062    -87152.0
+09-03 22:13:00.591 0x4e60e3    A 0.095919   4170.0  0.095793  0.095832 0.095812       11.12               87.0       0.091      2659.0
+08-23 13:30:30.810 0x4e60e3    B 0.103870   3851.0  0.104160  0.104230 0.104195      -31.19               29.0       0.185      2090.0
+03-21 06:52:00.297 0xf27ebb    B 0.095288   5009.0  0.095508  0.095533 0.095521      -24.34              220.0       0.051     96276.0
+07-01 04:12:24.065 0x13558b    A 0.090533   2036.0  0.090518  0.090552 0.090535       -0.22              -19.0       0.565    -13964.0
+07-04 17:44:38.249 0x13558b    A 0.111340   4000.0  0.111330  0.111360 0.111345       -0.45               -2.0       0.624      8856.0
+03-19 15:58:11.794 0xc926dd    A 0.099499 152890.0  0.099132  0.099135 0.099134       36.87              364.0       0.534       241.0
+03-12 01:15:30.653 0x7717a7    B 0.099729   7500.0  0.099752  0.099774 0.099763       -3.41               23.0       0.326  -4505257.0
+06-30 13:19:40.908 0x023a3d    B 0.090218  25122.0  0.090265  0.090318 0.090292       -8.14               47.0       0.283 -17668802.0
+04-26 19:06:13.651 0x6ba889    B 0.100840   3560.0  0.100830  0.100860 0.100845       -0.50               -1.0       0.382     51563.0
+06-29 03:43:04.993 0xe9d199    B 0.095082  12632.0  0.095170  0.095211 0.095191      -11.40               88.0       0.368  -3336882.0
+07-03 12:09:27.319 0x023a3d    B 0.105120  21603.0  0.105230  0.105290 0.105260      -13.30               11.0       0.694 -14900466.0
+09-20 13:14:31.062 0x0b1ace    A 0.087592   5814.0  0.087572  0.087574 0.087573        2.17               18.0       0.437    112268.0
+04-22 02:18:57.358 0xf36c56    A 0.108130 195834.0  0.103180  0.103290 0.103235      474.16              484.0       0.445     -7883.0
+08-21 15:16:39.241 0x7717a7    A 0.105140   5400.0  0.105090  0.105130 0.105110        2.85                1.0       0.116  -3502757.0
+04-20 13:56:48.171 0xf9109a    A 0.105880   8027.0  0.105770  0.105840 0.105805        7.09                4.0       0.123     39576.0
+   (1,028 seconds)
+

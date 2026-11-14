@@ -1,0 +1,17 @@
+   UNI 2026-09-21: day delay +0.750 s | crossed at that delay 4.58% | 4s
+   UNI 2026-09-22: day delay +0.750 s | crossed at that delay 2.76% | 9s
+   UNI 2026-09-23: day delay +0.500 s | crossed at that delay 3.09% | 14s
+   UNI 2026-09-24: day delay +0.500 s | crossed at that delay 1.88% | 18s
+   UNI 2026-09-26: day delay +0.250 s | crossed at that delay 0.53% | 21s
+   UNI 2026-09-27: day delay +0.375 s | crossed at that delay 0.46% | 24s
+   UNI 2026-09-28: day delay +0.500 s | crossed at that delay 1.80% | 29s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   UNI: 168 hours | measured directly 168 | from the day 0 | default 0.25 s 0
+      delay: median +0.375 s | middle 50% +0.375 to +0.625 s | at 1 s or more: 4.2% of hours
+      quotes still crossed at the best delay: median 1.03% | hours above 2%: 25.0% (poor book data, flagged)
+      median delay by month: 2026-09 +0.38 s
+      worst hours: 2026-09-23 14h (32.8% at +0.50 s), 2026-09-21 01h (15.2% at +1.00 s), 2026-09-21 13h (13.6% at +0.25 s), 2026-09-28 17h (12.7% at +0.62 s), 2026-09-21 00h (11.6% at +0.88 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (29 seconds)

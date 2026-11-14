@@ -1,0 +1,14 @@
+   ZEC 2026-09-03: day delay +0.500 s | crossed at that delay 2.39% | 7s
+   ZEC 2026-09-04: day delay +0.750 s | crossed at that delay 8.93% | 13s
+   ZEC 2026-09-05: day delay +0.625 s | crossed at that delay 1.44% | 16s
+   ZEC 2026-09-06: day delay +0.500 s | crossed at that delay 1.75% | 22s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   ZEC: 96 hours | measured directly 96 | from the day 0 | default 0.25 s 0
+      delay: median +0.500 s | middle 50% +0.375 to +0.500 s | at 1 s or more: 4.2% of hours
+      quotes still crossed at the best delay: median 1.72% | hours above 2%: 34.4% (poor book data, flagged)
+      median delay by month: 2026-09 +0.50 s
+      worst hours: 2026-09-04 14h (45.4% at +0.00 s), 2026-09-04 13h (45.2% at +0.00 s), 2026-09-04 12h (35.7% at +0.75 s), 2026-09-04 15h (34.5% at +0.88 s), 2026-09-03 15h (6.6% at +0.38 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (22 seconds)

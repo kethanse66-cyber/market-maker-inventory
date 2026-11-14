@@ -1,0 +1,51 @@
+   DOGE 2026-03-10: day delay +0.250 s | crossed at that delay 0.11% | 1s
+   DOGE 2026-03-11: day delay +0.125 s | crossed at that delay 0.13% | 4s
+   DOGE 2026-03-12: day delay +0.125 s | crossed at that delay 0.15% | 7s
+   DOGE 2026-03-13: day delay +0.125 s | crossed at that delay 0.15% | 10s
+   DOGE 2026-03-14: day delay +0.250 s | crossed at that delay 0.10% | 13s
+   DOGE 2026-03-15: day delay +0.125 s | crossed at that delay 0.10% | 16s
+   DOGE 2026-03-16: day delay +0.125 s | crossed at that delay 0.15% | 19s
+   DOGE 2026-03-17: day delay +0.125 s | crossed at that delay 0.11% | 22s
+   DOGE 2026-03-18: day delay +0.125 s | crossed at that delay 0.12% | 25s
+   DOGE 2026-03-19: day delay +0.125 s | crossed at that delay 0.14% | 28s
+   DOGE 2026-04-16: day delay +0.250 s | crossed at that delay 0.25% | 31s
+   DOGE 2026-04-17: day delay +0.250 s | crossed at that delay 0.22% | 34s
+   DOGE 2026-04-18: day delay +0.250 s | crossed at that delay 0.17% | 37s
+   DOGE 2026-04-26: day delay +0.250 s | crossed at that delay 0.17% | 40s
+   DOGE 2026-04-27: day delay +0.250 s | crossed at that delay 0.13% | 42s
+   DOGE 2026-04-28: day delay +0.250 s | crossed at that delay 0.17% | 45s
+   DOGE 2026-04-29: day delay +0.250 s | crossed at that delay 0.29% | 48s
+   DOGE 2026-04-30: day delay +0.250 s | crossed at that delay 0.22% | 51s
+   DOGE 2026-05-17: day delay +0.250 s | crossed at that delay 0.12% | 54s
+   DOGE 2026-05-18: day delay +0.250 s | crossed at that delay 0.18% | 57s
+   DOGE 2026-05-19: day delay +0.250 s | crossed at that delay 0.12% | 59s
+   DOGE 2026-05-22: day delay +0.250 s | crossed at that delay 0.11% | 62s
+   DOGE 2026-05-23: day delay +0.250 s | crossed at that delay 0.08% | 65s
+   DOGE 2026-05-24: day delay +0.250 s | crossed at that delay 0.09% | 67s
+   DOGE 2026-05-26: day delay +0.250 s | crossed at that delay 0.13% | 70s
+   DOGE 2026-05-27: day delay +0.250 s | crossed at that delay 0.12% | 72s
+   DOGE 2026-05-28: day delay +0.250 s | crossed at that delay 0.09% | 75s
+   DOGE 2026-05-29: day delay +0.250 s | crossed at that delay 0.08% | 78s
+   DOGE 2026-05-30: day delay +0.250 s | crossed at that delay 0.06% | 80s
+   DOGE 2026-05-31: day delay +0.250 s | crossed at that delay 0.07% | 83s
+   DOGE 2026-06-01: day delay +0.250 s | crossed at that delay 0.10% | 86s
+   DOGE 2026-06-02: day delay +0.250 s | crossed at that delay 0.14% | 89s
+   DOGE 2026-06-03: day delay +0.250 s | crossed at that delay 0.09% | 92s
+   DOGE 2026-08-21: day delay +0.375 s | crossed at that delay 1.26% | 97s
+   DOGE 2026-08-22: day delay +0.375 s | crossed at that delay 1.32% | 102s
+   DOGE 2026-08-23: day delay +0.375 s | crossed at that delay 0.90% | 106s
+   DOGE 2026-09-20: day delay +0.625 s | crossed at that delay 2.74% | 109s
+   DOGE 2026-09-21: day delay +0.750 s | crossed at that delay 5.74% | 114s
+   DOGE 2026-09-22: day delay +0.875 s | crossed at that delay 3.35% | 119s
+   DOGE 2026-09-23: day delay +0.625 s | crossed at that delay 3.80% | 123s
+   DOGE 2026-09-24: day delay +0.500 s | crossed at that delay 2.58% | 127s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   DOGE: 984 hours | measured directly 953 | from the day 31 | default 0.25 s 0
+      delay: median +0.250 s | middle 50% +0.125 to +0.250 s | at 1 s or more: 1.8% of hours
+      quotes still crossed at the best delay: median 0.14% | hours above 2%: 7.3% (poor book data, flagged)
+      median delay by month: 2026-03 +0.12 s | 2026-04 +0.25 s | 2026-05 +0.25 s | 2026-06 +0.25 s | 2026-08 +0.38 s | 2026-09 +0.62 s
+      worst hours: 2026-09-23 14h (34.6% at +1.00 s), 2026-09-21 01h (18.0% at +0.75 s), 2026-09-21 13h (17.2% at +0.62 s), 2026-09-24 16h (13.1% at +1.00 s), 2026-09-23 16h (12.3% at +0.50 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (127 seconds)

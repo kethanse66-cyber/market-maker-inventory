@@ -1,0 +1,41 @@
+
+BOOK COVERAGE
+   CASHCAT: missing book days 0 [] | bad rows rejected 0 of 5,334,977 | duplicate minutes 0 | gaps > 10 min 6
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   CASHCAT   0.095   30 min |       40    11 |    37     2        1 |        10
+   CASHCAT   0.095   60 min |       32    11 |    29     2        1 |        10
+   CASHCAT     0.1   30 min |       48    15 |    46     2        0 |        14
+   CASHCAT     0.1   60 min |       38    15 |    36     2        0 |        14
+   CASHCAT   0.105   30 min |       76    19 |    73     3        0 |        18
+   CASHCAT   0.105   60 min |       52    19 |    49     3        0 |        18
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      CASHCAT 2026-07-12:   1 /   1
+      CASHCAT 2026-07-15:   7 /   7
+      CASHCAT 2026-07-16:  15 /  15
+      CASHCAT 2026-08-05:   8 /   8
+      CASHCAT 2026-08-06:   7 /   7
+      CASHCAT 2026-08-07:  14 /  14
+      CASHCAT 2026-08-08:   8 /   8
+      CASHCAT 2026-08-16:   3 /   3
+      CASHCAT 2026-08-17:  12 /  11
+      CASHCAT 2026-08-18:   9 /   9
+      CASHCAT 2026-08-19:   9 /   6
+      CASHCAT 2026-08-22:   3 /   0
+      CASHCAT 2026-10-12:   1 /   1
+      CASHCAT 2026-10-13:   5 /   5
+      CASHCAT 2026-10-17:   4 /   4
+      CASHCAT 2026-10-18:   6 /   6
+      CASHCAT 2026-10-19:   1 /   1
+      CASHCAT 2026-10-22:   2 /   2
+      CASHCAT 2026-10-23:   4 /   4
+      CASHCAT 2026-10-24:   3 /   2
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

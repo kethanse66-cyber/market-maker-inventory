@@ -1,0 +1,40 @@
+
+BOOK COVERAGE
+   AAVE: missing book days 0 [] | bad rows rejected 0 of 6,529,473 | duplicate minutes 0 | gaps > 10 min 10
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   AAVE     100   30 min |       66    23 |    61     5        0 |        21  <- MAIN
+   AAVE     100   60 min |       51    23 |    46     5        0 |        21  <- MAIN
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      AAVE 2026-03-27:   2 /   2
+      AAVE 2026-04-01:   4 /   4
+      AAVE 2026-04-13:   1 /   1
+      AAVE 2026-04-14:   4 /   4
+      AAVE 2026-04-15:   4 /   4
+      AAVE 2026-04-18:   1 /   1
+      AAVE 2026-04-19:   1 /   1
+      AAVE 2026-04-27:   1 /   1
+      AAVE 2026-05-10:   3 /   3
+      AAVE 2026-05-11:   3 /   3
+      AAVE 2026-05-12:   2 /   2
+      AAVE 2026-05-14:   4 /   4
+      AAVE 2026-07-11:   3 /   3
+      AAVE 2026-07-12:   1 /   1
+      AAVE 2026-07-14:   2 /   2
+      AAVE 2026-07-15:   1 /   1
+      AAVE 2026-07-26:   1 /   0
+      AAVE 2026-07-27:   2 /   1
+      AAVE 2026-07-28:   3 /   2
+      AAVE 2026-07-29:   2 /   1
+      AAVE 2026-07-30:   3 /   3
+      AAVE 2026-07-31:   2 /   2
+      AAVE 2026-08-21:   1 /   0
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

@@ -1,0 +1,27 @@
+   RESOLV delivery-3 2026-03-10:     4,223 firm fills |   26 accounts traded | chain so far 100.0000% | 0s
+   RESOLV delivery-3 2026-03-11:     6,170 firm fills |   27 accounts traded | chain so far 100.0000% | 1s
+   RESOLV delivery-3 2026-03-12:     3,082 firm fills |   26 accounts traded | chain so far 100.0000% | 1s
+   RESOLV delivery-3 2026-03-13:     4,573 firm fills |   24 accounts traded | chain so far 100.0000% | 1s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== RESOLV ====================
+   days: missing trade file 0 [] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 18,048 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 28 of 1,029
+   CHAIN: 18,020 of 18,020 links match = 100.0000%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 0
+   DATA COMPLETENESS: PASS (no missing days, no duplicates)
+   OVERALL: PASS
+   same-millisecond groups: 2,022 | one clear order 2,022 | unclear order 0 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 25
+   firm-minute table (traded-account inventory): 44,640 rows, 8 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x023a3d05...: 1,999,439 RESOLV
+      firm 0x57dd78cd...: 321,712 RESOLV
+      firm 0x162cc7c8...: 194,206 RESOLV
+      firm 0xfe0589b0...: 75,000 RESOLV
+      firm 0xeeb56331...: 70,972 RESOLV
+   (2 seconds)
+

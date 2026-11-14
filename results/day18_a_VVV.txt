@@ -1,0 +1,31 @@
+   VVV delivery-3 2026-05-03:     5,194 firm fills |   26 accounts traded | chain so far 100.0000% | 1s
+   VVV delivery-3 2026-05-04:     4,434 firm fills |   27 accounts traded | chain so far 100.0000% | 1s
+   VVV delivery-3 2026-05-05:    14,321 firm fills |   29 accounts traded | chain so far 100.0000% | 1s
+   VVV delivery-3 2026-05-06:    19,450 firm fills |   26 accounts traded | chain so far 100.0000% | 2s
+   VVV delivery-3 2026-07-15:     9,684 firm fills |   36 accounts traded | chain so far 100.0000% | 2s
+   VVV delivery-3 2026-07-16:     4,157 firm fills |   33 accounts traded | chain so far 100.0000% | 3s
+   VVV delivery-3 2026-07-17:    10,462 firm fills |   34 accounts traded | chain so far 100.0000% | 3s
+   VVV delivery-3 2026-07-18:     9,967 firm fills |   34 accounts traded | chain so far 100.0000% | 3s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== VVV ====================
+   days: missing trade file 69 ['2026-05-07', '2026-05-08', '2026-05-09', '2026-05-10', '2026-05-11'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 77,669 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 42 of 1,029
+   CHAIN: 77,602 of 77,602 links match = 100.0000%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 30
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 9,788 | one clear order 9,783 | unclear order 5 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 36
+   firm-minute table (traded-account inventory): 141,120 rows, 17 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0xecb63caa...: 101,563 VVV
+      firm 0x7717a7a2...: 48,959 VVV
+      firm 0xe86b057f...: 42,772 VVV
+      firm 0x57dd78cd...: 26,203 VVV
+      firm 0x7839e2f2...: 15,127 VVV
+   (4 seconds)
+

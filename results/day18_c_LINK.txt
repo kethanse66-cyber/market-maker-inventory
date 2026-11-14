@@ -1,0 +1,61 @@
+   LINK 2026-03-15:  1,126,184 quotes | market known 100.0% | inventory known  72.9% | near best  16.4% | 7s
+   LINK 2026-03-16:  1,931,086 quotes | market known  99.9% | inventory known  69.0% | near best  17.6% | 18s
+   LINK 2026-03-17:  1,513,025 quotes | market known 100.0% | inventory known  68.4% | near best  17.7% | 27s
+   LINK 2026-03-18:  1,548,077 quotes | market known 100.0% | inventory known  67.7% | near best  17.8% | 35s
+   LINK 2026-05-05:  1,151,579 quotes | market known 100.0% | inventory known  72.1% | near best  17.5% | 42s
+   LINK 2026-05-06:  1,303,823 quotes | market known 100.0% | inventory known  74.8% | near best  24.9% | 49s
+   LINK 2026-05-07:  1,364,999 quotes | market known 100.0% | inventory known  74.4% | near best  22.8% | 57s
+   LINK 2026-05-08:  1,211,149 quotes | market known  83.0% | inventory known  74.7% | near best  17.9% | 66s
+   LINK 2026-05-09:    681,793 quotes | market known 100.0% | inventory known  82.0% | near best  35.8% | 71s
+   LINK 2026-05-14:  1,260,779 quotes | market known 100.0% | inventory known  80.7% | near best  34.5% | 78s
+   LINK 2026-05-15:  1,287,319 quotes | market known  99.8% | inventory known  80.0% | near best  36.8% | 86s
+   LINK 2026-05-16:  1,011,086 quotes | market known 100.0% | inventory known  72.3% | near best  19.8% | 92s
+   LINK 2026-05-17:  1,047,614 quotes | market known  80.0% | inventory known  69.5% | near best  12.9% | 98s
+   LINK 2026-05-21:  1,353,006 quotes | market known 100.0% | inventory known  70.3% | near best  19.2% | 105s
+   LINK 2026-05-22:  1,562,376 quotes | market known  88.9% | inventory known  73.3% | near best  17.7% | 114s
+   LINK 2026-05-23:  1,263,875 quotes | market known  86.0% | inventory known  71.1% | near best  15.6% | 121s
+   LINK 2026-08-18:  1,499,695 quotes | market known  99.9% | inventory known  75.6% | near best   9.9% | 128s
+   LINK 2026-08-19:  3,415,849 quotes | market known  99.9% | inventory known  87.7% | near best  15.1% | 146s
+   LINK 2026-08-20:  1,960,746 quotes | market known  99.9% | inventory known  88.2% | near best  29.6% | 157s
+   LINK: size decimals 0 -> 100.0000% of 300,000 sample prices on the tick grid
+   LINK: size decimals 1 -> 100.0000% of 300,000 sample prices on the tick grid
+   LINK: size decimals 2 -> 100.0000% of 300,000 sample prices on the tick grid
+   LINK: size decimals 3 -> 9.9137% of 300,000 sample prices on the tick grid
+   LINK: size decimals 4 -> 0.9433% of 300,000 sample prices on the tick grid
+   LINK: size decimals 5 -> 0.1083% of 300,000 sample prices on the tick grid
+   LINK: size decimals used = 2
+
+==================== LINK ====================
+   quotes: 27,494,060 | repeated 'open' rows dropped 0 | from wallets not in the firm list 6,605,806
+   near the best price (within 2 ticks): all 5,584,881 (20.3%) | MAIN SAMPLE (outside data gaps, poor-book hours and crossing quotes) 5,304,943
+   in poor-book hours (> 2% crossed even at the best delay): 0 (0.0%) | hour quality unmeasured (UNKNOWN, kept out of the main sample): 569,216 | quotes that still cross the book: 253,621 (0.92%)
+   prices off the legal tick grid: 0 (want 0)
+   market unknown: no book that day 0 | no earlier book row 34 | book older than 1 s 778,673 | crossed 0 | locked (bid = ask) 0
+   inventory unknown: 6,611,780 (24.05%)  (accounts with no SOL/XRP fill in the window - their inventory is unknown, not zero)
+   inside an excluded data gap (kept, flagged in_gap): 147,869
+
+   HAND CHECK: 20 random quotes. For each, check: a bid sits at or below best_bid, an ask at or above best_ask;
+   rel_mid_bp = (price - mid) / mid x 10,000; ticks_behind = distance to own best / tick; book_age <= 1 s.
+              time   wallet side   price   size  best_bid  best_ask      mid  rel_mid_bp  ticks_behind_best  book_age_s  inventory
+03-16 18:49:20.079 0xa33a4a    B  9.8650 3040.5    9.8716    9.8717  9.87165       -6.74               66.0       0.523    11948.6
+05-22 16:09:09.674 0x7d0c59    A  9.7972  688.9    9.7961    9.7978  9.79695        0.26               -6.0       0.389   -68643.0
+03-16 06:06:25.445 0xa33a4a    B  9.6998 2061.8    9.7015    9.7031  9.70230       -2.58               17.0       0.111   -45356.8
+05-16 16:39:26.036 0x2eddf3    A  9.7408 2091.5    9.7297    9.7309  9.73030       10.79               99.0       0.313     1711.5
+05-17 02:37:11.351 0xecb63c    B  9.6547   43.6    9.6546    9.6555  9.65505       -0.36               -1.0       0.455  -241373.5
+05-21 15:18:56.195 0x727956    B  9.6389   60.2    9.6388    9.6394  9.63910       -0.21               -1.0       0.306       37.9
+05-15 08:26:51.217 0xe2d2db    B 10.3220  200.0   10.3230   10.3250 10.32400       -1.94                1.0       0.099      -57.4
+08-19 02:30:46.085 0xecb63c    B  9.5100 3836.7    9.5331    9.5356  9.53435      -25.54              231.0       0.460  -176677.5
+05-14 17:37:18.762 0x7d0c59    A 10.6380  634.5   10.6360   10.6370 10.63650        1.41                1.0       0.516   -25323.5
+05-17 23:50:55.885 0x7717a7    B  9.4917   54.4    9.4916    9.4940  9.49280       -1.16               -1.0       0.429   -22502.5
+05-23 18:44:04.209 0x926686    B  9.4093   26.0    9.4129    9.4137  9.41330       -4.25               36.0       0.382    -1014.9
+05-09 10:22:34.275 0xa33a4a    B 10.4080    9.6   10.4220   10.4230 10.42250      -13.91               14.0       0.357   -53442.4
+05-22 06:06:16.636 0x7d0c59    A  9.8274  686.8    9.8256    9.8275  9.82655        0.87               -1.0       0.113   -62832.5
+08-19 13:20:17.925 0x4e60e3    B  9.7447   41.0    9.7456    9.7457  9.74565       -0.97                9.0       0.425     -469.9
+05-23 21:09:20.181 0xf9109a    A  9.7027   93.5    9.7002    9.7018  9.70100        1.75                9.0       0.334    -1139.6
+05-21 13:31:36.782 0x7717a7    A  9.5913   54.4    9.5907    9.5921  9.59140       -0.10               -8.0       0.448   -22080.8
+03-17 14:17:48.149 0x48ea62    A  9.8066 1019.8    9.8045    9.8075  9.80600        0.61               -9.0       0.590      157.3
+05-08 05:02:59.565 0x7d0c59    B  9.8359  686.1    9.8364    9.8378  9.83710       -1.22                5.0       0.390   -18560.5
+05-06 04:49:34.578 0x6ba889    B  9.8419  337.3    9.8431    9.8439  9.84350       -1.63               12.0       0.316     -626.4
+08-18 06:59:47.595 0x023a3d    A  9.4393  106.9    9.4342    9.4346  9.43440        5.19               47.0       0.345   -32839.8
+   (157 seconds)
+

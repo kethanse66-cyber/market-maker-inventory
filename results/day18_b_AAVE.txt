@@ -1,0 +1,53 @@
+   AAVE 2026-03-26: day delay +0.000 s | crossed at that delay 0.01% | 3s
+   AAVE 2026-03-27: day delay +0.000 s | crossed at that delay 0.00% | 5s
+   AAVE 2026-03-28: day delay +0.000 s | crossed at that delay 0.01% | 8s
+   AAVE 2026-03-31: day delay +0.000 s | crossed at that delay 0.01% | 12s
+   AAVE 2026-04-01: day delay +0.125 s | crossed at that delay 0.01% | 15s
+   AAVE 2026-04-02: day delay +0.000 s | crossed at that delay 0.01% | 18s
+   AAVE 2026-04-12: day delay +0.000 s | crossed at that delay 0.02% | 21s
+   AAVE 2026-04-13: day delay +0.125 s | crossed at that delay 0.03% | 24s
+   AAVE 2026-04-14: day delay +0.125 s | crossed at that delay 0.02% | 26s
+   AAVE 2026-04-15: day delay +0.125 s | crossed at that delay 0.02% | 29s
+   AAVE 2026-04-16: day delay +0.125 s | crossed at that delay 0.03% | 32s
+   AAVE 2026-04-17: day delay +0.000 s | crossed at that delay 0.02% | 36s
+   AAVE 2026-04-18: day delay +0.000 s | crossed at that delay 0.03% | 39s
+   AAVE 2026-04-19: day delay +0.000 s | crossed at that delay 0.04% | 42s
+   AAVE 2026-04-20: day delay +0.000 s | crossed at that delay 0.02% | 45s
+   AAVE 2026-04-26: day delay +0.125 s | crossed at that delay 0.00% | 48s
+   AAVE 2026-04-27: day delay +0.000 s | crossed at that delay 0.01% | 50s
+   AAVE 2026-04-28: day delay +0.000 s | crossed at that delay 0.00% | 53s
+   AAVE 2026-05-09: day delay +0.000 s | crossed at that delay 0.00% | 56s
+   AAVE 2026-05-10: day delay +0.125 s | crossed at that delay 0.01% | 59s
+   AAVE 2026-05-11: day delay +0.125 s | crossed at that delay 0.01% | 62s
+   AAVE 2026-05-12: day delay +0.125 s | crossed at that delay 0.01% | 65s
+   AAVE 2026-05-13: day delay +0.125 s | crossed at that delay 0.00% | 67s
+   AAVE 2026-05-14: day delay +0.000 s | crossed at that delay 0.00% | 70s
+   AAVE 2026-05-15: day delay +0.000 s | crossed at that delay 0.01% | 73s
+   AAVE 2026-07-10: day delay +0.375 s | crossed at that delay 0.72% | 76s
+   AAVE 2026-07-11: day delay +0.375 s | crossed at that delay 0.71% | 78s
+   AAVE 2026-07-12: day delay +0.375 s | crossed at that delay 0.78% | 81s
+   AAVE 2026-07-13: day delay +0.375 s | crossed at that delay 0.48% | 84s
+   AAVE 2026-07-14: day delay +0.375 s | crossed at that delay 0.40% | 87s
+   AAVE 2026-07-15: day delay +0.375 s | crossed at that delay 0.15% | 90s
+   AAVE 2026-07-16: day delay +0.500 s | crossed at that delay 0.34% | 92s
+   AAVE 2026-07-25: day delay +0.500 s | crossed at that delay 0.36% | 95s
+   AAVE 2026-07-26: day delay +0.625 s | crossed at that delay 0.81% | 98s
+   AAVE 2026-07-27: day delay +0.750 s | crossed at that delay 1.75% | 101s
+   AAVE 2026-07-28: day delay +0.625 s | crossed at that delay 2.50% | 104s
+   AAVE 2026-07-29: day delay +0.625 s | crossed at that delay 9.71% | 107s
+   AAVE 2026-07-30: day delay +0.625 s | crossed at that delay 2.01% | 110s
+   AAVE 2026-07-31: day delay +0.500 s | crossed at that delay 1.28% | 114s
+   AAVE 2026-08-01: day delay +0.500 s | crossed at that delay 0.63% | 116s
+   AAVE 2026-08-20: day delay +0.500 s | crossed at that delay 1.26% | 119s
+   AAVE 2026-08-21: day delay +0.375 s | crossed at that delay 1.29% | 123s
+   AAVE 2026-08-22: day delay +0.375 s | crossed at that delay 1.03% | 128s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   AAVE: 1,032 hours | measured directly 1,022 | from the day 10 | default 0.25 s 0
+      delay: median +0.125 s | middle 50% +0.000 to +0.375 s | at 1 s or more: 2.4% of hours
+      quotes still crossed at the best delay: median 0.03% | hours above 2%: 5.0% (poor book data, flagged)
+      median delay by month: 2026-03 +0.00 s | 2026-04 +0.00 s | 2026-05 +0.00 s | 2026-07 +0.50 s | 2026-08 +0.38 s
+      worst hours: 2026-07-29 14h (38.9% at +0.38 s), 2026-07-29 20h (37.5% at +0.75 s), 2026-07-29 15h (28.4% at +0.62 s), 2026-07-29 13h (27.7% at +1.62 s), 2026-07-29 08h (13.9% at +0.88 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (128 seconds)

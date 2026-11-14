@@ -1,0 +1,66 @@
+   LIT delivery-3 2026-03-09:    28,793 firm fills |   44 accounts traded | chain so far 100.0000% | 1s
+   LIT delivery-3 2026-03-10:    22,111 firm fills |   43 accounts traded | chain so far 100.0000% | 2s
+   LIT delivery-3 2026-03-11:    11,257 firm fills |   40 accounts traded | chain so far 100.0000% | 2s
+   LIT delivery-3 2026-03-12:    19,312 firm fills |   43 accounts traded | chain so far 100.0000% | 3s
+   LIT delivery-3 2026-03-20:    12,725 firm fills |   37 accounts traded | chain so far 100.0000% | 3s
+   LIT delivery-3 2026-03-21:    10,703 firm fills |   38 accounts traded | chain so far 100.0000% | 4s
+   LIT delivery-3 2026-03-22:    16,374 firm fills |   42 accounts traded | chain so far 100.0000% | 4s
+   LIT delivery-3 2026-03-23:    19,411 firm fills |   39 accounts traded | chain so far 100.0000% | 5s
+   LIT delivery-3 2026-03-24:    13,308 firm fills |   33 accounts traded | chain so far 100.0000% | 5s
+   LIT delivery-3 2026-03-25:    13,550 firm fills |   36 accounts traded | chain so far 100.0000% | 6s
+   LIT delivery-3 2026-03-26:     9,269 firm fills |   39 accounts traded | chain so far 100.0000% | 6s
+   LIT delivery-3 2026-04-01:    18,308 firm fills |   41 accounts traded | chain so far 100.0000% | 7s
+   LIT delivery-3 2026-04-02:    41,695 firm fills |   45 accounts traded | chain so far 100.0000% | 7s
+   LIT delivery-3 2026-04-03:    33,290 firm fills |   43 accounts traded | chain so far 100.0000% | 8s
+   LIT delivery-3 2026-04-04:    16,104 firm fills |   40 accounts traded | chain so far 100.0000% | 9s
+   LIT delivery-3 2026-04-05:    14,305 firm fills |   37 accounts traded | chain so far 100.0000% | 9s
+   LIT delivery-3 2026-04-06:    23,450 firm fills |   37 accounts traded | chain so far 100.0000% | 10s
+   LIT delivery-3 2026-04-07:    25,428 firm fills |   38 accounts traded | chain so far 100.0000% | 10s
+   LIT delivery-3 2026-04-08:    23,787 firm fills |   37 accounts traded | chain so far 100.0000% | 11s
+   LIT delivery-3 2026-04-09:    14,199 firm fills |   37 accounts traded | chain so far 100.0000% | 11s
+   LIT delivery-3 2026-04-10:    23,531 firm fills |   37 accounts traded | chain so far 100.0000% | 12s
+   LIT delivery-3 2026-04-13:    21,474 firm fills |   39 accounts traded | chain so far 100.0000% | 13s
+   LIT delivery-3 2026-04-14:    22,753 firm fills |   41 accounts traded | chain so far 100.0000% | 13s
+   LIT delivery-3 2026-04-15:    18,169 firm fills |   42 accounts traded | chain so far 100.0000% | 14s
+   LIT delivery-3 2026-04-16:    13,867 firm fills |   38 accounts traded | chain so far 100.0000% | 14s
+   LIT delivery-3 2026-04-17:    15,935 firm fills |   40 accounts traded | chain so far 100.0000% | 15s
+   LIT delivery-3 2026-04-18:     7,729 firm fills |   36 accounts traded | chain so far 100.0000% | 15s
+   LIT delivery-3 2026-04-19:    17,945 firm fills |   36 accounts traded | chain so far 100.0000% | 16s
+   LIT delivery-3 2026-05-03:     4,016 firm fills |   34 accounts traded | chain so far 100.0000% | 16s
+   LIT delivery-3 2026-05-04:     4,010 firm fills |   35 accounts traded | chain so far 100.0000% | 16s
+   LIT delivery-3 2026-05-05:     7,924 firm fills |   37 accounts traded | chain so far 100.0000% | 17s
+   LIT delivery-3 2026-05-06:     4,060 firm fills |   36 accounts traded | chain so far 100.0000% | 17s
+   LIT delivery-3 2026-05-07:     7,771 firm fills |   37 accounts traded | chain so far 100.0000% | 18s
+   LIT delivery-3 2026-05-08:     8,037 firm fills |   34 accounts traded | chain so far 100.0000% | 18s
+   LIT delivery-3 2026-05-09:     9,098 firm fills |   36 accounts traded | chain so far 100.0000% | 18s
+   LIT delivery-3 2026-05-10:     5,986 firm fills |   35 accounts traded | chain so far 100.0000% | 19s
+   LIT delivery-3 2026-05-11:     9,572 firm fills |   40 accounts traded | chain so far 100.0000% | 19s
+   LIT delivery-3 2026-05-12:     6,909 firm fills |   38 accounts traded | chain so far 100.0000% | 19s
+   LIT delivery-3 2026-05-13:     4,515 firm fills |   38 accounts traded | chain so far 100.0000% | 20s
+   LIT delivery-3 2026-05-17:     4,130 firm fills |   32 accounts traded | chain so far 100.0000% | 20s
+   LIT delivery-3 2026-05-18:    11,335 firm fills |   39 accounts traded | chain so far 100.0000% | 21s
+   LIT delivery-3 2026-05-19:    26,347 firm fills |   39 accounts traded | chain so far 100.0000% | 21s
+   LIT delivery-3 2026-05-20:    45,798 firm fills |   40 accounts traded | chain so far 100.0000% | 22s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== LIT ====================
+   days: missing trade file 30 ['2026-03-13', '2026-03-14', '2026-03-15', '2026-03-16', '2026-03-17'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 688,290 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 57 of 1,029
+   CHAIN: 688,026 of 688,026 links match = 100.0000%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 222
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 81,940 | one clear order 81,930 | unclear order 10 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 52
+   firm-minute table (traded-account inventory): 1,154,880 rows, 25 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x856c3503...: 1,839,517 LIT
+      firm 0xecb63caa...: 1,055,239 LIT
+      firm 0x7fdafde5...: 931,124 LIT
+      firm 0x51f63885...: 739,584 LIT
+      firm 0x7717a7a2...: 650,958 LIT
+   (22 seconds)
+

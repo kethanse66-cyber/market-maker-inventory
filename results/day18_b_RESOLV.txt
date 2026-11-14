@@ -1,0 +1,13 @@
+   RESOLV 2026-03-11: day delay +0.125 s | crossed at that delay 0.00% | 3s
+   RESOLV 2026-03-12: day delay +0.125 s | crossed at that delay 0.00% | 5s
+   RESOLV 2026-03-13: day delay +0.125 s | crossed at that delay 0.00% | 8s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   RESOLV: 72 hours | measured directly 72 | from the day 0 | default 0.25 s 0
+      delay: median +0.000 s | middle 50% -0.125 to +0.125 s | at 1 s or more: 0.0% of hours
+      quotes still crossed at the best delay: median 0.00% | hours above 2%: 0.0% (poor book data, flagged)
+      median delay by month: 2026-03 +0.00 s
+      worst hours: 2026-03-12 00h (0.0% at +0.12 s), 2026-03-12 23h (0.0% at +0.12 s), 2026-03-11 01h (0.0% at +0.00 s), 2026-03-11 02h (0.0% at +0.12 s), 2026-03-11 09h (0.0% at +0.12 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (8 seconds)

@@ -1,0 +1,32 @@
+   UNI delivery-3 2026-09-20:    60,208 firm fills |   64 accounts traded | chain so far 99.9900% | 1s
+   UNI delivery-3 2026-09-21:   116,053 firm fills |   66 accounts traded | chain so far 99.9966% | 3s
+   UNI delivery-3 2026-09-22:   131,841 firm fills |   67 accounts traded | chain so far 99.9981% | 5s
+   UNI delivery-3 2026-09-23:   119,133 firm fills |   69 accounts traded | chain so far 99.9986% | 7s
+   UNI delivery-3 2026-09-24:    64,188 firm fills |   66 accounts traded | chain so far 99.9988% | 8s
+   UNI delivery-3 2026-09-25:    71,461 firm fills |   66 accounts traded | chain so far 99.9982% | 10s
+   UNI delivery-3 2026-09-26:    31,808 firm fills |   65 accounts traded | chain so far 99.9983% | 10s
+   UNI delivery-3 2026-09-27:    37,430 firm fills |   67 accounts traded | chain so far 99.9984% | 11s
+   UNI delivery-3 2026-09-28:    64,655 firm fills |   69 accounts traded | chain so far 99.9986% | 13s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== UNI ====================
+   days: missing trade file 0 [] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 2
+   firm fills: 696,777 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 73 of 1,029
+   CHAIN: 696,694 of 696,704 links match = 99.9986%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 0
+   DATA COMPLETENESS: PASS (no missing days, no duplicates)
+   OVERALL: PASS
+   same-millisecond groups: 82,346 | one clear order 82,272 | unclear order 74 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 72
+   firm-minute table (traded-account inventory): 339,840 rows, 28 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x023a3d05...: 622,534 UNI
+      firm 0x51f63885...: 223,021 UNI
+      firm 0xecb63caa...: 167,542 UNI
+      firm 0x856c3503...: 167,494 UNI
+      firm 0x57dd78cd...: 154,506 UNI
+   (13 seconds)
+

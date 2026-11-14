@@ -1,0 +1,47 @@
+   LINK delivery-3 2026-03-14:     6,498 firm fills |   41 accounts traded | chain so far 100.0000% | 1s
+   LINK delivery-3 2026-03-15:     8,280 firm fills |   43 accounts traded | chain so far 100.0000% | 1s
+   LINK delivery-3 2026-03-16:    14,780 firm fills |   46 accounts traded | chain so far 100.0000% | 2s
+   LINK delivery-3 2026-03-17:     9,834 firm fills |   41 accounts traded | chain so far 100.0000% | 2s
+   LINK delivery-3 2026-03-18:    11,784 firm fills |   44 accounts traded | chain so far 100.0000% | 3s
+   LINK delivery-3 2026-05-04:     9,122 firm fills |   39 accounts traded | chain so far 99.9967% | 3s
+   LINK delivery-3 2026-05-05:     7,062 firm fills |   40 accounts traded | chain so far 99.9970% | 4s
+   LINK delivery-3 2026-05-06:     8,429 firm fills |   40 accounts traded | chain so far 99.9974% | 4s
+   LINK delivery-3 2026-05-07:     6,861 firm fills |   40 accounts traded | chain so far 99.9976% | 5s
+   LINK delivery-3 2026-05-08:     8,389 firm fills |   40 accounts traded | chain so far 99.9978% | 5s
+   LINK delivery-3 2026-05-09:     6,736 firm fills |   37 accounts traded | chain so far 99.9980% | 6s
+   LINK delivery-3 2026-05-13:    11,178 firm fills |   44 accounts traded | chain so far 99.9982% | 6s
+   LINK delivery-3 2026-05-14:    11,082 firm fills |   43 accounts traded | chain so far 99.9983% | 7s
+   LINK delivery-3 2026-05-15:     8,363 firm fills |   44 accounts traded | chain so far 99.9984% | 7s
+   LINK delivery-3 2026-05-16:     6,634 firm fills |   40 accounts traded | chain so far 99.9985% | 7s
+   LINK delivery-3 2026-05-17:     6,710 firm fills |   42 accounts traded | chain so far 99.9986% | 8s
+   LINK delivery-3 2026-05-20:     7,412 firm fills |   38 accounts traded | chain so far 99.9987% | 8s
+   LINK delivery-3 2026-05-21:     6,550 firm fills |   22 accounts traded | chain so far 99.9987% | 9s
+   LINK delivery-3 2026-05-22:    15,087 firm fills |   22 accounts traded | chain so far 99.9988% | 9s
+   LINK delivery-3 2026-05-23:    13,765 firm fills |   23 accounts traded | chain so far 99.9989% | 10s
+   LINK delivery-3 2026-08-17:    15,402 firm fills |   30 accounts traded | chain so far 99.9990% | 10s
+   LINK delivery-3 2026-08-18:    15,380 firm fills |   32 accounts traded | chain so far 99.9991% | 11s
+   LINK delivery-3 2026-08-19:    44,280 firm fills |   36 accounts traded | chain so far 99.9992% | 12s
+   LINK delivery-3 2026-08-20:    29,326 firm fills |   38 accounts traded | chain so far 99.9993% | 12s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== LINK ====================
+   days: missing trade file 136 ['2026-03-19', '2026-03-20', '2026-03-21', '2026-03-22', '2026-03-23'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 288,944 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 76 of 1,029
+   CHAIN: 288,725 of 288,727 links match = 99.9993%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 177
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 29,955 | one clear order 29,942 | unclear order 13 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 65
+   firm-minute table (traded-account inventory): 675,360 rows, 29 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0xecb63caa...: 260,593 LINK
+      firm 0x87f9cd15...: 186,158 LINK
+      firm 0x023a3d05...: 130,833 LINK
+      firm 0x51f63885...: 100,867 LINK
+      firm 0x162cc7c8...: 50,016 LINK
+   (13 seconds)
+

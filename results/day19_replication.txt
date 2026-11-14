@@ -1,0 +1,242 @@
+PLACEBO LEVELS (pre-registration section 7) + component results at the real boundaries
+   main pooled estimates: side tau +0.0037, price tau +0.0334, size tau -0.0122, at-best jump +0.1164
+
+   AAVE $95 (placebo): 35 episodes (31 rotated) on 17 days | 1,437,709 quotes, 63 makers | 372s
+      side tau      -0.0009  p 0.864  90% [-0.0082, +0.0065]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0070  p 0.473  90% [-0.0089, +0.0229]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0025  p 0.176  90% [-0.0006, +0.0056]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0094  p 0.421  90% [-0.0058, +0.0246]  limit +-0.0291  PASS (shown < 25% of main)
+
+   AAVE $105 (placebo): 11 episodes (11 rotated) on 6 days | 181,656 quotes, 62 makers | 419s
+      side tau      +0.0043  p 0.387  90% [-0.0035, +0.0120]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.0037  p 0.868  90% [-0.0379, +0.0304]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0021  p 0.802  90% [-0.0092, +0.0050]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0160  p 0.425  90% [-0.0160, +0.0481]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   CASHCAT $0.095 (placebo): 29 episodes (24 rotated) on 10 days | 100,485 quotes, 46 makers | 449s
+      side tau      +0.0030  p 0.820  90% [-0.0163, +0.0223]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.2092  p 0.461  90% [-0.2328, +0.6512]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0426  p 0.299  90% [-0.0336, +0.1189]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0022  p 0.952  90% [-0.0735, +0.0691]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   CASHCAT $0.105 (placebo): 49 episodes (43 rotated) on 18 days | 234,788 quotes, 47 makers | 522s
+      side tau      +0.0159  p 0.080  90% [+0.0018, +0.0300]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.2417  p 0.038  90% [+0.0499, +0.4336]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0035  p 0.870  90% [-0.0332, +0.0402]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0048  p 0.846  90% [-0.0418, +0.0322]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   DOGE $0.095 (placebo): 25 episodes (23 rotated) on 10 days | 1,539,531 quotes, 93 makers | 953s
+      side tau      +0.0000  p 0.998  90% [-0.0113, +0.0114]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0242  p 0.333  90% [-0.0106, +0.0589]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0070  p 0.120  90% [-0.0014, +0.0154]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0180  p 0.369  90% [-0.0366, +0.0006]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   DOGE $0.105 (placebo): 15 episodes (12 rotated) on 5 days | 686,020 quotes, 60 makers | 1,159s
+      side tau      +0.0003  p 0.974  90% [-0.0128, +0.0133]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.0294  p 0.409  90% [-0.0805, +0.0217]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0150  p 0.279  90% [-0.0058, +0.0358]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0092  p 0.701  90% [-0.0260, +0.0445]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   LINK $9.5 (placebo): 13 episodes (13 rotated) on 7 days | 722,116 quotes, 62 makers | 1,374s
+      side tau      +0.0005  p 0.936  90% [-0.0078, +0.0087]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0129  p 0.220  90% [-0.0043, +0.0300]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0011  p 0.593  90% [-0.0025, +0.0047]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0046  p 0.733  90% [-0.0181, +0.0273]  limit +-0.0291  PASS (shown < 25% of main)
+
+   LINK $10.5 (placebo): 8 episodes (8 rotated) on 4 days | 227,237 quotes, 54 makers | 1,440s
+      side tau      +0.0066  p 0.609  90% [-0.0095, +0.0227]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0078  p 0.651  90% [-0.0171, +0.0326]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0031  p 0.459  90% [-0.0034, +0.0095]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0638  p 0.279  90% [-0.0253, +0.1529]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   LIT $0.95 (placebo): 35 episodes (30 rotated) on 14 days | 237,540 quotes, 44 makers | 1,533s
+      side tau      -0.0004  p 0.954  90% [-0.0106, +0.0097]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.1165  p 0.106  90% [+0.0053, +0.2278]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0233  p 0.022  90% [-0.0388, -0.0078]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0584  p 0.206  90% [-0.0151, +0.1319]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   LIT $1.05 (placebo): 55 episodes (50 rotated) on 19 days | 274,277 quotes, 45 makers | 1,630s
+      side tau      -0.0303  p 0.020  90% [-0.0470, -0.0136]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0115  p 0.774  90% [-0.0466, +0.0697]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0022  p 0.493  90% [-0.0030, +0.0075]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0173  p 0.621  90% [-0.0390, +0.0736]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   ORDI $9.5 (placebo): 2 episodes but too few usable quotes
+
+   ORDI $10.5 (placebo): 1 episodes but too few usable quotes
+
+   RESOLV $0.095 (placebo): 2 episodes (2 rotated) on 2 days | 2,560 quotes, 22 makers | 1,634s
+      side tau      -0.0450  p 0.563  90% [-0.1453, +0.0553]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.1827  p 0.541  90% [-0.6243, +0.2589]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0011  p 0.768  90% [-0.0076, +0.0053]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0900  p 0.579  90% [-0.3457, +0.1657]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   RESOLV $0.105 (placebo): 2 episodes (2 rotated) on 2 days | 2,777 quotes, 24 makers | 1,635s
+      side tau      +0.0083  p 0.782  90% [-0.0298, +0.0465]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.1297  p 0.693  90% [-0.4240, +0.6834]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0827  p 0.126  90% [-0.0054, +0.1708]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0275  p 0.828  90% [-0.1930, +0.1380]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   SKY $0.095 (placebo): 6 episodes (6 rotated) on 2 days | 96,438 quotes, 31 makers | 1,659s
+      side tau      +0.0010  p 0.928  90% [-0.0158, +0.0178]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.1452  p 0.240  90% [-0.0501, +0.3405]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0002  p 0.996  90% [-0.0162, +0.0166]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0341  p 0.365  90% [-0.0997, +0.0315]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   SKY $0.105 (placebo): no good episodes
+
+   SUI $0.95 (placebo): 23 episodes (20 rotated) on 11 days | 1,719,561 quotes, 87 makers | 2,156s
+      side tau      +0.0014  p 0.814  90% [-0.0072, +0.0101]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0113  p 0.874  90% [-0.0342, +0.0568]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0027  p 0.719  90% [-0.0077, +0.0131]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0082  p 0.222  90% [-0.0018, +0.0182]  limit +-0.0291  PASS (shown < 25% of main)
+
+   SUI $1.05 (placebo): 39 episodes (33 rotated) on 17 days | 2,488,627 quotes, 91 makers | 2,900s
+      side tau      +0.0007  p 0.924  90% [-0.0087, +0.0100]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0107  p 0.764  90% [-0.0315, +0.0528]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0137  p 0.267  90% [-0.0326, +0.0051]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0279  p 0.341  90% [-0.0156, +0.0714]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   UNI $9.5 (placebo): 3 episodes (3 rotated) on 3 days | 185,723 quotes, 57 makers | 2,954s
+      side tau      +0.0078  p 0.361  90% [-0.0057, +0.0213]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0338  p 0.200  90% [-0.0135, +0.0811]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0006  p 0.894  90% [-0.0083, +0.0096]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0108  p 0.693  90% [-0.0667, +0.0452]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   UNI $10.5 (placebo): 2 episodes (2 rotated) on 1 days | 122,357 quotes, 57 makers | 2,987s
+      side tau      -0.0389  p 0.044  90% [-0.0807, +0.0029]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.0095  p 0.719  90% [-0.0473, +0.0283]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0266  p 0.006  90% [+0.0054, +0.0478]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0233  p 0.523  90% [-0.0708, +0.0241]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   VVV $9.5 (placebo): 4 episodes (4 rotated) on 2 days | 11,111 quotes, 20 makers | 2,990s
+      side tau      -0.0069  p 0.733  90% [-0.0377, +0.0239]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.1493  p 0.118  90% [-0.0041, +0.3027]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0014  p 0.174  90% [-0.0031, +0.0003]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0800  p 0.166  90% [-0.0147, +0.1747]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   VVV $10.5 (placebo): 5 episodes (4 rotated) on 3 days | 10,598 quotes, 32 makers | 2,994s
+      side tau      -0.0511  p 0.126  90% [-0.1042, +0.0020]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.4120  p 0.255  90% [-0.9278, +0.1038]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0014  p 1.000  90% [-0.0183, +0.0210]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0038  p 0.988  90% [-0.4417, +0.4341]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   XPL $0.095 (placebo): 121 episodes (96 rotated) on 46 days | 2,138,190 quotes, 92 makers | 3,664s
+      side tau      +0.0096  p 0.068  90% [+0.0022, +0.0170]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     +0.0171  p 0.413  90% [-0.0135, +0.0478]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      +0.0135  p 0.333  90% [-0.0034, +0.0305]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0136  p 0.359  90% [-0.0375, +0.0102]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   XPL $0.105 (placebo): 65 episodes (60 rotated) on 26 days | 959,969 quotes, 83 makers | 3,964s
+      side tau      +0.0064  p 0.593  90% [-0.0047, +0.0174]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.0121  p 0.822  90% [-0.0749, +0.0507]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0106  p 0.022  90% [-0.0160, -0.0053]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  +0.0114  p 0.615  90% [-0.0183, +0.0411]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   ZEC $950 (placebo): 1 episodes (1 rotated) on 1 days | 322,232 quotes, 50 makers | 4,066s
+      side tau      -0.0183  p 0.088  90% [-0.0374, +0.0008]  limit +-0.0009  NOT SHOWN small (interval too wide or effect)
+      price tau     -0.0022  p 0.940  90% [-0.0596, +0.0553]  limit +-0.0084  NOT SHOWN small (interval too wide or effect)
+      size tau      -0.0087  p 0.605  90% [-0.0286, +0.0113]  limit +-0.0031  NOT SHOWN small (interval too wide or effect)
+      at-best jump  -0.0362  p 0.315  90% [-0.0921, +0.0197]  limit +-0.0291  NOT SHOWN small (interval too wide or effect)
+
+   ZEC $1050 (placebo): no good episodes
+
+   AAVE $100 (REAL): 46 episodes (38 rotated) on 21 days | 1,637,892 quotes, 60 makers | 4,551s
+      side tau      +0.0063  p 0.016  90% [+0.0019, +0.0107]  limit +-0.0009  component result
+      price tau     -0.0273  p 0.072  90% [-0.0523, -0.0023]  limit +-0.0084  component result
+      size tau      -0.0057  p 0.034  90% [-0.0102, -0.0012]  limit +-0.0031  component result
+      at-best jump  +0.0603  p 0.002  90% [+0.0269, +0.0937]  limit +-0.0291  component result
+
+   CASHCAT $0.1 (REAL): 36 episodes (30 rotated) on 14 days | 85,509 quotes, 45 makers | 4,585s
+      side tau      -0.0036  p 0.723  90% [-0.0207, +0.0135]  limit +-0.0009  component result
+      price tau     -0.1127  p 0.711  90% [-0.5984, +0.3729]  limit +-0.0084  component result
+      size tau      -0.1208  p 0.024  90% [-0.1622, -0.0795]  limit +-0.0031  component result
+      at-best jump  +0.0220  p 0.623  90% [-0.0477, +0.0918]  limit +-0.0291  component result
+
+   DOGE $0.1 (REAL): 44 episodes (38 rotated) on 17 days | 3,128,491 quotes, 88 makers | 5,790s
+      side tau      +0.0041  p 0.128  90% [+0.0009, +0.0072]  limit +-0.0009  component result
+      price tau     -0.0069  p 0.697  90% [-0.0312, +0.0174]  limit +-0.0084  component result
+      size tau      -0.0032  p 0.070  90% [-0.0061, -0.0002]  limit +-0.0031  component result
+      at-best jump  +0.2387  p 0.002  90% [+0.1980, +0.2793]  limit +-0.0291  component result
+
+   LINK $10 (REAL): 13 episodes (12 rotated) on 7 days | 668,270 quotes, 61 makers | 5,962s
+      side tau      -0.0007  p 0.880  90% [-0.0062, +0.0048]  limit +-0.0009  component result
+      price tau     -0.0182  p 0.062  90% [-0.0341, -0.0024]  limit +-0.0084  component result
+      size tau      -0.0073  p 0.070  90% [-0.0135, -0.0010]  limit +-0.0031  component result
+      at-best jump  +0.1866  p 0.002  90% [+0.1347, +0.2386]  limit +-0.0291  component result
+
+   LIT $1 (REAL): 25 episodes (20 rotated) on 14 days | 150,735 quotes, 39 makers | 6,013s
+      side tau      +0.0040  p 0.597  90% [-0.0078, +0.0158]  limit +-0.0009  component result
+      price tau     -0.0591  p 0.469  90% [-0.1763, +0.0580]  limit +-0.0084  component result
+      size tau      +0.0069  p 0.587  90% [-0.0113, +0.0250]  limit +-0.0031  component result
+      at-best jump  +0.1406  p 0.012  90% [+0.0564, +0.2248]  limit +-0.0291  component result
+
+   ORDI $10 (REAL): 1 episodes but too few usable quotes
+
+   RESOLV $0.1 (REAL): 2 episodes (2 rotated) on 1 days | 2,176 quotes, 22 makers | 6,015s
+      side tau      +0.0617  p 0.154  90% [-0.0111, +0.1346]  limit +-0.0009  component result
+      price tau     -0.2574  p 0.168  90% [-0.5541, +0.0394]  limit +-0.0084  component result
+      size tau      +0.0054  p 0.006  90% [+0.0023, +0.0085]  limit +-0.0031  component result
+      at-best jump  +0.1332  p 0.623  90% [-0.2195, +0.4859]  limit +-0.0291  component result
+
+   SKY $0.1 (REAL): 1 episodes (1 rotated) on 1 days | 31,977 quotes, 33 makers | 6,023s
+      (side tau: 63 of 500 shuffles could not be estimated and are left out)
+      side tau      -0.0149  p 0.473  90% [-0.0572, +0.0275]  limit +-0.0009  component result
+      (price tau: 63 of 500 shuffles could not be estimated and are left out)
+      price tau     +0.1537  p 0.247  90% [-0.1643, +0.4718]  limit +-0.0084  component result
+      (size tau: 63 of 500 shuffles could not be estimated and are left out)
+      size tau      +0.0009  p 0.842  90% [-0.0130, +0.0148]  limit +-0.0031  component result
+      (at-best jump: 63 of 500 shuffles could not be estimated and are left out)
+      at-best jump  +0.0218  p 0.847  90% [-20.0679, +20.1115]  limit +-0.0291  component result
+
+   SUI $1 (REAL): 1 episode(s) skipped - window inside an order-book outage
+
+   SUI $1 (REAL): 52 episodes (47 rotated) on 21 days | 3,226,721 quotes, 90 makers | 6,953s
+      side tau      -0.0003  p 0.960  90% [-0.0087, +0.0081]  limit +-0.0009  component result
+      price tau     +0.0095  p 0.311  90% [-0.0063, +0.0253]  limit +-0.0084  component result
+      size tau      +0.0000  p 0.992  90% [-0.0074, +0.0074]  limit +-0.0031  component result
+      at-best jump  +0.0971  p 0.002  90% [+0.0792, +0.1151]  limit +-0.0291  component result
+
+   UNI $10 (REAL): 3 episodes (3 rotated) on 2 days | 225,127 quotes, 60 makers | 7,013s
+      side tau      +0.0080  p 0.250  90% [-0.0036, +0.0196]  limit +-0.0009  component result
+      price tau     +0.0115  p 0.924  90% [-0.1513, +0.1743]  limit +-0.0084  component result
+      size tau      +0.0046  p 0.665  90% [-0.0119, +0.0212]  limit +-0.0031  component result
+      at-best jump  +0.0692  p 0.030  90% [+0.0179, +0.1205]  limit +-0.0291  component result
+
+   VVV $10 (REAL): 3 episodes (2 rotated) on 2 days | 8,259 quotes, 31 makers | 7,016s
+      side tau      +0.0424  p 0.541  90% [-0.0635, +0.1483]  limit +-0.0009  component result
+      price tau     +0.0714  p 0.719  90% [-0.2094, +0.3522]  limit +-0.0084  component result
+      size tau      -0.0027  p 0.499  90% [-0.0093, +0.0039]  limit +-0.0031  component result
+      at-best jump  +0.1512  p 0.415  90% [-0.1334, +0.4358]  limit +-0.0291  component result
+
+   XPL $0.1 (REAL): 98 episodes (84 rotated) on 42 days | 1,773,601 quotes, 89 makers | 7,574s
+      side tau      +0.0027  p 0.663  90% [-0.0062, +0.0117]  limit +-0.0009  component result
+      price tau     +0.0104  p 0.509  90% [-0.0159, +0.0367]  limit +-0.0084  component result
+      size tau      -0.0002  p 0.978  90% [-0.0146, +0.0142]  limit +-0.0031  component result
+      at-best jump  +0.0504  p 0.002  90% [+0.0323, +0.0685]  limit +-0.0291  component result
+
+   ZEC $1000 (REAL): no good episodes
+
+SUMMARY OVER THE PLACEBO LEVELS (each outcome)
+   side tau      levels run 22 | pass 0 | placebo p < 0.05 at 2 levels | mean placebo estimate -0.0057 vs main +0.0037
+   price tau     levels run 22 | pass 0 | placebo p < 0.05 at 1 levels | mean placebo estimate +0.0216 vs main +0.0334
+   size tau      levels run 22 | pass 0 | placebo p < 0.05 at 3 levels | mean placebo estimate +0.0065 vs main -0.0122
+   at-best jump  levels run 22 | pass 1 | placebo p < 0.05 at 0 levels | mean placebo estimate +0.0019 vs main +0.1164
+
+Saved E:\p3\results\placebo_result_replication.csv (7,574 seconds)
+
+REPLICATION SUMMARY (precision-weighted over coins; coins with >= 3 episodes)
+   DESCRIPTIVE: the z treats coins as independent, which they are not fully (shared market days);
+   the per-coin randomization p-values are the tests.
+
+   boundaries (tick changes 10x): 9 levels
+      at-best jump  weighted +0.0885 (se 0.0065, z +13.63) | positive at 9 of 9 | p < 0.05 at 7
+      price tau     weighted -0.0061 (se 0.0054, z -1.13) | positive at 4 of 9 | p < 0.05 at 0
+      side tau      weighted +0.0036 (se 0.0013, z +2.83) | positive at 6 of 9 | p < 0.05 at 1
+      size tau      weighted -0.0038 (se 0.0012, z -3.09) | positive at 3 of 9 | p < 0.05 at 2
+
+   non-round controls (0.95x, 1.05x): 18 levels
+      at-best jump  weighted +0.0047 (se 0.0037, z +1.25) | positive at 11 of 18 | p < 0.05 at 0
+      price tau     weighted +0.0112 (se 0.0051, z +2.20) | positive at 14 of 18 | p < 0.05 at 1
+      side tau      weighted +0.0023 (se 0.0016, z +1.45) | positive at 13 of 18 | p < 0.05 at 1
+      size tau      weighted -0.0005 (se 0.0007, z -0.63) | positive at 13 of 18 | p < 0.05 at 2

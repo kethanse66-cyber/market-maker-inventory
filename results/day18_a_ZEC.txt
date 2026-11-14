@@ -1,0 +1,28 @@
+   ZEC delivery-3 2026-09-02:   111,097 firm fills |   62 accounts traded | chain so far 99.9946% | 2s
+   ZEC delivery-3 2026-09-03:   171,805 firm fills |   62 accounts traded | chain so far 99.9979% | 5s
+   ZEC delivery-3 2026-09-04:   182,527 firm fills |   67 accounts traded | chain so far 99.9987% | 7s
+   ZEC delivery-3 2026-09-05:    58,466 firm fills |   56 accounts traded | chain so far 99.9989% | 8s
+   ZEC delivery-3 2026-09-06:   156,054 firm fills |   59 accounts traded | chain so far 99.9991% | 11s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== ZEC ====================
+   days: missing trade file 0 [] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 1
+   firm fills: 679,949 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 68 of 1,029
+   CHAIN: 679,875 of 679,881 links match = 99.9991%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 0
+   DATA COMPLETENESS: PASS (no missing days, no duplicates)
+   OVERALL: PASS
+   same-millisecond groups: 91,900 | one clear order 91,777 | unclear order 123 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 63
+   firm-minute table (traded-account inventory): 234,720 rows, 33 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0xdd53c529...: 27,735 ZEC
+      firm 0x7fdafde5...: 16,573 ZEC
+      firm 0x362ad620...: 15,785 ZEC
+      firm 0x023a3d05...: 5,310 ZEC
+      firm 0x87f9cd15...: 4,118 ZEC
+   (11 seconds)
+

@@ -1,0 +1,79 @@
+   SUI delivery-3 2026-03-09:    21,808 firm fills |   53 accounts traded | chain so far 99.9908% | 1s
+   SUI delivery-3 2026-03-10:    20,134 firm fills |   50 accounts traded | chain so far 99.9952% | 1s
+   SUI delivery-3 2026-03-11:    15,363 firm fills |   52 accounts traded | chain so far 99.9965% | 2s
+   SUI delivery-3 2026-03-12:    13,297 firm fills |   47 accounts traded | chain so far 99.9972% | 2s
+   SUI delivery-3 2026-03-13:    17,701 firm fills |   51 accounts traded | chain so far 99.9977% | 3s
+   SUI delivery-3 2026-03-14:     8,749 firm fills |   46 accounts traded | chain so far 99.9979% | 3s
+   SUI delivery-3 2026-03-15:    10,367 firm fills |   49 accounts traded | chain so far 99.9981% | 4s
+   SUI delivery-3 2026-03-16:    25,103 firm fills |   54 accounts traded | chain so far 99.9985% | 5s
+   SUI delivery-3 2026-03-17:    13,571 firm fills |   50 accounts traded | chain so far 99.9986% | 5s
+   SUI delivery-3 2026-03-18:    15,860 firm fills |   51 accounts traded | chain so far 99.9988% | 6s
+   SUI delivery-3 2026-03-19:    14,504 firm fills |   49 accounts traded | chain so far 99.9989% | 6s
+   SUI delivery-3 2026-04-14:    10,298 firm fills |   46 accounts traded | chain so far 99.9989% | 7s
+   SUI delivery-3 2026-04-15:    11,327 firm fills |   50 accounts traded | chain so far 99.9990% | 7s
+   SUI delivery-3 2026-04-16:    19,517 firm fills |   52 accounts traded | chain so far 99.9991% | 8s
+   SUI delivery-3 2026-04-17:    16,506 firm fills |   51 accounts traded | chain so far 99.9991% | 8s
+   SUI delivery-3 2026-04-18:     9,005 firm fills |   46 accounts traded | chain so far 99.9992% | 9s
+   SUI delivery-3 2026-04-19:     9,177 firm fills |   49 accounts traded | chain so far 99.9992% | 9s
+   SUI delivery-3 2026-05-04:     9,206 firm fills |   46 accounts traded | chain so far 99.9985% | 10s
+   SUI delivery-3 2026-05-05:     8,857 firm fills |   46 accounts traded | chain so far 99.9985% | 10s
+   SUI delivery-3 2026-05-06:    13,272 firm fills |   48 accounts traded | chain so far 99.9986% | 11s
+   SUI delivery-3 2026-05-07:    11,088 firm fills |   48 accounts traded | chain so far 99.9986% | 11s
+   SUI delivery-3 2026-05-08:    14,626 firm fills |   49 accounts traded | chain so far 99.9987% | 12s
+   SUI delivery-3 2026-05-09:    21,916 firm fills |   51 accounts traded | chain so far 99.9988% | 12s
+   SUI delivery-3 2026-05-21:    31,560 firm fills |   53 accounts traded | chain so far 99.9989% | 13s
+   SUI delivery-3 2026-05-22:    25,544 firm fills |   52 accounts traded | chain so far 99.9990% | 14s
+   SUI delivery-3 2026-05-23:    18,315 firm fills |   52 accounts traded | chain so far 99.9990% | 14s
+   SUI delivery-3 2026-05-24:    13,623 firm fills |   48 accounts traded | chain so far 99.9990% | 15s
+   SUI delivery-3 2026-05-25:    13,076 firm fills |   48 accounts traded | chain so far 99.9991% | 15s
+   SUI delivery-3 2026-05-26:    15,763 firm fills |   50 accounts traded | chain so far 99.9991% | 16s
+   SUI delivery-3 2026-05-27:    17,235 firm fills |   50 accounts traded | chain so far 99.9991% | 16s
+   SUI delivery-3 2026-05-28:    23,776 firm fills |   52 accounts traded | chain so far 99.9992% | 17s
+   SUI delivery-3 2026-09-19:    23,493 firm fills |   67 accounts traded | chain so far 99.9988% | 18s
+   SUI delivery-3 2026-09-20:    40,928 firm fills |   70 accounts traded | chain so far 99.9989% | 19s
+   SUI delivery-3 2026-09-21:    83,298 firm fills |   70 accounts traded | chain so far 99.9991% | 20s
+   SUI delivery-3 2026-09-22:    40,260 firm fills |   70 accounts traded | chain so far 99.9991% | 21s
+   SUI delivery-3 2026-09-23:    39,424 firm fills |   72 accounts traded | chain so far 99.9992% | 22s
+   SUI delivery-3 2026-09-24:    28,363 firm fills |   70 accounts traded | chain so far 99.9992% | 23s
+   SUI delivery-3 2026-09-25:    56,722 firm fills |   71 accounts traded | chain so far 99.9993% | 24s
+   SUI delivery-3 2026-10-06:    17,193 firm fills |   71 accounts traded | chain so far 99.9990% | 25s
+   SUI delivery-3 2026-10-07:    30,028 firm fills |   76 accounts traded | chain so far 99.9991% | 26s
+   SUI delivery-3 2026-10-08:    34,267 firm fills |   77 accounts traded | chain so far 99.9991% | 26s
+   SUI delivery-3 2026-10-09:    13,753 firm fills |   70 accounts traded | chain so far 99.9991% | 27s
+   SUI delivery-3 2026-10-11:    17,694 firm fills |   76 accounts traded | chain so far 99.9991% | 28s
+   SUI delivery-3 2026-10-12:    18,135 firm fills |   77 accounts traded | chain so far 99.9991% | 28s
+   SUI delivery-3 2026-10-13:    19,907 firm fills |   68 accounts traded | chain so far 99.9992% | 29s
+   SUI delivery-3 2026-10-14:    13,221 firm fills |   71 accounts traded | chain so far 99.9992% | 30s
+   SUI delivery-3 2026-10-15:    25,331 firm fills |   78 accounts traded | chain so far 99.9992% | 30s
+   SUI delivery-3 2026-10-16:    11,772 firm fills |   71 accounts traded | chain so far 99.9992% | 31s
+   SUI delivery-3 2026-10-17:    15,736 firm fills |   74 accounts traded | chain so far 99.9992% | 32s
+   SUI delivery-3 2026-10-18:    18,705 firm fills |   77 accounts traded | chain so far 99.9992% | 33s
+   SUI delivery-3 2026-10-19:    15,613 firm fills |   70 accounts traded | chain so far 99.9992% | 33s
+   SUI delivery-3 2026-10-20:    14,395 firm fills |   70 accounts traded | chain so far 99.9993% | 34s
+   SUI delivery-3 2026-10-21:    10,691 firm fills |   71 accounts traded | chain so far 99.9993% | 35s
+   SUI delivery-3 2026-10-22:    12,883 firm fills |   69 accounts traded | chain so far 99.9993% | 35s
+   SUI delivery-3 2026-10-23:    13,254 firm fills |   74 accounts traded | chain so far 99.9993% | 36s
+   SUI delivery-3 2026-10-24:    17,982 firm fills |   77 accounts traded | chain so far 99.9993% | 36s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== SUI ====================
+   days: missing trade file 174 ['2026-03-20', '2026-03-21', '2026-03-22', '2026-03-23', '2026-03-24'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 1,123,192 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 111 of 1,029
+   CHAIN: 1,122,725 of 1,122,733 links match = 99.9993%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 370
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 122,431 | one clear order 122,364 | unclear order 67 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 101
+   firm-minute table (traded-account inventory): 1,978,560 rows, 36 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0xecb63caa...: 4,312,747 SUI
+      firm 0x51f63885...: 2,452,257 SUI
+      firm 0x162cc7c8...: 1,371,823 SUI
+      firm 0x87f9cd15...: 1,066,646 SUI
+      firm 0x023a3d05...: 958,584 SUI
+   (37 seconds)
+

@@ -1,0 +1,60 @@
+   CASHCAT delivery-3 2026-07-11:    14,761 firm fills |   22 accounts traded | chain so far 100.0000% | 1s
+   CASHCAT delivery-3 2026-07-12:    34,089 firm fills |   23 accounts traded | chain so far 100.0000% | 1s
+   CASHCAT delivery-3 2026-07-13:    25,973 firm fills |   23 accounts traded | chain so far 100.0000% | 2s
+   CASHCAT delivery-3 2026-07-14:    49,260 firm fills |   23 accounts traded | chain so far 100.0000% | 3s
+   CASHCAT delivery-3 2026-07-15:    65,223 firm fills |   23 accounts traded | chain so far 100.0000% | 4s
+   CASHCAT delivery-3 2026-07-16:    61,460 firm fills |   24 accounts traded | chain so far 100.0000% | 5s
+   CASHCAT delivery-3 2026-07-17:    75,578 firm fills |   24 accounts traded | chain so far 100.0000% | 6s
+   CASHCAT delivery-3 2026-08-03:    67,308 firm fills |   31 accounts traded | chain so far 99.9888% | 8s
+   CASHCAT delivery-3 2026-08-04:    87,461 firm fills |   32 accounts traded | chain so far 99.9909% | 9s
+   CASHCAT delivery-3 2026-08-05:   116,965 firm fills |   33 accounts traded | chain so far 99.9926% | 10s
+   CASHCAT delivery-3 2026-08-06:   209,485 firm fills |   39 accounts traded | chain so far 99.9946% | 13s
+   CASHCAT delivery-3 2026-08-07:    88,514 firm fills |   38 accounts traded | chain so far 99.9951% | 14s
+   CASHCAT delivery-3 2026-08-08:    70,796 firm fills |   36 accounts traded | chain so far 99.9954% | 15s
+   CASHCAT delivery-3 2026-08-09:    96,936 firm fills |   37 accounts traded | chain so far 99.9959% | 17s
+   CASHCAT delivery-3 2026-08-14:    37,692 firm fills |   37 accounts traded | chain so far 99.9958% | 18s
+   CASHCAT delivery-3 2026-08-15:    28,450 firm fills |   34 accounts traded | chain so far 99.9959% | 18s
+   CASHCAT delivery-3 2026-08-16:    29,786 firm fills |   34 accounts traded | chain so far 99.9960% | 19s
+   CASHCAT delivery-3 2026-08-17:    44,133 firm fills |   34 accounts traded | chain so far 99.9962% | 20s
+   CASHCAT delivery-3 2026-08-18:    26,302 firm fills |   34 accounts traded | chain so far 99.9963% | 21s
+   CASHCAT delivery-3 2026-08-19:    45,324 firm fills |   36 accounts traded | chain so far 99.9964% | 22s
+   CASHCAT delivery-3 2026-08-20:    45,812 firm fills |   36 accounts traded | chain so far 99.9965% | 22s
+   CASHCAT delivery-3 2026-08-21:    46,033 firm fills |   35 accounts traded | chain so far 99.9966% | 23s
+   CASHCAT delivery-3 2026-08-22:    53,392 firm fills |   35 accounts traded | chain so far 99.9968% | 24s
+   CASHCAT delivery-3 2026-08-23:    40,046 firm fills |   34 accounts traded | chain so far 99.9969% | 25s
+   CASHCAT delivery-3 2026-10-11:    27,237 firm fills |   43 accounts traded | chain so far 99.9966% | 26s
+   CASHCAT delivery-3 2026-10-12:    23,706 firm fills |   42 accounts traded | chain so far 99.9967% | 27s
+   CASHCAT delivery-3 2026-10-13:    18,754 firm fills |   43 accounts traded | chain so far 99.9967% | 27s
+   CASHCAT delivery-3 2026-10-14:    43,430 firm fills |   43 accounts traded | chain so far 99.9968% | 28s
+   CASHCAT delivery-3 2026-10-15:    43,500 firm fills |   43 accounts traded | chain so far 99.9964% | 29s
+   CASHCAT delivery-3 2026-10-16:    26,742 firm fills |   44 accounts traded | chain so far 99.9965% | 30s
+   CASHCAT delivery-3 2026-10-17:    15,439 firm fills |   42 accounts traded | chain so far 99.9965% | 30s
+   CASHCAT delivery-3 2026-10-18:    29,558 firm fills |   42 accounts traded | chain so far 99.9966% | 31s
+   CASHCAT delivery-3 2026-10-19:    18,377 firm fills |   42 accounts traded | chain so far 99.9966% | 32s
+   CASHCAT delivery-3 2026-10-21:    16,788 firm fills |   44 accounts traded | chain so far 99.9965% | 32s
+   CASHCAT delivery-3 2026-10-22:    18,969 firm fills |   44 accounts traded | chain so far 99.9966% | 33s
+   CASHCAT delivery-3 2026-10-23:    13,897 firm fills |   43 accounts traded | chain so far 99.9966% | 33s
+   CASHCAT delivery-3 2026-10-24:    20,155 firm fills |   43 accounts traded | chain so far 99.9966% | 34s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== CASHCAT ====================
+   days: missing trade file 69 ['2026-07-18', '2026-07-19', '2026-07-20', '2026-07-21', '2026-07-22'] | days with no firm fills 1
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 1
+   firm fills: 1,777,331 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 57 of 1,029
+   CHAIN: 1,777,077 of 1,777,137 links match = 99.9966%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 150
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 259,452 | one clear order 259,100 | unclear order 352 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 57
+   firm-minute table (traded-account inventory): 525,600 rows, 19 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0xdd53c529...: 48,342,425 CASHCAT
+      firm 0x023a3d05...: 13,861,823 CASHCAT
+      firm 0xecb63caa...: 10,866,760 CASHCAT
+      firm 0x7839e2f2...: 2,419,052 CASHCAT
+      firm 0x57dd78cd...: 1,998,281 CASHCAT
+   (34 seconds)
+

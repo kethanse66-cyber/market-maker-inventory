@@ -1,0 +1,38 @@
+
+BOOK COVERAGE
+   DOGE: missing book days 0 [] | bad rows rejected 0 of 6,682,824 | duplicate minutes 0 | gaps > 10 min 10
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   DOGE     0.1   30 min |       76    21 |    61    14        1 |        17
+   DOGE     0.1   60 min |       52    21 |    44     7        1 |        17
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      DOGE 2026-03-10:   1 /   0
+      DOGE 2026-03-13:   1 /   1
+      DOGE 2026-03-16:   4 /   4
+      DOGE 2026-03-17:   5 /   5
+      DOGE 2026-03-18:   4 /   4
+      DOGE 2026-04-17:   3 /   3
+      DOGE 2026-04-27:   2 /   2
+      DOGE 2026-04-28:   2 /   2
+      DOGE 2026-04-29:   1 /   1
+      DOGE 2026-05-23:   1 /   1
+      DOGE 2026-05-27:   1 /   1
+      DOGE 2026-05-28:   4 /   4
+      DOGE 2026-05-29:   3 /   3
+      DOGE 2026-05-30:   1 /   1
+      DOGE 2026-05-31:   3 /   3
+      DOGE 2026-06-01:   5 /   5
+      DOGE 2026-06-02:   2 /   2
+      DOGE 2026-08-22:   1 /   0
+      DOGE 2026-09-21:   2 /   0
+      DOGE 2026-09-22:   4 /   2
+      DOGE 2026-09-23:   2 /   0
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

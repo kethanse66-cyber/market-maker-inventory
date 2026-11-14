@@ -1,0 +1,74 @@
+   AAVE delivery-3 2026-03-25:     6,800 firm fills |   41 accounts traded | chain so far 100.0000% | 1s
+   AAVE delivery-3 2026-03-26:     7,151 firm fills |   40 accounts traded | chain so far 100.0000% | 2s
+   AAVE delivery-3 2026-03-27:     8,108 firm fills |   44 accounts traded | chain so far 100.0000% | 2s
+   AAVE delivery-3 2026-03-28:     5,652 firm fills |   37 accounts traded | chain so far 100.0000% | 2s
+   AAVE delivery-3 2026-03-30:    13,171 firm fills |   46 accounts traded | chain so far 100.0000% | 3s
+   AAVE delivery-3 2026-03-31:     7,603 firm fills |   44 accounts traded | chain so far 100.0000% | 3s
+   AAVE delivery-3 2026-04-01:     6,366 firm fills |   42 accounts traded | chain so far 100.0000% | 4s
+   AAVE delivery-3 2026-04-02:     6,966 firm fills |   45 accounts traded | chain so far 100.0000% | 4s
+   AAVE delivery-3 2026-04-11:     7,455 firm fills |   43 accounts traded | chain so far 100.0000% | 5s
+   AAVE delivery-3 2026-04-12:     7,508 firm fills |   43 accounts traded | chain so far 100.0000% | 5s
+   AAVE delivery-3 2026-04-13:    12,902 firm fills |   45 accounts traded | chain so far 100.0000% | 6s
+   AAVE delivery-3 2026-04-14:    12,898 firm fills |   44 accounts traded | chain so far 100.0000% | 6s
+   AAVE delivery-3 2026-04-15:    14,712 firm fills |   46 accounts traded | chain so far 100.0000% | 6s
+   AAVE delivery-3 2026-04-16:    18,421 firm fills |   47 accounts traded | chain so far 100.0000% | 7s
+   AAVE delivery-3 2026-04-17:    15,142 firm fills |   44 accounts traded | chain so far 100.0000% | 7s
+   AAVE delivery-3 2026-04-18:    36,881 firm fills |   45 accounts traded | chain so far 100.0000% | 9s
+   AAVE delivery-3 2026-04-19:    80,306 firm fills |   46 accounts traded | chain so far 100.0000% | 10s
+   AAVE delivery-3 2026-04-20:    32,231 firm fills |   46 accounts traded | chain so far 100.0000% | 11s
+   AAVE delivery-3 2026-04-25:     7,868 firm fills |   41 accounts traded | chain so far 100.0000% | 12s
+   AAVE delivery-3 2026-04-26:     9,599 firm fills |   42 accounts traded | chain so far 100.0000% | 12s
+   AAVE delivery-3 2026-04-27:    16,409 firm fills |   43 accounts traded | chain so far 100.0000% | 13s
+   AAVE delivery-3 2026-04-28:     7,172 firm fills |   44 accounts traded | chain so far 100.0000% | 13s
+   AAVE delivery-3 2026-05-08:    13,704 firm fills |   38 accounts traded | chain so far 100.0000% | 14s
+   AAVE delivery-3 2026-05-09:     8,249 firm fills |   42 accounts traded | chain so far 100.0000% | 14s
+   AAVE delivery-3 2026-05-10:    18,619 firm fills |   41 accounts traded | chain so far 100.0000% | 14s
+   AAVE delivery-3 2026-05-11:    13,114 firm fills |   42 accounts traded | chain so far 100.0000% | 15s
+   AAVE delivery-3 2026-05-12:    12,583 firm fills |   42 accounts traded | chain so far 100.0000% | 15s
+   AAVE delivery-3 2026-05-13:     8,558 firm fills |   43 accounts traded | chain so far 100.0000% | 16s
+   AAVE delivery-3 2026-05-14:    10,966 firm fills |   42 accounts traded | chain so far 100.0000% | 16s
+   AAVE delivery-3 2026-05-15:    10,304 firm fills |   42 accounts traded | chain so far 100.0000% | 17s
+   AAVE delivery-3 2026-07-09:    15,036 firm fills |   48 accounts traded | chain so far 100.0000% | 17s
+   AAVE delivery-3 2026-07-10:    13,543 firm fills |   47 accounts traded | chain so far 100.0000% | 18s
+   AAVE delivery-3 2026-07-11:    20,971 firm fills |   49 accounts traded | chain so far 100.0000% | 18s
+   AAVE delivery-3 2026-07-12:     9,397 firm fills |   47 accounts traded | chain so far 100.0000% | 19s
+   AAVE delivery-3 2026-07-13:     7,826 firm fills |   47 accounts traded | chain so far 100.0000% | 19s
+   AAVE delivery-3 2026-07-14:    11,077 firm fills |   52 accounts traded | chain so far 100.0000% | 20s
+   AAVE delivery-3 2026-07-15:     8,109 firm fills |   47 accounts traded | chain so far 100.0000% | 20s
+   AAVE delivery-3 2026-07-16:     7,719 firm fills |   48 accounts traded | chain so far 100.0000% | 20s
+   AAVE delivery-3 2026-07-24:     4,493 firm fills |   55 accounts traded | chain so far 100.0000% | 21s
+   AAVE delivery-3 2026-07-25:     4,711 firm fills |   51 accounts traded | chain so far 100.0000% | 21s
+   AAVE delivery-3 2026-07-26:     9,926 firm fills |   54 accounts traded | chain so far 100.0000% | 22s
+   AAVE delivery-3 2026-07-27:    13,514 firm fills |   55 accounts traded | chain so far 100.0000% | 22s
+   AAVE delivery-3 2026-07-28:    13,006 firm fills |   56 accounts traded | chain so far 100.0000% | 23s
+   AAVE delivery-3 2026-07-29:    26,169 firm fills |   54 accounts traded | chain so far 100.0000% | 24s
+   AAVE delivery-3 2026-07-30:    14,815 firm fills |   53 accounts traded | chain so far 100.0000% | 24s
+   AAVE delivery-3 2026-07-31:    14,064 firm fills |   55 accounts traded | chain so far 100.0000% | 25s
+   AAVE delivery-3 2026-08-01:    14,310 firm fills |   56 accounts traded | chain so far 100.0000% | 25s
+   AAVE delivery-3 2026-08-19:    18,893 firm fills |   58 accounts traded | chain so far 99.9997% | 26s
+   AAVE delivery-3 2026-08-20:    20,797 firm fills |   57 accounts traded | chain so far 99.9997% | 27s
+   AAVE delivery-3 2026-08-21:    81,859 firm fills |   61 accounts traded | chain so far 99.9997% | 28s
+   AAVE delivery-3 2026-08-22:    68,000 firm fills |   61 accounts traded | chain so far 99.9998% | 29s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== AAVE ====================
+   days: missing trade file 100 ['2026-03-29', '2026-04-03', '2026-04-04', '2026-04-05', '2026-04-06'] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 835,653 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 79 of 1,029
+   CHAIN: 835,237 of 835,239 links match = 99.9998%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 350
+   DATA COMPLETENESS: CHECK (no missing days, no duplicates)
+   OVERALL: CHECK
+   same-millisecond groups: 100,543 | one clear order 100,515 | unclear order 28 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 74
+   firm-minute table (traded-account inventory): 1,527,840 rows, 28 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x023a3d05...: 38,916 AAVE
+      firm 0x51f63885...: 27,697 AAVE
+      firm 0x57dd78cd...: 17,230 AAVE
+      firm 0xe86b057f...: 16,045 AAVE
+      firm 0xecb63caa...: 15,704 AAVE
+   (30 seconds)
+

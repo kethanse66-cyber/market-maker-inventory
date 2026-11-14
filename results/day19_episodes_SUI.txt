@@ -1,0 +1,66 @@
+
+BOOK COVERAGE
+   SUI: missing book days 0 [] | bad rows rejected 0 of 8,361,026 | duplicate minutes 0 | gaps > 10 min 10
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   SUI    0.95   30 min |       41    13 |    31     6        4 |        11
+   SUI    0.95   60 min |       33    13 |    23     6        4 |        11
+   SUI       1   30 min |       88    25 |    74    12        2 |        22  <- MAIN
+   SUI       1   60 min |       61    25 |    53     6        2 |        21  <- MAIN
+   SUI    1.05   30 min |       66    19 |    61     5        0 |        18
+   SUI    1.05   60 min |       42    19 |    39     3        0 |        17
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      SUI 2026-03-10:   7 /   1
+      SUI 2026-03-11:   4 /   4
+      SUI 2026-03-13:   3 /   3
+      SUI 2026-03-14:   2 /   2
+      SUI 2026-03-15:   3 /   3
+      SUI 2026-03-16:   3 /   3
+      SUI 2026-03-17:   1 /   1
+      SUI 2026-03-18:   1 /   1
+      SUI 2026-03-19:   2 /   2
+      SUI 2026-04-15:   1 /   1
+      SUI 2026-04-16:   2 /   2
+      SUI 2026-04-17:   4 /   4
+      SUI 2026-04-18:   2 /   2
+      SUI 2026-04-19:   5 /   5
+      SUI 2026-05-05:   1 /   1
+      SUI 2026-05-06:   3 /   3
+      SUI 2026-05-07:   3 /   3
+      SUI 2026-05-09:   4 /   4
+      SUI 2026-05-22:   1 /   1
+      SUI 2026-05-23:   3 /   3
+      SUI 2026-05-24:   1 /   1
+      SUI 2026-05-25:   4 /   4
+      SUI 2026-05-26:   3 /   3
+      SUI 2026-05-27:   6 /   6
+      SUI 2026-05-28:   1 /   1
+      SUI 2026-09-21:   7 /   1
+      SUI 2026-09-22:   4 /   0
+      SUI 2026-09-23:   2 /   0
+      SUI 2026-09-24:   5 /   2
+      SUI 2026-09-25:   2 /   2
+      SUI 2026-10-08:   3 /   3
+      SUI 2026-10-09:   2 /   2
+      SUI 2026-10-12:   1 /   1
+      SUI 2026-10-13:   6 /   6
+      SUI 2026-10-14:   4 /   4
+      SUI 2026-10-15:   4 /   4
+      SUI 2026-10-16:   4 /   4
+      SUI 2026-10-17:   2 /   2
+      SUI 2026-10-18:   2 /   2
+      SUI 2026-10-19:   7 /   7
+      SUI 2026-10-20:   2 /   2
+      SUI 2026-10-21:   1 /   1
+      SUI 2026-10-22:   2 /   2
+      SUI 2026-10-23:   3 /   3
+      SUI 2026-10-24:   3 /   3
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

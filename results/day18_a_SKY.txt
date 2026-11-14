@@ -1,0 +1,27 @@
+   SKY delivery-3 2026-10-03:     9,633 firm fills |   33 accounts traded | chain so far 99.9792% | 1s
+   SKY delivery-3 2026-10-04:    10,669 firm fills |   33 accounts traded | chain so far 99.9901% | 1s
+   SKY delivery-3 2026-10-05:    20,409 firm fills |   38 accounts traded | chain so far 99.9951% | 2s
+   SKY delivery-3 2026-10-06:    13,282 firm fills |   36 accounts traded | chain so far 99.9963% | 2s
+
+WALLET LIST: 1,029 rows | empty wallet/firm 0 | duplicate wallets 0 | wallets in 2+ firms 0
+Firms: 62 | firm accounts: 1,029
+
+==================== SKY ====================
+   days: missing trade file 0 [] | days with no firm fills 0
+   look-alike fills (same order hit twice at once; same 'before' reported on both): 0
+   firm fills: 53,993 | true duplicates (same trade id) 0 (want 0) | accounts that traded: 38 of 1,029
+   CHAIN: 53,953 of 53,955 links match = 99.9963%  -> PASS (want >= 99.9%)
+      accounts whose baseline restarted after a missing day: 0
+   DATA COMPLETENESS: PASS (no missing days, no duplicates)
+   OVERALL: PASS
+   same-millisecond groups: 5,090 | one clear order 5,087 | unclear order 3 (positions still add up; only the order inside the ms is unknown)
+   accounts below 99% (with 50+ links): 0 of 18
+   firm-minute table (traded-account inventory): 50,400 rows, 9 firms
+   largest firm positions ever held (absolute, in coins):
+      firm 0x7717a7a2...: 8,186,887 SKY
+      firm 0xe86b057f...: 1,516,379 SKY
+      firm 0x7839e2f2...: 693,055 SKY
+      firm 0x399965e1...: 622,369 SKY
+      firm 0xf27ebb91...: 252,072 SKY
+   (2 seconds)
+

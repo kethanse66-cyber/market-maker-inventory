@@ -1,0 +1,63 @@
+
+BOOK COVERAGE
+   XPL: missing book days 0 [] | bad rows rejected 0 of 13,359,269 | duplicate minutes 0 | gaps > 10 min 23
+
+CROSSING EPISODES BY BOOK QUALITY (window = episode +- 30 min)
+   (decision 1 counted SOL 100: 70 episodes, XRP 1.00: 59 - our counts should be close)
+   merge 30 min and 60 min are two settings: with 60 min, any two windows that overlap are one episode
+
+   coin level   merge | episodes  days |  GOOD  POOR  UNKNOWN | GOOD days
+   XPL     0.1   30 min |      162    46 |   142    15        5 |        43
+   XPL     0.1   60 min |      112    46 |    98    11        3 |        42
+
+   MAIN episodes by day (merge 60 min): day: total / good
+      XPL 2026-03-10:   2 /   0
+      XPL 2026-03-11:   7 /   7
+      XPL 2026-03-12:   2 /   2
+      XPL 2026-03-19:   3 /   3
+      XPL 2026-03-20:   5 /   5
+      XPL 2026-03-25:   5 /   5
+      XPL 2026-03-26:   1 /   1
+      XPL 2026-04-01:   1 /   1
+      XPL 2026-04-21:   1 /   1
+      XPL 2026-04-23:   5 /   5
+      XPL 2026-04-24:   4 /   4
+      XPL 2026-04-25:   5 /   5
+      XPL 2026-04-26:   2 /   2
+      XPL 2026-04-27:   1 /   1
+      XPL 2026-05-06:   3 /   3
+      XPL 2026-05-07:   2 /   2
+      XPL 2026-05-12:   2 /   1
+      XPL 2026-05-13:   2 /   2
+      XPL 2026-05-14:   1 /   1
+      XPL 2026-05-29:   1 /   1
+      XPL 2026-06-03:   2 /   2
+      XPL 2026-06-17:   1 /   1
+      XPL 2026-06-18:   3 /   3
+      XPL 2026-06-19:   4 /   4
+      XPL 2026-06-20:   1 /   1
+      XPL 2026-06-25:   1 /   1
+      XPL 2026-06-26:   4 /   4
+      XPL 2026-06-28:   2 /   2
+      XPL 2026-06-29:   1 /   1
+      XPL 2026-06-30:   2 /   2
+      XPL 2026-07-03:   2 /   2
+      XPL 2026-07-07:   1 /   1
+      XPL 2026-08-21:   3 /   3
+      XPL 2026-08-22:   2 /   2
+      XPL 2026-08-23:   1 /   1
+      XPL 2026-08-24:   5 /   5
+      XPL 2026-08-25:   1 /   1
+      XPL 2026-09-04:   1 /   0
+      XPL 2026-09-08:   2 /   2
+      XPL 2026-09-09:   1 /   1
+      XPL 2026-09-21:   3 /   1
+      XPL 2026-09-24:   2 /   0
+      XPL 2026-09-28:   4 /   1
+      XPL 2026-09-29:   4 /   2
+      XPL 2026-09-30:   1 /   0
+      XPL 2026-10-02:   3 /   3
+
+Saved E:\p3\data\episodes_d3.csv
+Reading it: if most MAIN episodes are GOOD, the Hyperliquid book is fine as the primary price.
+If many are POOR, the main test uses Binance prices in those hours (the fuzzy design in the plan).

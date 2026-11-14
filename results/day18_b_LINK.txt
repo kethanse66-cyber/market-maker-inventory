@@ -1,0 +1,29 @@
+   LINK 2026-03-15: day delay +0.250 s | crossed at that delay 0.08% | 3s
+   LINK 2026-03-16: day delay +0.250 s | crossed at that delay 0.10% | 7s
+   LINK 2026-03-17: day delay +0.250 s | crossed at that delay 0.09% | 10s
+   LINK 2026-03-18: day delay +0.250 s | crossed at that delay 0.10% | 13s
+   LINK 2026-05-05: day delay +0.250 s | crossed at that delay 0.07% | 16s
+   LINK 2026-05-06: day delay +0.250 s | crossed at that delay 0.09% | 18s
+   LINK 2026-05-07: day delay +0.250 s | crossed at that delay 0.12% | 21s
+   LINK 2026-05-08: day delay +0.250 s | crossed at that delay 0.10% | 24s
+   LINK 2026-05-09: day delay +0.250 s | crossed at that delay 0.08% | 26s
+   LINK 2026-05-14: day delay +0.250 s | crossed at that delay 0.12% | 29s
+   LINK 2026-05-15: day delay +0.250 s | crossed at that delay 0.13% | 32s
+   LINK 2026-05-16: day delay +0.250 s | crossed at that delay 0.08% | 35s
+   LINK 2026-05-17: day delay +0.250 s | crossed at that delay 0.10% | 38s
+   LINK 2026-05-21: day delay +0.250 s | crossed at that delay 0.10% | 40s
+   LINK 2026-05-22: day delay +0.250 s | crossed at that delay 0.13% | 44s
+   LINK 2026-05-23: day delay +0.250 s | crossed at that delay 0.09% | 46s
+   LINK 2026-08-18: day delay +0.625 s | crossed at that delay 0.32% | 49s
+   LINK 2026-08-19: day delay +0.375 s | crossed at that delay 0.65% | 53s
+   LINK 2026-08-20: day delay +0.500 s | crossed at that delay 0.58% | 57s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   LINK: 456 hours | measured directly 444 | from the day 12 | default 0.25 s 0
+      delay: median +0.250 s | middle 50% +0.250 to +0.250 s | at 1 s or more: 0.5% of hours
+      quotes still crossed at the best delay: median 0.10% | hours above 2%: 0.0% (poor book data, flagged)
+      median delay by month: 2026-03 +0.25 s | 2026-05 +0.25 s | 2026-08 +0.50 s
+      worst hours: 2026-08-19 21h (1.8% at +0.38 s), 2026-08-19 20h (1.4% at +0.25 s), 2026-08-20 13h (1.2% at +0.88 s), 2026-08-19 13h (1.2% at +0.50 s), 2026-08-19 15h (1.1% at +0.38 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (57 seconds)

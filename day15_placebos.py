@@ -77,11 +77,15 @@ def load(ep):
         mids = med.reindex(np.arange(W0 - 60, W1 + 1))
         no_book = int(mids.loc[W0:].isna().sum())
         if no_book > M // 2:
-            sys.exit(f"STOP: episode {coin} {e.day}: {no_book} of {M} minutes have no book mid - check {BOOK}")
+            log(f"   {coin} {L:g}: episode {e.day} {e.start:%H:%M} SKIPPED - {no_book} of {M} minutes without book data")
+            drop["skipped_no_book"] = drop.get("skipped_no_book", 0) + 1
+            continue
         # a minute without a snapshot keeps the LAST KNOWN label (past data only, never a later minute)
         mids = mids.ffill().loc[W0:W1]
         if mids.isna().any():
-            sys.exit(f"STOP: episode {coin} {e.day}: no book mid in the hour before the window start")
+            log(f"   {coin} {L:g}: episode {e.day} {e.start:%H:%M} SKIPPED - window starts inside a book gap")
+            drop["skipped_no_book"] = drop.get("skipped_no_book", 0) + 1
+            continue
         lab = (mids.to_numpy() >= L).astype(np.int8)
         n_up, n_dn = int(lab.sum()), int(M - lab.sum())
         rotate = n_up >= MIN_MIN and n_dn >= MIN_MIN
@@ -160,6 +164,8 @@ def load(ep):
                             makers=q["maker"].nunique()))
         log(f"   {coin} {L:g}: episode {k + 1}/{len(ep)} {e.day}: {len(q):,} quotes | {time.time() - t0:,.0f}s")
 
+    if not parts:
+        return None
     D = pd.concat(parts, ignore_index=True)
     if len(D) < 1000 or D["maker"].nunique() < 5 or D["bid"].nunique() < 2:
         return None
@@ -231,9 +237,14 @@ RUNS = [("SOL", 100.0, "REAL"), ("XRP", 1.0, "REAL")] + [("SOL", x, "placebo") f
        [("XRP", x, "placebo") for x in (1.10, 1.30, 1.40, 1.50) + tuple(float(v) for v in os.environ.get("P3_TEST_LEVELS", "").split() if v)]
 RUNS += [(x.split(":")[0].upper(), float(x.split(":")[1]), "placebo")              # e.g. P3_EXTRA="PENGU:0.01"
          for x in os.environ.get("P3_EXTRA", "").split() if x]
+RUNS += [(x.split(":")[0].upper(), float(x.split(":")[1]), "REAL")                # replication boundaries
+         for x in os.environ.get("P3_EXTRA_REAL", "").split() if x]
 ONLY = os.environ.get("P3_ONLY", "")                               # e.g. "XRP" to re-run only XRP levels
 if ONLY:
     RUNS = [r for r in RUNS if r[0] == ONLY or ONLY in r[0].split("+")]
+CO = os.environ.get("P3_COINS_ONLY", "").split()                  # e.g. the replication coins
+if CO:
+    RUNS = [r for r in RUNS if r[0] in CO]
 LV = [float(x) for x in os.environ.get("P3_LEVELS", "").split()]  # e.g. "1.1 1.3" to re-run only those levels
 if LV:
     RUNS = [r for r in RUNS if any(np.isclose(r[1], x) for x in LV)]
@@ -272,12 +283,23 @@ for coin, lvl, kind in RUNS:
             log(f"   {tag}: shuffle {r + 1}/{DRAWS_P}")
         k = np.where(ROT, rng.integers(1, np.maximum(MM, 2)), 0)
         a = labels(k)
-        dr[r] = [f.beta(a)[j] for f, j in outs.values()]
+        row = []
+        for f, j in outs.values():
+            try:
+                row.append(f.beta(a)[j])
+            except np.linalg.LinAlgError:          # a rotation left no above/below contrast: not estimable
+                row.append(np.nan)
+        dr[r] = row
+    if drop.get("skipped_no_book"):
+        print(f"\n   {tag}: {drop['skipped_no_book']} episode(s) skipped - window inside an order-book outage")
     print(f"\n   {tag}: {len(EP)} episodes ({int(ROT.sum())} rotated) on {EP['day'].nunique()} days | "
           f"{len(D):,} quotes, {D['maker'].nunique()} makers | {time.time() - t00:,.0f}s")
     for i, n in enumerate(outs):
-        sd = dr[:, i].std()
-        p = (1 + np.sum(np.abs(dr[:, i]) >= abs(est[n]))) / (DRAWS_P + 1)
+        v = dr[:, i][np.isfinite(dr[:, i])]
+        sd = v.std() if len(v) else np.nan
+        p = (1 + np.sum(np.abs(v) >= abs(est[n]))) / (len(v) + 1)
+        if len(v) < DRAWS_P:
+            print(f"      ({n}: {DRAWS_P - len(v)} of {DRAWS_P} shuffles could not be estimated and are left out)")
         lim = 0.25 * abs(MAIN[n])
         lo, hi = est[n] - 1.645 * sd, est[n] + 1.645 * sd
         ok = (lo >= -lim) and (hi <= lim)

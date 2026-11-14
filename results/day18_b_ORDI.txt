@@ -1,0 +1,13 @@
+   ORDI 2026-04-16: day delay +0.125 s | crossed at that delay 0.02% | 4s
+   ORDI 2026-04-17: day delay +0.000 s | crossed at that delay 0.01% | 8s
+   ORDI 2026-04-18: day delay +0.125 s | crossed at that delay 0.01% | 11s
+
+BOOK CLOCK DELAY, MEASURED HOUR BY HOUR
+
+   ORDI: 72 hours | measured directly 72 | from the day 0 | default 0.25 s 0
+      delay: median +0.000 s | middle 50% +0.000 to +0.125 s | at 1 s or more: 0.0% of hours
+      quotes still crossed at the best delay: median 0.01% | hours above 2%: 0.0% (poor book data, flagged)
+      median delay by month: 2026-04 +0.00 s
+      worst hours: 2026-04-16 16h (0.1% at +0.12 s), 2026-04-17 01h (0.0% at +0.00 s), 2026-04-17 11h (0.0% at +0.12 s), 2026-04-16 12h (0.0% at -0.12 s), 2026-04-17 00h (0.0% at +0.00 s)
+
+Saved E:\p3\data\book_lag_d3.csv  (11 seconds)
