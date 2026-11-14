@@ -23,7 +23,8 @@ BOOK = os.environ.get("P3_BOOK", r"E:\hl_data\book")
 BIN = os.environ.get("P3_BINANCE", r"E:\hl_data\binance")
 DATA = os.environ.get("P3_DATA", r"E:\p3\data")
 OUT = os.environ.get("P3_RESULTS", r"E:\p3\results")
-COINS = os.environ.get("P3_COINS", "SOL,XRP,BTC,ETH,HYPE").split(",")   # env only for testing
+COINS = [c.upper() for c in sys.argv[1:]] or os.environ.get("P3_COINS", "SOL,XRP,BTC,ETH,HYPE").split(",")
+SUFFIX = "_replication" if sys.argv[1:] else ""          # other coins never overwrite the frozen 5-coin results
 CAP, STALE_S, H_MAIN, HS = 5.0, 5, 5, (1, 5, 15, 60)
 NS = 1_000_000_000
 MIN_NS = 60 * NS
@@ -96,6 +97,9 @@ frames, cover = [], []
 for coin in COINS:
     fmf = os.path.join(INV, f"{coin}_firm_minute.parquet")
     if not os.path.exists(fmf):
+        if SUFFIX:
+            log(f"   {coin}: no firm-minute inventory file - skipped")
+            continue
         sys.exit(f"STOP: {fmf} not found")
     fm = pd.read_parquet(fmf)
     fm["m"] = (pd.to_datetime(fm["minute"], utc=True) - pd.Timestamp(0, tz="UTC")) // pd.Timedelta(minutes=1)  # any unit
@@ -170,7 +174,7 @@ if not frames:
     sys.exit("STOP: no coin has both maker inventory and Binance prices")
 A = pd.concat(frames, ignore_index=True)
 os.makedirs(OUT, exist_ok=True)
-A.drop(columns=["lhl", "lbn"]).to_parquet(os.path.join(OUT, "part1_pressure_minutes.parquet"), index=False)
+A.drop(columns=["lhl", "lbn"]).to_parquet(os.path.join(OUT, f"part1_pressure_minutes{SUFFIX}.parquet"), index=False)
 
 
 def pval(t):
@@ -193,7 +197,10 @@ def fit(y, xs, data=None, coins=None):
     X = np.column_stack([dm(d[x].to_numpy(float)) for x in xs])
     Y = dm(d[y].to_numpy(float))
     Xw = X * w[:, None]
-    Ai = np.linalg.inv(Xw.T @ X)
+    M = Xw.T @ X
+    if np.linalg.cond(M) > 1e10:                         # (near-)singular design, e.g. a coin with too few days
+        return None
+    Ai = np.linalg.inv(M)
     beta = Ai @ (Xw.T @ Y)
     e = Y - X @ beta
     cl = pd.factorize(d["day"])[0]
@@ -218,7 +225,8 @@ def show(lab, r, j=0, test=""):
     return beta[j], p
 
 
-print("PRICE PRESSURE TEST (prereg-v7) - does makers' inventory move the Hyperliquid price vs Binance?")
+print("PRICE PRESSURE TEST (prereg-v7) - does makers' inventory move the Hyperliquid price vs Binance?"
+      + ("  [descriptive replication]" if SUFFIX else "  [CONFIRMATORY]"))
 print("   z = makers' summed position in sd units (+ = makers long); B = Hyperliquid minus Binance, bp")
 print("   coverage: " + " | ".join(f"{c['coin']} {c.get('with_z_and_B', 0):,} of {c['minutes']:,} minutes" for c in cover))
 print(f"   basis B: median |B| {A['B'].abs().median():.2f} bp, sd of B within coin-day "
@@ -230,7 +238,7 @@ print("\nH7b  REVERSAL: B(t+5) - B(t) on z + past 5-min returns  (predicts b > 0
 rb = show("b: next-5-min HL-minus-Binance return per sd", fit("dB5", ["z", "r_hl_past", "r_bn_past"]), test="H7b")
 if ra and rb:
     a_ok, b_ok = ra[0] < 0 and ra[1] < 0.05, rb[0] > 0 and rb[1] < 0.05
-    v = ("SUPPORTED - makers' inventory moves the Hyperliquid price, and the move reverses" if a_ok and b_ok else
+    v = ("(replication) " if SUFFIX else "") + ("SUPPORTED - makers' inventory moves the Hyperliquid price, and the move reverses" if a_ok and b_ok else
          "PARTIAL - level only (H7a)" if a_ok else "PARTIAL - reversal only (H7b)" if b_ok else "NOT SUPPORTED")
     print(f"\n   VERDICT (H7a and H7b): {v}")
 
@@ -241,7 +249,7 @@ for h in HS:
         show(f"H7b at h = {h} min", fit(f"dB{h}", ["z", "r_hl_past", "r_bn_past"]), test=f"H7b h={h}")
 show("Hyperliquid's own next-5-min return per sd", fit("r_hl_fut", ["z", "r_hl_past", "r_bn_past"]), test="HL own return")
 print("   each coin (H7a level | H7b reversal):")
-for c in COINS:
+for c in [c for c in COINS if c in set(A["coin"])]:
     r1, r2 = fit("B", ["z"], coins=[c]), fit("dB5", ["z", "r_hl_past", "r_bn_past"], coins=[c])
     if r1 is not None and r2 is not None:
         print(f"      {c:<5} a {r1[0][0]:+.4f} (p {pval(r1[0][0] / r1[1][0]):.3f}) | b {r2[0][0]:+.4f} "
@@ -259,5 +267,5 @@ r = fit("dB5", ["zn", "zh", "r_hl_past", "r_bn_past"])
 if r is not None:
     show("reversal b, NATIVE firms' inventory", r, 0, test="natives b")
     show("reversal b, HEDGER firms' inventory", r, 1, test="hedgers b")
-pd.DataFrame(rows).to_csv(os.path.join(OUT, "part1_pressure.csv"), index=False)
-print(f"\nSaved part1_pressure.csv and part1_pressure_minutes.parquet in {OUT} | {(time.time() - t00) / 60:.0f} min")
+pd.DataFrame(rows).to_csv(os.path.join(OUT, f"part1_pressure{SUFFIX}.csv"), index=False)
+print(f"\nSaved part1_pressure{SUFFIX}.csv and part1_pressure_minutes{SUFFIX}.parquet in {OUT} | {(time.time() - t00) / 60:.0f} min")
