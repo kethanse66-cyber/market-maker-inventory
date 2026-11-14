@@ -1,7 +1,18 @@
 # Pre-registration addendum v4: does TICK SIZE decide how makers manage inventory?
 
-**Status:** frozen on November 14, 2026 (git tag `prereg-v4`), before Part 1 tables exist for any coin other than
-SOL, XRP, BTC, ETH, HYPE, and before any test below was run.
+**Status: WITHDRAWN on November 14, 2026, before any test below was run** (the tag `prereg-v4` marks the
+original text, unchanged below). Reasons, found while writing the code:
+1. Test B is not new. It is the confirmatory test of `prereg-v1` (side response x large tick at the boundary),
+   already run on November 13: tau = +0.0037, p = 0.416, a null that replicated on 9 delivery-3 coins. The price
+   version is the `prereg-v1` secondary outcome, whose boundary effect failed the PENGU placebo. Re-registering a
+   test with a known result would not be confirmatory.
+2. The motivating pattern in section 0 is a unit artifact. Converted from ticks to basis points, price shading
+   per sd of q is about the same in all five coins (SOL -0.05, XRP -0.04, BTC -0.05, ETH -0.05, HYPE -0.06 bp);
+   it only looked larger in ticks where the tick is small.
+No analysis in this addendum was run. The delivery-3 Part 1 tables built afterwards are used only as a descriptive
+out-of-sample replication of the prereg-v3 T1 result, labelled as such.
+
+---
 
 ## 0. What is already known (NOT results of this addendum)
 Part 1 (prereg-v3) on five coins: makers respond to inventory mainly by quote side, and price shading is under one
