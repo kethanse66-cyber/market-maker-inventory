@@ -1,12 +1,4 @@
-"""Day 3: rebuild one wallet's open orders for one day, starting from the snapshot.
-
-Run:  python E:\\p3\\day3_rebuild.py > E:\\p3\\day3_output.txt
-
-Idea: snapshot (photo of resting orders on May 31, 23:58:55) + every event after it.
-'open' adds an order to the window; an ending status removes it. Every ending and every fill
-must point to an order we already know (from the photo or an earlier 'open').
-We use the EARLIEST snapshot on purpose: June 1 comes right after it.
-"""
+"""Day 3: rebuild one wallet's open orders for one day, starting from the snapshot."""
 import os
 import sys
 
@@ -41,7 +33,7 @@ print("   snapshot: " + ", ".join(cols))
 print("   trades:   " + ", ".join(c[0] for c in con.execute(f"DESCRIBE SELECT * FROM {TRD}").fetchall()))
 size_col = "size" if "size" in cols else None
 
-# ---------- 1. the photo we start from (the earliest snapshot = May 31) ----------
+# ---------- 1
 snap_time, snap_block = con.execute(f"""
     SELECT CAST(snapshot_time AS VARCHAR), MAX(last_block_number) FROM {SNAP}
     GROUP BY 1 ORDER BY 2 LIMIT 1""").fetchone()
@@ -56,7 +48,7 @@ print(f"   first order event after it: block {first_ev[0]:,} at {first_ev[1]} "
 
 WIN = f"block_number > {snap_block} AND timestamp < TIMESTAMP '{NEXT} 00:00:00'"
 
-# ---------- 2. pick the wallet: busiest maker that is in the photo ----------
+# ---------- 2
 wallet, n_open = con.execute(f"""
     SELECT user_address, COUNT(DISTINCT oid) FROM {ORD}
     WHERE status = 'open' AND {WIN}
@@ -98,13 +90,13 @@ ends = E[~E["status"].isin(NOT_ENDINGS)]
 fe = (ends.sort_values(["block_number", "seq"])                     # the real first ending row
       .drop_duplicates("oid", keep="first").set_index("oid")["block_number"])
 
-# ---------- 4. THE TEST: every ending and every fill hits a known order ----------
-# endings: same file as the opens, so we can order exactly by (block, seq)
+# ---------- 4
+# endings: same file as the opens, so we can order exactly by
 b, s = ends["oid"].map(fo["block_number"]), ends["oid"].map(fo["seq"])
 end_ok = ends["oid"].isin(in_photo) | (b < ends["block_number"]) | \
          ((b == ends["block_number"]) & (s < ends["seq"]))
 # fills: the trade file has no seq comparable with the order file, so within one block we cannot
-# tell the order. Each fill must come after the order's birth AND not after its ending.
+# tell the order
 fb, eb, blk = F["oid"].map(fo["block_number"]), F["oid"].map(fe), F["block_number"]
 born_before = F["oid"].isin(in_photo) | (fb < blk)
 born_same = ~born_before & (fb == blk)

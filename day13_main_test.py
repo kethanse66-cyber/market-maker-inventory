@@ -1,31 +1,4 @@
-"""Day 13 (Nov 13): THE MAIN TEST - frozen rules of PREREGISTRATION.md (tag prereg-v1), sections 2, 4 and 5.
-
-Run:  python E:\\p3\\day13_main_test.py > E:\\p3\\results\\day13_output.txt
-      (about 10-60 minutes; progress goes to the screen)
-Saves (in E:\\p3\\results, outside data/ so the frozen manifest is untouched):
-  main_result.csv     tau for SOL+XRP pooled (confirmatory), SOL alone, XRP alone, with all p-values
-  main_draws.csv      the 2,000 circular-shift draws (tau pooled / SOL / XRP)
-  main_episodes.csv   per episode: minutes above/below, rotated or fixed, quotes, makers
-  main_sample.parquet the analysis sample (for the robustness scripts later)
-
-The question: when the tick is 10x coarser (SOL at/above $100, XRP at/above $1.00), do makers lean MORE
-on quote side to unwind inventory?  tau < 0 = yes.  Two-sided test, 5%.
-
-Model (section 4), one row per quote, every maker weighted equally:
-    bid = b*q + c*above + tau*(q x above) + d*vol5 + e*(vol5 x above) + FE(maker x episode)
-Sample (section 2): 31 good-book episodes (merge 60 min), +-30 min windows, good-book hours, outside gaps,
-not crossing, within 5 bp of the maker's own best, straddle excluded, |mid - boundary| <= 0.5% of it,
-q from the full previous 24 h (1,440 minutes) capped at +-5, vol5 as in the frozen balance code.
-Inference (section 5): each episode cut into 1-minute blocks; a minute is "above" if the median Hyperliquid
-book mid in that minute is at/above the boundary; every quote takes its minute's label. Each draw rotates
-every episode's label sequence by its own random offset (episodes with < 5 above or < 5 below minutes keep
-their real labels); 2,000 draws, seed 20261112; p = (1 + #|tau_draw| >= |tau_obs|) / 2,001.
-The observed tau that the draws are compared with uses the SAME minute labels (offset 0). The tau with each
-quote's own mid (section 4 wording) is printed next to it; the two differ only for quotes in minutes where
-the mid crossed the boundary.
-Secondary (shown, never decisive): day-clustered t, wild cluster bootstrap (Webb weights, null imposed,
-1,999 draws), and the June-pilot null share from power_check.csv.
-"""
+"""Main tick test (prereg-v1): does a 10x tick change the side response?"""
 import glob
 import os
 import sys
@@ -53,7 +26,7 @@ def log(s):
     print(s, file=sys.stderr, flush=True)
 
 
-# ---------------------------------------------------------------- 1. episodes
+# ---------------------------------------------------------------- 1
 ep = pd.read_csv(EPISODES, parse_dates=["start", "end"])
 ep = ep[ep["coin"].isin(LEVEL) & (ep["level"] == ep["coin"].map(LEVEL)) & ep["good"].astype(bool)]
 ep = ep[ep["merge_min"] == 60].sort_values(["coin", "start"]).reset_index(drop=True)
@@ -75,7 +48,7 @@ def near_days(t0, t1):
                   {t1.strftime("%Y-%m-%d")})
 
 
-# ---------------------------------------------------------------- 2. sample, episode by episode
+# ---------------------------------------------------------------- 2
 parts, ep_rows, lab_all, lab_off = [], [], [], []
 drop = dict(no_q=0, no_vol=0, outside_window=0, straddle=0)
 t0 = time.time()
@@ -86,7 +59,7 @@ for e in ep.itertuples():
     M = int(W1 - W0 + 1)
     days = near_days(pd.Timestamp(W0 * MIN_NS, tz="UTC"), pd.Timestamp(W1 * MIN_NS, tz="UTC"))
 
-    # minute labels from the Hyperliquid book: median mid in the minute >= boundary
+    # minute labels from the Hyperliquid book
     bf = [os.path.join(BOOK, coin, f"{coin}_{d}.parquet") for d in days]
     bf = [f for f in bf if os.path.exists(f)]
     if not bf:
@@ -99,7 +72,7 @@ for e in ep.itertuples():
     no_book = int(mids.loc[W0:].isna().sum())
     if no_book > M // 2:
         sys.exit(f"STOP: episode {coin} {e.day}: {no_book} of {M} minutes have no book mid - check {BOOK}")
-    # a minute without a snapshot keeps the LAST KNOWN label (past data only, never a later minute)
+    # a minute without a snapshot keeps the LAST KNOWN label
     mids = mids.ffill().loc[W0:W1]
     if mids.isna().any():
         sys.exit(f"STOP: episode {coin} {e.day}: no book mid in the hour before the window start")
@@ -107,7 +80,7 @@ for e in ep.itertuples():
     n_up, n_dn = int(lab.sum()), int(M - lab.sum())
     rotate = n_up >= MIN_MIN and n_dn >= MIN_MIN
 
-    # quotes: window + 5 min before (volatility), all quotes for the mid series
+    # quotes: window + 5 min before
     qf = files_for(QUOTES, coin, days)
     if not qf:
         sys.exit(f"STOP: no quote files for {coin} on {days} in {QUOTES}")
@@ -206,7 +179,7 @@ for c, g in EP.groupby("coin"):
           f"minutes above {int(g['above_min'].sum())}, below {int(g['below_min'].sum())}")
 
 
-# ---------------------------------------------------------------- 3. the estimator
+# ---------------------------------------------------------------- 3
 class Fit:
     """Weighted LS of bid on [q, a, q*a, v, v*a] with maker x episode FE; only a (the label) changes per draw."""
 
@@ -306,7 +279,7 @@ a_obs = {"POOLED": ALL.labels(k0), **{c: f.labels(k0) for c, f in SUB.items()}}
 fits = {"POOLED": ALL, **SUB}
 obs = {name: fits[name].beta(a_obs[name]) for name in fits}
 
-# ---------------------------------------------------------------- 4. circular-shift randomization
+# ---------------------------------------------------------------- 4
 rng = np.random.default_rng(SEED)
 draws = np.empty((DRAWS, 3))
 t1 = time.time()

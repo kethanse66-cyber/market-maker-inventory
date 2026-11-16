@@ -1,22 +1,4 @@
-"""Day 10b: re-label hedgers with p-values CALIBRATED on the placebo (no new data, ~10 seconds).
-
-Run:  python E:\\p3\\day10b_calibrate.py > E:\\p3\\day10b_output.txt
-Reads/updates: E:\\p3\\data\\natives.csv  (adds p_cal_*, sig_cal_*, label_cal; keeps the old columns)
-
-Why: in Day 10 the placebo (flow paired with Binance from OTHER days, so no real link exists) gave
-p < 5% far more often than 5% for some coins (SOL 1 s 19%, HYPE 10 s 19%), so the plain Granger p-values
-are too small there and some HEDGER labels are false alarms.
-Fix (a permutation test): for each coin and speed, a unit's calibrated p = the share of placebo tests
-that came out at least as extreme as its real test:  p_cal = (1 + #placebo p <= p) / (1 + #placebo).
-By construction p_cal is right-sized whatever went wrong in the plain test.
-Two labels, same rules otherwise (decisions 18 and 19):
-  label_cal      PRIMARY - each test at the 5% level (decision 18 as written), p_cal <= 0.05. About 5%
-                 of accounts per test can be false hedgers; the two speeds overlap, so less than 10% in all.
-  label_cal_fdr  STRICTER - Benjamini-Hochberg FDR at 5% within coin x level x speed. With a few hundred
-                 placebo tests the smallest possible p_cal is ~0.002, so FDR over 100-250 accounts can
-                 rarely pass: it is shown as the conservative bound, not used for the split.
-The placebo tests come from accounts; sleeve and firm units use the same coin x speed placebo set.
-"""
+"""Recalibrate the hedger p-values on the placebo and update data/natives.csv."""
 import os
 
 import numpy as np

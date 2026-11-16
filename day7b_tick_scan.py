@@ -1,15 +1,4 @@
-"""Day 7b: which Hyperliquid coins crossed a 10x tick boundary, and when? Free (public API). ~10 minutes.
-
-Run:  python E:\\p3\\day7b_tick_scan.py > E:\\p3\\day7b_output.txt
-Saves: E:\\p3\\data\\tick_scan.csv   (one row per coin x boundary)
-
-Rule (Hyperliquid docs): prices have 5 significant figures and at most 6 - szDecimals decimals. So the tick
-jumps 10x when the price crosses a power of ten - unless the decimals cap already binds on both sides.
-For every perp we test each power of ten it traded near between Mar 10 and Oct 25, 2026 (order history
-exists from Mar 10), using hourly candles (4-hour candles where hourly are no longer served).
-An EPISODE = a run of hours whose candle range contains the boundary (consecutive hours are one episode).
-Volume tells us whether market makers are active there. Prices only - no orders, nothing about results.
-"""
+"""Find coins that crossed a 10x tick boundary, and when. Writes data/tick_scan.csv."""
 import math
 import os
 import sys

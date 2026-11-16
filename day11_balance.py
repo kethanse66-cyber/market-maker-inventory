@@ -1,29 +1,4 @@
-"""Day 11 (Nov 10): BALANCE CHECK - are quotes just above and just below the boundary alike in everything
-EXCEPT the tick? Pre-quote covariates only; the study's outcomes (side, price shading) are never touched.
-About 10-30 minutes.
-
-Run:  python E:\\p3\\day11_balance.py > E:\\p3\\day11_output.txt
-Saves: E:\\p3\\data\\balance.csv  (window, covariate, standardized difference, episodes)
-
-Plan rule (Window and balance): the window around the boundary is chosen by balance on pre-quote
-covariates only. Covariates, each measured before the quote:
-  vol5    realized volatility of the Hyperliquid mid over the previous 5 minutes (bp per second); no
-          return across a gap of more than 5 s, and at least half the 5 minutes must have valid returns
-  spread  the book spread at the quote (bp)
-  q       the maker's inventory / the std of its minute-by-minute position over the previous 24 h
-          (flat minutes between fills included; all 1,440 minutes required), capped at +-5 (decision 17)
-  tod_sin, tod_cos   time of day as a circle (23:55 and 00:05 are 10 minutes apart)
-  basis   Hyperliquid mid minus Binance price at the same second (bp); Binance older than 5 s -> missing
-Treatment for the primary outcome (side skew): the market mid at or above the boundary.
-Sample: the 31 good-book episodes (SOL $100, XRP $1.00), their +-30 min windows, quotes within 5 bp of
-their own best price, good-book hours, outside gaps, not crossing, straddle excluded.
-Windows: |mid - boundary| / boundary within 0.05%, 0.1%, 0.2%, 0.3%, 0.5%, 1%.
-Standardized difference = average over episodes of (mean above - mean below inside the episode), divided by
-the covariate's std over the whole sample (each episode counts once; differences BETWEEN episodes cannot
-fake imbalance, and a within-episode std - tiny for time of day - cannot inflate it).
-Balance passes in a window if, for EVERY covariate, |standardized difference| <= 0.10 and 20+ episodes
-contribute valid values on both sides. Chosen window = the WIDEST passing window (most data). None passes -> descriptive only.
-"""
+"""Balance check: are quotes just above and below the boundary alike apart from the tick?"""
 import glob
 import os
 import re
@@ -88,7 +63,7 @@ rows, bad_b = [], []
 t0 = time.time()
 for coin, E in ep.groupby("coin"):
     days = sorted(E["day"].unique())
-    # ---- inventory scale: std of the minute-by-minute position over the previous 24 h (flat minutes count) ----
+    # ---- inventory scale
     prev = [(pd.Timestamp(d) - pd.Timedelta(days=1)).strftime("%Y-%m-%d") for d in days]
     miss_prev = [p_ for p_ in prev if not glob.glob(os.path.join(INV, coin, f"{p_}.parquet"))]
     if miss_prev:
@@ -119,7 +94,7 @@ for coin, E in ep.groupby("coin"):
         qf = sorted(glob.glob(os.path.join(QUOTES, coin, f"{e.day}*.parquet")))
         cols = set(con.execute(f"DESCRIBE SELECT * FROM read_parquet({qf}, union_by_name=true)").df()["column_name"])
         good = "book_quality = 'GOOD'" if "book_quality" in cols else "hour_crossed IS NOT NULL AND NOT poor_book"
-        # all quotes in window + 5 min before (for the volatility), then the analysis sample
+        # all quotes in window + 5 min before
         q = con.execute(f"""
             SELECT lower(wallet) AS wallet, ts, mid, spread_bp, inventory, best_bid, best_ask,
                    (ticks_behind_best * tick / mid * 1e4 <= {BAND_BP}) AND NOT in_gap AND {good}

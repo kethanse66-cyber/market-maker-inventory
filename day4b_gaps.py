@@ -1,11 +1,4 @@
-"""Day 4b: find silent stretches (holes) in the order data. About 5-10 minutes.
-
-Run:  python E:\\p3\\day4b_gaps.py > E:\\p3\\day4b_output.txt
-
-Makers send orders many times a second, so the order stream should never go quiet for long.
-For every day we list each silence longer than 60 seconds (SOL and XRP side by side).
-A silence in BOTH coins at the same time = a hole in the data, not a quiet market.
-"""
+"""Day 4b: find silent stretches (holes) in the order data. About 5-10 minutes."""
 import os
 
 import duckdb

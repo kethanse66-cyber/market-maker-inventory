@@ -1,18 +1,5 @@
-"""Day 12c: download the extras for the 18 new coins (delivery 3).
-
-Run first:   python E:\\p3\\day12c_extras.py --plan        (counts only, no download)
-Then:        python E:\\p3\\day12c_extras.py               (safe to stop with Ctrl+C and re-run; finished files are skipped)
-
-Downloads, for every coin-day in E:\\p3\\data\\request_coin_days.csv and clean_placebo_coin_days.csv:
-  1. FILLS of the day before each run of days (whole market, 0xArchive), so the 24-hour inventory
-     scale exists on the first day of a run    ->  E:\\hl_data\\<COIN>\\trades\\<COIN>_<day>.parquet
-  2. BINANCE 1-second prices (public data.binance.vision, no key; coins not on Binance are listed
-     in E:\\hl_data\\binance\\missing_new_coins.csv)  ->  E:\\hl_data\\binance\\<SYM>USDT\\<SYM>USDT_<day>.parquet
-  3. TOP OF BOOK every 0.5 s (0xArchive), same columns as the existing SOL files
-                                              ->  E:\\hl_data\\book\\<COIN>\\<COIN>_<day>.parquet
-About 2-4 GB on E:. The book part is the long one (about 170 API calls per coin-day).
-Progress also goes to E:\\hl_data\\logs\\extras_log.txt.
-"""
+"""Download book and trade data for the delivery 3 coins.
+Usage: python day12c_extras.py [--plan]"""
 import argparse
 import csv
 import io
@@ -80,7 +67,7 @@ def prev_days(coin_days):
 
 
 def page_all(fn, coin, start, end, **kw):
-    """All pages of a cursor-paged 0xArchive call, with retries. Returns (records, pages)."""
+    """All pages of a cursor-paged 0xArchive call, with retries."""
     recs, pages, cursor = [], 0, None
     while True:
         for attempt in range(6):
@@ -105,7 +92,7 @@ def dump(x):
     return x.model_dump() if hasattr(x, "model_dump") else dict(x)
 
 
-# ---------------------------------------------------------------- 1. fills of the day before
+# ---------------------------------------------------------------- 1
 def get_trades(H, coin, d):
     path = os.path.join(ROOT, coin, "trades", f"{coin}_{d}.parquet")
     if os.path.exists(path):
@@ -124,7 +111,7 @@ def get_trades(H, coin, d):
     return f"{len(df):,} fills, {pages} pages", path
 
 
-# ---------------------------------------------------------------- 2. Binance 1-second
+# ---------------------------------------------------------------- 2
 def get_binance(coin, d):
     sym = f"{coin}USDT"
     path = os.path.join(ROOT, "binance", sym, f"{sym}_{d}.parquet")
@@ -165,7 +152,7 @@ def parse_klines(raw):
     return df.sort_values("time").reset_index(drop=True)
 
 
-# ---------------------------------------------------------------- 3. top of book
+# ---------------------------------------------------------------- 3
 def get_book(H, coin, d):
     path = os.path.join(ROOT, "book", coin, f"{coin}_{d}.parquet")
     if os.path.exists(path):

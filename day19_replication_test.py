@@ -1,16 +1,4 @@
-"""Day 19: REPLICATION TEST on the 13 delivery-3 coins (pre-registration v1 section 8, addendum v2 section 4).
-
-Run (after day18 finished):  python E:\\p3\\day19_replication_test.py      (about 1-3 hours)
-Output: E:\\p3\\results\\day19_replication.txt  and  E:\\p3\\results\\placebo_result_replication.csv
-
-For each coin: crossing episodes at its boundary (a real 10x tick change) and at two NON-round control levels,
-0.95x and 1.05x of the boundary. Each control lies entirely below or entirely above the boundary, so the
-tick is the same on both sides of it; they are not powers of ten. Then the frozen four-outcome test (side, price,
-size, at-best) at every level, 500 circular shifts each. A coin-boundary with < 3 episodes is descriptive only.
-Summary: precision-weighted average of the boundary estimates over coins (each coin's estimate weighted by
-1 / sd^2 of its own shifts), and the same for the control levels - addendum v2 predicts price at the
-boundaries like SOL/XRP/PENGU, and ~0 at the controls.
-"""
+"""Day 19: REPLICATION TEST on the 13 delivery-3 coins (pre-registration v1 section 8, addendum v2 section 4)."""
 import os
 import subprocess
 import sys
@@ -33,7 +21,7 @@ def lv(x):
     return float(f"{x:.6g}")
 
 
-# 1. episodes at boundary + controls (re-run of the frozen day16d for each coin)
+# 1. episodes at boundary + controls
 for c in coins:
     b = B[c]
     arg = f"{c}={lv(b)},{lv(0.95 * b)},{lv(1.05 * b)}"

@@ -1,15 +1,4 @@
-"""Day 24 (Nov 14): WHY SIDE AND NOT PRICE? The asymmetry test of pre-registration addendum v5 (tag prereg-v5).
-
-Run:  python -W ignore E:\\p3\\day24_asymmetry.py > E:\\p3\\results\\day24_output.txt              (5 coins, confirmatory)
-      python -W ignore E:\\p3\\day24_asymmetry.py AAVE DOGE ... > E:\\p3\\results\\day24_replication.txt (descriptive)
-About 5-10 minutes. Saves E:\\p3\\results\\part1_asymmetry.csv (or _replication).
-
-u = q x s (s = +1 ask, -1 bid): u > 0 = the quote is on the side that REDUCES inventory (unwinding).
-aggressiveness a (ticks) = (price - mid) for a bid, (mid - price) for an ask, / coin median tick.
-Model:  a = k_plus max(u,0) + k_minus min(u,0) + d vol5 + FE(maker x side x day); every maker weighted equally,
-coin-day clusters (as prereg-v3 T1). GLFT: k_plus = k_minus. Queue priority: k_plus > k_minus (accumulating
-side pulled, not shaded). H5: k_plus - k_minus > 0, p < .05.
-"""
+"""Asymmetry test (prereg-v5): queue priority vs GLFT."""
 import glob
 import os
 import sys

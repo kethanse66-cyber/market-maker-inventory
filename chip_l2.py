@@ -1,8 +1,4 @@
-"""CHIP top of book from the L2 checkpoints (the 0.5 s feed has no CHIP data). ~1 minute, few credits.
-Run:  python E:\\p3\\chip_l2.py
-Saves E:\\hl_data\\book_l2cp\\CHIP\\CHIP_<day>.parquet, same columns as the other book files.
-Cadence is a checkpoint every ~40 s, so CHIP is descriptive only (never in the test).
-"""
+"""CHIP top of book from the L2 checkpoints (the 0.5 s feed has no CHIP data)."""
 import os
 import sys
 from datetime import date, timedelta

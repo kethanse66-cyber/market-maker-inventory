@@ -1,36 +1,4 @@
-"""Day 22 (Nov 14): PART 1 - T4 (as frozen in prereg-v3) and the two checks a reviewer will ask for.
-
-Run:  python -W ignore E:\\p3\\day22_part1_checks.py > E:\\p3\\results\\day22_output.txt
-About 15-40 minutes. Results also in E:\\p3\\results\\part1_checks.csv
-
-1. T4 (frozen test, now run): natives.csv keeps one row per unit at three levels; at level "account" the
-   unit IS the wallet. Spearman( per-maker side response, account half-life ), plain permutation p (10,000).
-   day21 looked for a column called "wallet" and so skipped the test - nothing else changes.
-   Hedger / native labels (robustness) were skipped for the same reason; they are reported here.
-
-2. CHECK A - "fewer bids just after a bid fill" (mechanical / reaction to the fill itself).
-   A quote here is an order PLACEMENT, so a filled bid that leaves the book is not counted - but makers react
-   to a fill for a few seconds. T1 re-estimated without quotes placed within 1, 5, 10, 30 and 60 s after the
-   same maker's last fill (all five windows fixed before running, all reported).
-   Direction of the bias: a quote = an order PLACEMENT ('open' event, day6). Refilling a hit bid adds bid
-   placements while long - that works AGAINST a negative side response. Resting-quote data is not available,
-   so only the placement version can be shown.
-
-3. CHECK B - "the market moved, not the inventory". When price falls, bids get hit (maker becomes long) AND
-   asks must be re-placed lower (more ask placements). That would create a negative side response with no
-   inventory management at all. T1 re-estimated with the market's past return over 10 s and 60 s (up to the
-   second before the quote) as extra controls. Both checks together = the strictest version.
-
-4. T2 again with other clustering (maker, day), like T1 got in day21.
-5. Why "q uncapped" gives ~0: how many quotes have |q_raw| > 5, how extreme, from how many makers.
-
-Every version uses the same makers, fixed effects and coin-day clusters as day21, and equal weight per maker
-WITHIN each version (a maker's quote weight = 1 / its quotes kept in that version).
-"all" uses exactly day21's sample (same finite-value filters) and must reproduce day21's T1 numbers.
-Fill times: every individual fill (day5 inventory tables: one row per fill, its execution time); fills of
-the day before and the day itself are searched, which covers every window up to 60 s.
-These are robustness checks (not pre-registered); T4 is the frozen test.
-"""
+"""T4 and the robustness checks for Part 1."""
 import glob
 import os
 import sys
@@ -147,7 +115,7 @@ for i, (c, f) in enumerate(files):
         continue
     day = str(d["day"].iat[0])[:10]
     d = d.sort_values("ts").reset_index(drop=True)
-    # seconds since the same maker's last fill (inf if none since the start of the day before)
+    # seconds since the same maker's last fill
     ft = fill_times(c, day).sort_values("fts")
     ft = ft[ft["wallet"].isin(set(d["wallet"]))]
     if len(ft):

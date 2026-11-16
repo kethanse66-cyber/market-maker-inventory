@@ -1,9 +1,4 @@
-"""Day 28: CHECK EVERY KEY NUMBER IN THE PAPER AGAINST THE RESULT FILES.
-
-Run:  python E:\\p3\\day28_verify_paper.py
-Prints each number as written in the paper next to the value in the result file. OK = equal after rounding to the
-digits the paper shows. Anything else is printed as CHECK.
-"""
+"""Check the numbers in the paper against the result files."""
 import os
 import sys
 

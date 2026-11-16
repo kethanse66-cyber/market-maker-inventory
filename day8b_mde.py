@@ -1,7 +1,4 @@
-"""Day 8b: read the power check in bp (not as a share of b, which is ~0 in June) + June tick regime.
-
-Run:  python E:\\p3\\day8b_mde.py
-"""
+"""Power check in bp, and the June tick regime."""
 import glob
 
 import duckdb

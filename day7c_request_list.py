@@ -1,12 +1,4 @@
-"""Day 7c: the exact coin-days to request from 0xArchive. Free (public API). ~2 minutes.
-
-Run:  python E:\\p3\\day7c_request_list.py > E:\\p3\\day7c_output.txt
-Saves: E:\\p3\\data\\request_coin_days.csv   (coin, day) - every crossing day +- 1 day
-       E:\\p3\\data\\request_wallets.csv     the firm wallets (the same accounts as our current export)
-
-Rule fixed before any results: a coin-boundary qualifies if at least $250K trades per hour near it
-(median, within 2%). Days we already have (SOL Aug 15-Oct 25, XRP Aug 15-Oct 25, Jun 1-14) are skipped.
-"""
+"""Coin-days to request from 0xArchive (crossing days +-1). Writes data/request_coin_days.csv."""
 import os
 import time
 

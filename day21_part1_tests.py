@@ -1,26 +1,5 @@
-"""Day 21 (Nov 14): PART 1 TESTS - pre-registration addendum v3 (tag prereg-v3), sections 3-5.
-
-Run (after day20_part1_build.py finished):  python E:\\p3\\day21_part1_tests.py > E:\\p3\\results\\day21_output.txt
-Other coins (descriptive replication, results saved with suffix _replication):
-      python E:\\p3\\day21_part1_tests.py AAVE DOGE ...
-About 20-60 minutes (reads every E:\\p3\\part1\\<COIN>\\<day>.parquet twice). Results also in E:\\p3\\results\\part1_*.csv
-
-How it is computed (exact, not approximate): every fixed-effect group (maker x day, or maker x side x day) lies
-inside one coin-day file, so each file is demeaned on its own and only small sums (X'X, X'y per maker per file)
-are kept. Pooled estimates weight every maker equally within its coin (weight 1 / its number of quotes);
-standard errors are clustered by coin-day (each file is one cluster). Per-maker estimates use only that maker's
-quotes, clustered by day.
-
-Tests (frozen):
-  T1  which tool: side (bid on q), price (offset from mid in TICKS on q), size (log size on q x s)
-      "side, not price" if (a) side < 0, p < .05; (b) the 95% interval of the price response lies inside
-      (-1, +1) tick per sd of q; (c) among makers with a significant response in either tool, a majority have
-      a significant side response and a price response below one tick.
-  T2  price and side models with q x (vol5 standardized within coin): GLFT predicts price coefficient < 0.
-  T3  side on a spline of q (slopes |q| < 1, 1-3, 3-5): GLFT predicts slope ~0 for |q| < 1.
-  T4  Spearman( per-maker side response, inventory half-life from natives.csv ), permutation p (10,000).
-Robustness: each coin; hedgers vs natives; q capped at 3 and uncapped; June vs Aug-Oct.
-"""
+"""Part 1 tests T1-T3 (prereg-v3).
+Usage: python day21_part1_tests.py [COINS]"""
 import glob
 import os
 import sys

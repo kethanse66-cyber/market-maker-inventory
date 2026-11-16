@@ -1,18 +1,4 @@
-"""Day 20 (Nov 14): PART 1 BUILD - one table per coin-day with every sampled quote's q, vol5 and outcomes.
-Pre-registration addendum v3 (tag prereg-v3), section 2.
-
-Run:  python E:\\p3\\day20_part1_build.py            (about 1-4 hours; safe to stop and re-run - finished days are skipped)
-      python E:\\p3\\day20_part1_build.py BTC        (one coin only)
-Saves E:\\p3\\part1\\<COIN>\\<day>.parquet  (git ignores *.parquet - full wallet addresses never leave the PC)
-
-Per quote (main-sample rules of prereg-v1; order id divisible by 5 = the fixed 20% sample):
-  coin, day, wallet, ts, bid (1/0), q (capped +-5), q_raw (uncapped), vol5, price_bp = (price - mid) / mid in bp,
-  log_size, tick_bp = tick / mid in bp, at_best (1 if at or better than the best on its side).
-vol5 also uses the last 5 minutes of the day before, so quotes just after midnight keep their volatility.
-A coverage table (sampled -> no q -> no vol5 -> kept) is printed and saved per run.
-q and vol5 use exactly the frozen code of day11_balance.py / day13_main_test.py (24 h = 1,440 minutes, flat minutes
-count; quote mids per second, 5-second staleness rule, 300-second window).
-"""
+"""Part 1 build (prereg-v3): one table per coin-day with each sampled quote's q, vol5 and outcomes."""
 import glob
 import os
 import sys

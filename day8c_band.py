@@ -1,18 +1,4 @@
-"""Day 8c: June only - do makers move quote PRICES against inventory at all, and how far from the best?
-About 5-10 minutes. June has no boundary crossing and is not the test sample (decision 2: noise pilot).
-
-Run:  python E:\\p3\\day8c_band.py > E:\\p3\\day8c_output.txt
-
-Why: the power check found b ~ 0 for quotes within 2 ticks of the best price. A maker who shades its bid
-down when long moves it AWAY from the best - beyond 2 ticks it drops out of that sample, so the 2-tick
-filter may cut the shading off. Here b is measured for wider bands (in bp, the same in both tick regimes),
-and the other inventory channel too: does the maker quote more on the side that unwinds its inventory?
-
-b       = change in quote price vs mid (bp) per 1 std of inventory (negative = shading against inventory)
-side    = change in the share of quotes on the bid side per 1 std of inventory (negative = unwinding)
-FE = maker x side x hour (side = maker x hour for the side test); makers weighted equally; SE by day.
-Uses a fixed 1-in-4 sample of quotes (by order id) to keep memory low.
-"""
+"""June only: do makers move quote prices with inventory, and how far from the best?"""
 import glob
 import os
 

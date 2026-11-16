@@ -1,14 +1,4 @@
-"""Day 29b (Nov 16): two checks on the resting-quote reconstruction, run AFTER day29_resting.py.
-
-Run:  python -W ignore E:\\p3\\day29b_checks.py > E:\\p3\\results\\day29b_output.txt      (about 10-30 min)
-
-1) OLD ORDERS. day29 sees orders opened up to 24 h before each day. Here, on a sample of days, we load 72 h of
-   history and count orders that were opened 24-72 h before midnight and are still resting at midnight within
-   5 bp of the mid - exactly the orders day29 cannot see - as a share of all resting in-band orders at midnight.
-2) PARTIAL FILLS. A 'canceled' event carries both orig_size and size (what was left when it was cancelled).
-   size < orig_size means the order was partly filled while it rested. We report how often that happens and
-   how much of the original size had been filled, for the T1 makers' post-only quotes.
-"""
+"""Checks on the resting-order rebuild: old orders and partial fills."""
 import glob
 import os
 import sys

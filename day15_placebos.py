@@ -1,18 +1,4 @@
-"""Day 15 (Nov 13): PLACEBO LEVELS + per-coin results - pre-registration prereg-v1, section 7.
-
-Run:  python E:\\p3\\day15_placebos.py > E:\\p3\\results\\day15_output.txt      (about 1-2 hours)
-Saves E:\\p3\\results\\placebo_result.csv
-
-At levels where the tick does NOT change (SOL $95, $105, $110, $120; XRP $1.10, $1.30, $1.40, $1.50) the same
-sample rules, model and circular-shift labels are applied with that level as the "boundary".
-Only episodes inside the frozen test window (Aug 15 - Oct 25, 2026) are used, as in the main test. If the real effects
-come from the tick, these placebo effects must be ~0.
-Frozen rule (section 7): each placebo estimate must be shown smaller than 25% of the main estimate:
-its 90% interval (estimate +- 1.645 x the sd of its circular-shift draws) must lie inside +-0.25 x |main|.
-Applied to the side tau (primary; main was not significant, so this is descriptive) and to the three secondary
-outcomes. The real SOL $100 and XRP $1.00 levels are also run one coin at a time (component results).
-500 circular-shift draws per level (enough for the sd and a placebo p), seed 20261112.
-"""
+"""Placebo levels and per-coin results for prereg-v1."""
 import glob
 import os
 import sys
@@ -52,7 +38,7 @@ def near_days(t0, t1):
                   {t1.strftime("%Y-%m-%d")})
 
 
-# ---------------------------------------------------------------- 2. sample, episode by episode
+# ---------------------------------------------------------------- 2
 def load(ep):
     global D, EP, LAB, OFF, MM, ROT
     parts, ep_rows, lab_all, lab_off = [], [], [], []
@@ -65,7 +51,7 @@ def load(ep):
         M = int(W1 - W0 + 1)
         days = near_days(pd.Timestamp(W0 * MIN_NS, tz="UTC"), pd.Timestamp(W1 * MIN_NS, tz="UTC"))
 
-        # minute labels from the Hyperliquid book: median mid in the minute >= boundary
+        # minute labels from the Hyperliquid book
         bf = [os.path.join(BOOK, coin, f"{coin}_{d}.parquet") for d in days]
         bf = [f for f in bf if os.path.exists(f)]
         if not bf:
@@ -80,7 +66,7 @@ def load(ep):
             log(f"   {coin} {L:g}: episode {e.day} {e.start:%H:%M} SKIPPED - {no_book} of {M} minutes without book data")
             drop["skipped_no_book"] = drop.get("skipped_no_book", 0) + 1
             continue
-        # a minute without a snapshot keeps the LAST KNOWN label (past data only, never a later minute)
+        # a minute without a snapshot keeps the LAST KNOWN label
         mids = mids.ffill().loc[W0:W1]
         if mids.isna().any():
             log(f"   {coin} {L:g}: episode {e.day} {e.start:%H:%M} SKIPPED - window starts inside a book gap")
@@ -90,7 +76,7 @@ def load(ep):
         n_up, n_dn = int(lab.sum()), int(M - lab.sum())
         rotate = n_up >= MIN_MIN and n_dn >= MIN_MIN
 
-        # quotes: window + 5 min before (volatility), all quotes for the mid series
+        # quotes: window + 5 min before
         qf = files_for(QUOTES, coin, days)
         if not qf:
             sys.exit(f"STOP: no quote files for {coin} on {days} in {QUOTES}")

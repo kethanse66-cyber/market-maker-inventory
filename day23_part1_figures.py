@@ -1,24 +1,4 @@
-"""Day 23 (Nov 14): PART 1 FIGURES + TABLES, and the q-scaling robustness check.
-
-Run (after day21 and day22):  python -W ignore E:\\p3\\day23_part1_figures.py > E:\\p3\\results\\day23_output.txt
-About 15-30 minutes. Needs matplotlib (if missing: pip install matplotlib).
-Saves  E:\\p3\\figures\\fig1..fig5 (.png and .pdf)  and  E:\\p3\\results\\part1_tables.md, part1_qscale.csv
-
-q-SCALING CHECK (robustness, not pre-registered). q = inventory / std of the last 24 h of position. When a maker's
-position barely moved for a day that std is ~0 and q explodes (15-24% of quotes beyond the +-5 cap). Three
-versions that do not depend on that std:
-  - rank q:   inventory turned into a normal score WITHIN each maker-day (largest long = highest score);
-              no division by a std at all, extremes cannot dominate. Per 1 unit of score ~ per 1 sd.
-  - sign q:   only whether the maker is long or short (coefficient x 2 = long minus short).
-  - main q, without the makers who have more than 20% of their quotes beyond the cap.
-
-FIGURES (every maker weighted equally, all five coins)
-  fig1  side and price response along inventory (binned, change vs the maker's own daily average)
-  fig2  price response along inventory in low- vs high-volatility moments (T2)
-  fig3  every maker's side response vs price response, with the one-tick band (T1)
-  fig4  side response vs inventory half-life (T4)
-  fig5  the side and price estimates across every robustness version
-"""
+"""Part 1 figures and tables, and the q-scaling check."""
 import glob
 import os
 import sys
@@ -111,7 +91,7 @@ for i, (c, f) in enumerate(files):
         qr = m["q_raw"].to_numpy(float)
         v = m["vol5"].to_numpy(float)
         price = m["price"].to_numpy(float)
-        # binned shapes (change vs the maker's own average that day; price within side as well)
+        # binned shapes (change vs the maker's own average that day
         b = np.clip(np.searchsorted(EDGES, q, side="right") - 1, 0, 19)
         s_dm, p_dm = demean(bid, z0), demean(price, side_g)
         B = bins[(c, w)]
