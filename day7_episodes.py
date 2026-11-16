@@ -1,14 +1,4 @@
-"""Day 7 (part of Sat Nov 7, data validation): how many crossing episodes fall in GOOD book hours? ~5 minutes.
-
-Run:  python E:\\p3\\day7_episodes.py > E:\\p3\\day7_output.txt
-
-An episode = the minute mid price crossing a level (SOL $100, XRP $1.00, and the 8 placebo levels from
-decision 3); crossings closer together than MERGE minutes are one episode (decision 1 merges overlapping
-episodes). For each episode we look at the hours its +-30 minute window touches, and call it
-  GOOD     if none of those hours is a poor-book hour (Day 6c: > 2% of quotes crossed at the best delay)
-  POOR     otherwise.
-Counts only - nothing about quotes, inventory or the study's results is looked at.
-"""
+"""Count boundary-crossing episodes that fall in good book hours."""
 import os
 
 import numpy as np
@@ -62,7 +52,7 @@ for coin, levels in LEVELS.items():
         side = np.sign(mid - lv)
         side = side[side != 0]
         change = side.index[1:][(side.to_numpy()[1:] != side.to_numpy()[:-1])]
-        # minutes in a row with a gap > 10 min (missing data) do not count as a crossing
+        # minutes in a row with a gap > 10 min
         prev = side.index[:-1][(side.to_numpy()[1:] != side.to_numpy()[:-1])]
         change = change[(change - prev) <= pd.Timedelta(minutes=10)]
         for merge in (30, 60):

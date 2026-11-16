@@ -1,14 +1,4 @@
-"""Day 18: build quotes, inventory, book delay and episodes for the replication coins (delivery 3), unattended.
-
-Run:  python E:\\p3\\day18_build_replication.py            (about 3-8 hours; safe to stop and re-run)
-      python E:\\p3\\day18_build_replication.py --plan     (only lists what it would do)
-
-Same frozen pipeline as PENGU/STRK/FARTCOIN: day16a inventory -> day16b book delay -> day16c quotes ->
-day16d episodes at the coin's boundary (from request_coin_days.csv). Each coin's screen output goes to
-E:\\p3\\results\\day18_<step>_<COIN>.txt. A coin already finished (marker file) is skipped on a re-run.
-Not built here: CHIP (descriptive only - no 0.5 s book) and XRP (its folders hold the frozen main-test data;
-its 5 delivery-3 days need a separate folder - done later).
-"""
+"""Day 18: build quotes, inventory, book delay and episodes for the replication coins (delivery 3), unattended."""
 import os
 import subprocess
 import sys

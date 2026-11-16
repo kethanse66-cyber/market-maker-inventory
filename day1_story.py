@@ -1,10 +1,4 @@
-"""Day 1: the story of one SOL day, told by the data.
-
-Run:  python E:\\p3\\day1_story.py
-
-We use June 3, a day with NO tick-boundary crossing, on purpose: exploring a crossing day before the
-pre-registration is frozen could bias us. All times are shown in UTC.
-"""
+"""Day 1: the story of one SOL day, told by the data."""
 import duckdb
 
 D = "2026-06-03"
@@ -57,7 +51,7 @@ for how, n in con.execute("""SELECT COALESCE(how_it_ended, 'no ending today'), C
 print(f"   executions: {execs:,} on {orders_hit:,} different orders, worth ${usd:,.0f}; "
       f"{maker_share:.0%} maker-side (its quote was hit)")
 
-# ---------- 2b. sanity checks: do the columns mean what we think? ----------
+# ---------- 2b
 print("\n2b. CHECKS (we want: 0, 0, 0, no overlap, and only 'false'/'true' for crossed)")
 multi_end = con.execute(f"""
     SELECT COUNT(*) FROM (SELECT oid FROM {ORD} WHERE user_address = '{wallet}' AND status <> 'open'

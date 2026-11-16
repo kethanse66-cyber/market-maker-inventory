@@ -1,18 +1,5 @@
-"""Day 29 (Nov 16): DO MAKERS' RESTING QUOTES SHIFT AWAY FROM THE ACCUMULATING SIDE?  Robustness check of T1,
-reported in the paper whatever it shows.
-
-Run:  python -W ignore E:\\p3\\day29_resting.py > E:\\p3\\results\\day29_output.txt
-About 1-3 hours (rebuilds every maker's resting orders every 10 seconds). Safe to stop and re-run: finished
-coin-days are kept in E:\\p3\\results\\resting_cache_v6\\ and skipped.
-Saves E:\\p3\\results\\part1_resting.csv
-
-An order rests from its 'open' event until the first later event of the same order id with another status.
-Order files are read once each, in date order; orders still resting at midnight are carried forward, so no
-order is missed however old it is (if a day's order file is missing, the carried orders are dropped and logged).
-Every 10 s: each maker's resting bids and asks within 5 bp of the mid (notional). q = the frozen inventory
-measure. Y1 = resting bid share; Y2 = has a resting bid; Y3 = has a resting ask.
-Y = b q + FE(maker x day), every maker weighted equally, coin-day clusters.  H8: b < 0 for Y1.
-"""
+"""Resting quotes: rebuild each maker's resting orders every 10 s and relate the bid share to inventory.
+Not pre-registered."""
 import glob
 import os
 import sys
@@ -93,9 +80,7 @@ COLS_SHOWN = False
 
 
 def order_day(coin, d, wallets, pend):
-    """Read ONE day's order file once. Orders still resting from earlier days arrive in `pend` (carried forward
-    from the start of the data, so there is no lookback limit). Returns every order alive at some time in this
-    file (with its end time if it ends here, else NULL) as a DuckDB table 'iv', or None if the file is missing."""
+    """Read ONE day's order file once."""
     of = [f"{r}/orders/{coin}/{d}.parquet" for r in EXPORT if os.path.exists(f"{r}/orders/{coin}/{d}.parquet")]
     if not of:
         return None
@@ -118,7 +103,7 @@ def order_day(coin, d, wallets, pend):
                         AND NOT COALESCE(CAST(reduce_only AS BOOLEAN), FALSE) {trig}) AS keep_row
                 FROM read_parquet({of}, union_by_name=true) JOIN wk ON lower(user_address) = wk.w)
             WHERE keep_row""")
-    # compact in memory: status as a small code (0 open, 1 filled, 2 other end), wallet as a small number,
+    # compact in memory: status as a small code
     # only the columns needed, and opens that are not post-only quotes dropped while reading
     global COLS_SHOWN
     if not COLS_SHOWN:
@@ -158,8 +143,7 @@ def next_pend(d):
 
 
 def resting(d, G):
-    """Per maker and snapshot: resting bid / ask notional within the band, from table 'iv'.
-    Snapshot k is at D0 + k*10 s; an order alive from t_open to t_end covers k_lo..k_hi."""
+    """Per maker and snapshot: resting bid / ask notional within the band, from table 'iv'."""
     D0 = pd.Timestamp(d, tz="UTC").value
     S, E = STEP_S * NS, D0 + 86400 * NS
     g = G.assign(k=(G["t"] - D0) // S)
@@ -234,9 +218,9 @@ def q_at(coin, d, R):
 
 
 # ---------------------------------------------------------------- build (cached per coin-day)
-# Order files are read in calendar order, each ONCE; orders still resting at midnight are carried into the next
-# day, so an order is seen however long ago it was opened. If a day's order file is missing, the carried set is
-# reset (logged). After each day the carried set is saved, so a stopped run resumes without re-reading.
+# Order files are read in calendar order, each ONCE
+# day, so an order is seen however long ago it was opened
+# reset (logged)
 EMPTY = pd.DataFrame({"oid": pd.Series(dtype="int64"), "w": pd.Series(dtype="str"), "side": pd.Series(dtype="str"),
                       "price": pd.Series(dtype="float64"), "size": pd.Series(dtype="float64"),
                       "t_open": pd.Series(dtype="int64"), "t_end0": pd.Series(dtype="Int64"),

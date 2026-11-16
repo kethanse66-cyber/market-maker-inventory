@@ -1,16 +1,4 @@
-"""Day 12: quality check of delivery 3 (the 15 replication coins + 3 clean-placebo coins). ~5-10 minutes.
-
-Run:  python E:\\p3\\day12_check_delivery3.py > E:\\p3\\day12_output.txt
-
-Checks (no outcomes are looked at - quote sides near the boundaries are never touched):
-  1. every file in manifest.csv exists, and its Parquet row count equals the manifest's row count
-  2. the columns of orders / trades / snapshots are the same as in deliveries 1 and 2
-  3. coin-days: 385 delivered of 386 requested (CHIP Apr 21 is the expected missing one)
-  4. order events and trades per coin vs the vendor README table
-  5. one sample day per coin: no duplicate (block_number, seq, oid, status) and no duplicate fills;
-     only that coin, only listed wallets; trades carry start_position
-  6. the vendor's rebuild tests: how many snapshot points rebuild exactly, before and from May 1
-"""
+"""Quality checks on delivery 3 (replication and placebo coins)."""
 import csv
 import glob
 import os
@@ -109,7 +97,7 @@ for coin, (ro, rt) in README_ROWS.items():
     if flag:
         bad(f"{coin} row totals differ from README")
 
-# ---- 5. sample day per coin: duplicates, coin, wallets, start_position ----
+# ---- 5. sample day per coin
 wal = set(pd.read_csv(os.path.join(D3, "wallets.csv")).iloc[:, 0].str.lower()) \
     if os.path.exists(os.path.join(D3, "wallets.csv")) else None
 print("\n5. One sample day per coin (smallest file)")

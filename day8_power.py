@@ -1,42 +1,4 @@
-"""Day 8 (v2): POWER CHECK on the June noise pilot (pre-analysis decision 14). About 30-90 minutes.
-
-Run:  python E:\\p3\\day8_power.py > E:\\p3\\day8_output.txt
-Saves: E:\\p3\\data\\power_check.csv  (one row per fake design and outcome)
-
-The question: with only 31 good episodes on 14 days, how small a tick effect (tau) could we still detect,
-and on WHICH outcome? June has NO boundary crossings, so it contains no tick effect. We copy the real
-design onto June:
-  - the same number of episodes per day and the same episode lengths as the 31 real good episodes
-    (only their times and lengths are read from episodes.csv - never any quote outcome near them),
-  - SOL episodes on 9 random June days, XRP episodes on 5 (14 day-clusters, as in the real test),
-  - one time shift per day moves that day's whole schedule (spacing kept; shifts that push a window out
-    of the day are rejected, never clipped); if no shift fits a day, the same number of episodes with the
-    same lengths go at random non-overlapping times (reported); every design has all 31 episodes and
-    14 clusters or is redrawn,
-  - a FAKE level per episode = the market mid of the first sampled quote at or after the fake start,
-    fixed for that episode's window (no tick change there). Each episode needs 50+ quotes and 10+ on each
-    side of its level, by quote price and by market mid, after the straddle cut.
-Power: an effect tau is injected into every quote's outcome and the model refitted (checked exactly on
-10 designs). Detection: plain clustered t (13 df), t with a critical value calibrated on the no-effect
-designs, and randomization-style (|tau_hat| beyond the 95th percentile of the no-effect ones).
-
-Three candidate primary outcomes (Day 8c showed the 2-tick price shading is nearly 0 in June, while
-makers clearly unwind by side):
-  A  price shading, quotes within 2 ticks of best   y = (price - mid)/mid in bp
-  B  price shading, quotes within 5 bp of own best   same y, wider band (shading is not cut off)
-  C  side skew, quotes within 5 bp of own best       y = 1 if the quote is a bid
-  A/B: y = b*q + c*above + tau*(q x above) + d*spread + e*(spread x above) + f*(above x bid) + FE
-       FE = maker x side x episode; above = the quote's own price at or above the level.
-  C:   y = b*q + c*above + tau*(q x above) + d*spread + e*(spread x above) + FE
-       FE = maker x episode; above = the market mid at or above the level (side cannot use own price).
-  Each maker weighted equally (decision 19); SE clustered by day.
-  q = inventory / the maker's inventory std over the previous 24 hours (decision 17), CAPPED at +-5:
-      a maker flat for a day has a tiny std, which gave |q| up to 12,960 and swamped every fit (Day 8c).
-  Sample: good-book hour, outside gaps, not crossing, straddle excluded; fixed 1-in-4 sample by order id.
-Rule for choosing the primary outcome (fixed before running): among outcomes whose baseline b is clearly
-non-zero (|b / its SE| > 3 in most designs), the one detecting the smallest share of |b| at 80% power
-(randomization-style); ties go to price shading (the plan's original outcome).
-"""
+"""Power check on the June pilot (fake boundaries). Writes data/power_check.csv."""
 import glob
 import os
 import sys
@@ -68,7 +30,7 @@ def log(s):
     print(s, file=sys.stderr, flush=True)
 
 
-# ---------------- 1. the real design: episodes per day and their lengths (no outcomes) ----------------
+# ---------------- 1
 ep = pd.read_csv(EPISODES, parse_dates=["start", "end"])
 ep = ep[ep["coin"].isin(LEVEL) & (ep["level"] == ep["coin"].map(LEVEL)) & ep["good"].astype(bool)]
 merge = 60 if (ep["merge_min"] == 60).any() else ep["merge_min"].max()
@@ -87,7 +49,7 @@ print(f"   total {n_eps} episodes, {n_days} day-clusters (merge {merge} min)")
 if n_eps != 31 or n_days != 14:
     print("   NOTE: expected 31 episodes on 14 days - check episodes.csv")
 
-# ---------------- 2. June main-sample quotes with q (inventory scaled by its past-24h std) --------------
+# ---------------- 2
 con = duckdb.connect()
 data = {}
 for coin in design:
@@ -140,9 +102,9 @@ for coin in design:
           f"{df['q'].abs().median():.2f} | capped at 5: {df['capped'].mean():.1%}")
 
 
-# ---------------- 3. the tau regression (weighted, FE absorbed, clustered by day) ----------------
+# ---------------- 3
 def fit(y, X, g, w, cl):
-    """Weighted least squares with group fixed effects g; cluster-robust SE by cl. Returns beta, se, G, checks."""
+    """Weighted least squares with group fixed effects g; cluster-robust SE by cl."""
     gi = np.unique(g, return_inverse=True)[1]
     sw = np.bincount(gi, w)
     def dm(v):
@@ -197,10 +159,7 @@ def cut(Q, ts, s, dur, day0):
 
 
 def place_day(Q, eps, day0):
-    """First choice: one time shift for the whole day's schedule (spacing kept exactly; shifts that push a
-    window out of the day are rejected, never clipped). If no shift works (e.g. a 7-episode day running
-    into June's poor-book hours), fallback: the same number of episodes with the same lengths at random,
-    non-overlapping times on that day. Returns (episodes, used_fallback) or None."""
+    """First choice: one time shift for the whole day's schedule (spacing kept exactly; shifts that push a window out of the day are rejected, never clipped)."""
     ts = Q["ts"].to_numpy()
     for _ in range(TRIES):
         shift = pd.Timedelta(minutes=int(rng.integers(-1440, 1441)))   # one shift moves the whole schedule
@@ -233,8 +192,7 @@ def place_day(Q, eps, day0):
 
 
 def one_design():
-    """A full copy of the real design (every episode and day-cluster present, or the draw is redone);
-    returns the three outcome fits on the same fake episodes."""
+    """A full copy of the real design (every episode and day-cluster present, or the draw is redone); returns the three outcome fits on the same fake episodes."""
     for attempt in range(TRIES):
         parts = []
         e_id, ok, n_fb = 0, True, 0
@@ -289,7 +247,7 @@ def one_design():
              "; ".join(f"{k}: {v}" for k, v in sorted(FAILS.items(), key=lambda kv: -kv[1])[:8]))
 
 
-# self-check of the regression on simulated data with a planted tau (must come back close to 0.30)
+# self-check of the regression on simulated data with a planted tau
 sim_n = 200_000
 sg = rng.integers(0, 400, sim_n)
 sq = rng.normal(size=sim_n)

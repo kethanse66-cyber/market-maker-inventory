@@ -1,13 +1,4 @@
-"""Day 7f: who makes the market in the CLEAN PLACEBO coins (PENGU and the other liquid ones)?
-Uses your API credits (trades only). ~15-40 minutes.
-
-Run:  python E:\\p3\\day7f_placebo_makers.py
-Reads:  E:\\p3\\data\\clean_placebo_coin_days.csv  (from Day 7e)
-Adds to: E:\\p3\\data\\request_wallets.csv  (keeps every wallet already in it, adds each placebo coin's
-         top 30 pure makers) and writes E:\\p3\\data\\request_wallets_added.csv (only the new ones).
-Same rule as Day 7d: >= 90% maker share, ranked by maker-side dollar volume, up to 6 crossing days per coin.
-Safe to stop and re-run: finished days are skipped.
-"""
+"""Find the makers in the placebo coins."""
 import argparse
 import functools
 import os
@@ -52,7 +43,7 @@ summary = []
 for coin, g in req.groupby("coin"):
     base = os.path.join(ROOT, coin)
     tdir = os.path.join(base, "trades")
-    # crossing days are the middle of each +-1 block: pick days spread through the list
+    # crossing days are the middle of each +-1 block
     days_all = sorted(g["day"])
     pick_days = days_all[1::3][:MAX_DAYS] or days_all[:MAX_DAYS]
     env["COIN"], env["BASE"] = coin, base

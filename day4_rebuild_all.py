@@ -1,14 +1,4 @@
-"""Day 4: rebuild EVERY wallet's open orders, day by day, and check against the next snapshot.
-
-Run:  python E:\\p3\\day4_rebuild_all.py > E:\\p3\\day4_output.txt
-(progress is shown on screen; results go to the file. Expect 30-90 minutes.)
-
-For SOL and XRP, two windows:
-  June:    May 31 snapshot -> replay every event -> compare with the Jun 5 snapshot
-  Aug-Oct: Aug 14 snapshot -> replay every event -> compare with the Oct 25 snapshot  (the main test)
-Both end snapshots come right after a data outage. Differences are sorted into:
-  consistent with the outage | ambiguous (cannot be verified because of the outage) | UNEXPLAINED.
-"""
+"""Day 4: rebuild EVERY wallet's open orders, day by day, and check against the next snapshot."""
 import os
 import sys
 import time
@@ -62,7 +52,7 @@ for coin in COINS:
     else:
         born = "CAST(order_timestamp AS TIMESTAMPTZ)"
 
-    # ---------- the snapshots: list them all and check they are the 4 we expect ----------
+    # ---------- the snapshots
     snaps = con.execute(f"""SELECT CAST(snapshot_time AS VARCHAR) AS t, MIN(last_block_number), MAX(last_block_number),
                                    COUNT(*), COUNT(*) - COUNT(DISTINCT oid)
                             FROM {SNAP} GROUP BY 1 ORDER BY 3""").fetchall()
@@ -86,7 +76,7 @@ for coin in COINS:
         print(f"\n==================== {coin} | {name} ====================")
         print(f"   start photo {s0_time} (block {b0:,}) -> end photo {s1_time} (block {b1:,})")
 
-        # the open set C starts as the start photo (selected by its exact snapshot time)
+        # the open set C starts as the start photo
         con.execute(f"""CREATE OR REPLACE TABLE c AS
             SELECT CAST(oid AS BIGINT) AS oid, user_address AS u, CAST(NULL AS TIMESTAMPTZ) AS born_ts,
                    CAST(size AS DOUBLE) AS size0, 0.0 AS done
@@ -133,7 +123,7 @@ for coin in COINS:
             tot["null_status"] += n_null
             tot["triggered"] += n_trig
 
-            # one row per order seen today; values taken from the order's FIRST open event
+            # one row per order seen today
             con.execute(f"""CREATE OR REPLACE TEMP TABLE a AS
                 SELECT oid, ANY_VALUE(u) AS u, ANY_VALUE(tif) AS tif,
                        COUNT(DISTINCT u) AS n_owner, COUNT(DISTINCT orig_size) AS n_size,
@@ -145,7 +135,7 @@ for coin in COINS:
                        ARG_MIN(orig_size, {KEY}) FILTER (WHERE status = 'open') AS size0,
                        ARG_MIN(status, {KEY}) FILTER (WHERE {ENDS}) AS end_status
                 FROM d WHERE status IS NOT NULL GROUP BY oid""")
-            # endings must hit a known order: in the open set (with the same owner), or born earlier today
+            # endings must hit a known order: in the open set
             r = con.execute("""
                 SELECT COALESCE(SUM(a.n_end), 0),
                        COUNT(*) FILTER (WHERE a.ke IS NOT NULL AND c.oid IS NULL
@@ -172,7 +162,7 @@ for coin in COINS:
                         GROUP BY 1, 2""").fetchall():
                     miss_by[(st, tif)] = miss_by.get((st, tif), 0) + m
 
-            # fills: born before (earlier day or earlier block), not ended before; same block = ambiguous
+            # fills: born before
             if tf:
                 con.execute(f"""CREATE OR REPLACE TEMP TABLE f AS
                     SELECT CAST(order_id AS BIGINT) AS oid, block_number AS b, CAST(size AS DOUBLE) AS size,
@@ -213,7 +203,7 @@ for coin in COINS:
             else:
                 con.execute("CREATE OR REPLACE TEMP TABLE fd AS SELECT CAST(NULL AS BIGINT) AS oid, 0.0 AS s WHERE FALSE")
 
-            # carry the open set to tomorrow: keep what did not end, add what was born and did not end
+            # carry the open set to tomorrow
             con.execute("""CREATE OR REPLACE TABLE c AS
                 SELECT c.oid, c.u, c.born_ts, c.size0, c.done + COALESCE(fd.s, 0) AS done
                 FROM c LEFT JOIN a ON c.oid = a.oid LEFT JOIN fd ON c.oid = fd.oid
@@ -255,7 +245,7 @@ for coin in COINS:
         for (why, tk, tw, lq), m in sorted(bad_by.items(), key=lambda x: -x[1])[:8]:
             print(f"         {why}: taker={tk} twap={tw} liquidation={lq}: {m:,}")
 
-        # ---------- D. THE MAIN CHECK: rebuilt open set vs the end photo ----------
+        # ---------- D
         con.execute(f"""CREATE OR REPLACE TEMP TABLE s1 AS
             SELECT CAST(oid AS BIGINT) AS oid, user_address AS u, CAST(size AS DOUBLE) AS size,
                    {born} AS born_ts

@@ -1,15 +1,4 @@
-"""Day 25 (Nov 14): IS THE DEFENCE DRIVEN BY TOXIC FILLS? Pre-registration addendum v6 (tag prereg-v6).
-
-Run:  python -W ignore E:\\p3\\day25_toxicity.py > E:\\p3\\results\\day25_output.txt               (5 coins, confirmatory)
-      python -W ignore E:\\p3\\day25_toxicity.py AAVE DOGE ... > E:\\p3\\results\\day25_replication.txt  (descriptive)
-About 20-40 minutes. Window: both cut points are searched on the sorted fill times
-(fill time >= tau - 300 s, and fill time <= tau - (H + 1) s so the markout is complete). Saves E:\\p3\\results\\part1_toxicity.csv (or _replication).
-
-Toxicity T of a quote: the maker's own fills in the last 300 s whose markout is already complete (fill second
-t + H + 1 s <= quote time); markout = d x (log mid(t+H) - log mid(t-1)) x 1e4 (d = +1 maker bought);
-T = -(notional-weighted mean markout) / (coin-day median vol5 x sqrt(H)), capped +-5. T > 0 = toxic.
-Side model: bid = b q + c q*T + e T + d vol5 + f r10 + f r60 + f r300 + h q*vz + FE(maker x day). H6: c < 0.
-"""
+"""Toxicity test (prereg-v6): does the side response change after toxic fills?"""
 import glob
 import os
 import sys
@@ -104,7 +93,7 @@ def demean(x, g):
 
 
 stats = defaultdict(dict)
-cover = defaultdict(lambda: [0, 0, 0])   # coin: quotes, quotes with toxicity (H = 10), quotes in the H6 regression
+cover = defaultdict(lambda: [0, 0, 0])   # coin: quotes, quotes with toxicity
 nofill_days = 0
 for i, (c, f) in enumerate(files):
     d = pd.read_parquet(f)

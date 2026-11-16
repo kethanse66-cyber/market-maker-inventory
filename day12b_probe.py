@@ -1,12 +1,4 @@
-"""Day 12b: 2-minute probe before downloading the extras for the 18 new coins (uses a few API credits).
-
-Run:  python E:\\p3\\day12b_probe.py > E:\\p3\\day12b_probe.txt
-
-Shows, so the real downloader is written for the exact formats:
-  1. the columns of one existing top-of-book file (E:\\hl_data\\book\\SOL) and one Binance file
-  2. what the 0xArchive API returns for top of book on a new coin in March (XPL) and in October (SUI)
-  3. whether Binance files for the new coins are needed (which of them trade on Binance is checked later)
-"""
+"""Quick probe of the API formats before downloading the delivery 3 extras."""
 import glob
 import os
 

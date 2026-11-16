@@ -1,48 +1,4 @@
-"""Day 10: NATIVE makers vs HEDGERS (pre-analysis decisions 18 and 19). About 30-90 minutes.
-
-Run:  python E:\\p3\\day10_natives.py > E:\\p3\\day10_output.txt          (all 5 coins)
-Saves: E:\\p3\\data\\natives.csv  - one row per unit at three levels (account, sleeve, firm)
-
-The idea: a maker's Hyperliquid inventory is its whole risk ONLY if it does not offset it elsewhere.
-  - NATIVE: works inventory off on Hyperliquid itself, fast.
-  - HEDGER: its Hyperliquid fills are followed by Binance price moves - consistent with hedging on
-    Binance (evidence, not proof: common information can do this too).
-  - SLOW: inventory takes 60+ minutes to halve, with no Binance footprint.
-  - INCOMPLETE: a required test could not be run.
-  Not finding a footprint does not prove a maker is native (it could hedge on another venue, another
-  instrument, or faster than 1 s). This is an empirical classification.
-
-Decision 18: native = half-life under 60 min AND flow does not predict Binance 1-60 s ahead (5%).
-Decision 19: two speeds, both required: 1-s bins with 10 lags (1-10 s), 10-s bins with 6 lags (10-60 s).
-Implementation:
-  - Granger: Binance log mid change (bp) on its own lags + lags of the unit's net flow (scaled by its std).
-    Newey-West (HAC) covariance, bandwidth = 2 x lags, Wald test on the flow lags.
-  - Benjamini-Hochberg FDR at 5% within each coin, speed and level. HEDGER if either corrected test is
-    significant; NATIVE needs both tests valid and neither significant, plus half-life under 60 min.
-  - Placebo (accounts): each account's flow paired with Binance moves from OTHER test days - 3 random
-    day permutations with no day left in place (fixed seed). A diagnostic of the 5% size, not a precise
-    estimate (3 permutations, shared across accounts, results not independent).
-  - Time series: no lag reaches into another day (the first lags+1 bins of each day are not targets);
-    Newey-West uses the true bin spacing (missing bins stay as gaps, products across days are dropped);
-    a bin is usable only if its stalest Binance second is at most 5 s old.
-  - Labels: SLOW needs a real half-life estimate of 60+ min; no estimate -> INCOMPLETE.
-  - A test is valid only with 1,000+ usable target bins, 50+ bins with flow, full rank and condition
-    number under 1e10; otherwise its p-value is empty (never enters the FDR) and the unit can be INCOMPLETE.
-  - Self-check at start: the fast (Frisch-Waugh) test is compared with the full regression on simulated
-    multi-day data with autocorrelated returns, zero and non-zero effects - coefficients, covariance and
-    Wald statistic must match.
-  - The 1 s and 10 s tests use the same market activity: they are overlapping views, not two independent
-    confirmations. Either one can mark a hedger (decision 19).
-  - Bins are built day by day (bin = day x bins-per-day + bin in day), identical for prices and flows.
-    Binance price = last observation in each second (ordered by the raw timestamp); a price older than
-    5 s is stale and that bin's return is dropped (set to 0 and excluded as a target).
-  - Half-life: minute-end net position, q_t = a + phi q_{t-1}, HL = ln 0.5 / ln phi; also by subperiod
-    (Aug 15 - Sep 26 and Sep 27 - Oct 25) as a stability check. A position is held flat only between fills
-    on days that HAVE data; minutes on a missing inventory day are unknown and dropped from the fit, and
-    after a gap the position restarts from the first fill's "before" position.
-  - Levels: account (decision 18 classification), sleeve and firm (flows and positions summed first).
-11 test days spread over the window (every 7th day; HYPE only from Sep 24). Accounts: 500+ fills.
-"""
+"""Label maker units as native or hedger. Writes data/natives.csv."""
 import glob
 import re
 import os
@@ -136,8 +92,7 @@ _BASE = {}
 
 
 def hac_sum(u_rows, pos, day, n, lags):
-    """Newey-West meat with TRUE time spacing: scores sit at their original bin positions (missing bins =
-    0) and each day is followed by 2 x lags empty bins, so no product ever spans two days. Bandwidth 2 x lags."""
+    """Newey-West meat with TRUE time spacing: scores sit at their original bin positions (missing bins = 0) and each day is followed by 2 x lags empty bins, so no product ever spans two days."""
     L = 2 * lags
     U = np.zeros((n + (int(day[-1]) + 1) * L, u_rows.shape[1]))
     U[pos + day[pos] * L] = u_rows
@@ -149,10 +104,7 @@ def hac_sum(u_rows, pos, day, n, lags):
 
 
 def hac_granger(r, x, lags, valid, day, full_out=False):
-    """Newey-West Wald test that lags of x predict r beyond r's own lags. valid = usable target bins (the
-    caller already drops the first lags+1 bins of each day, so no lag reaches into another day).
-    Computed fast: r's own lags and the constant are partialled out once per return series
-    (Frisch-Waugh), then only the flow lags enter the sandwich (checked against the full model at start)."""
+    """Newey-West Wald test that lags of x predict r beyond r's own lags."""
     n = len(r)
     key = (id(r), lags)
     if key not in _BASE:
@@ -221,7 +173,7 @@ def half_life(s):
     return (np.log(0.5) / np.log(phi) if 0 < phi < 1 else (np.inf if phi >= 1 else 0.0)), phi
 
 
-# ---------- self-checks on simulated data (3 days, autocorrelated returns, gaps) ----------
+# ---------- self-checks on simulated data
 D_, PD_ = 3, 20000
 n_ = D_ * PD_
 day_ = np.arange(n_) // PD_
@@ -241,7 +193,7 @@ for eff in (0.0, -0.02):
                   abs(Wf - Ws) / max(Ws, 1e-12))
         if err > 1e-6:
             sys.exit(f"STOP: fast Granger test differs from the full regression (relative error {err:.1e})")
-# leakage check: flow at the END of one day drives returns at the START of the next day only.
+# leakage check
 # With day-boundary protection this must NOT be detected.
 r_ = rng.normal(size=n_)
 x_ = rng.normal(size=n_)
@@ -372,7 +324,7 @@ for coin in COINS:
                         p, e = hac_granger(r, x / np.std(x), lags, valid, dayb)
                 row[f"p_{name}"], row[f"effect_{name}"] = p, e
             out.append(row)
-    # ---------- placebo on accounts: Binance from OTHER test days (random permutations, no fixed day) ----------
+    # ---------- placebo on accounts: Binance from OTHER test days
     if flows is not None and len(days) >= 2:
         acc_rows = {r_["unit"]: r_ for r_ in out if r_["coin"] == coin and r_["level"] == "account"}
         for name in ("1s", "10s"):

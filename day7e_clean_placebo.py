@@ -1,16 +1,4 @@
-"""Day 7e: the CLEAN PLACEBO - coins that crossed a power of ten where the tick does NOT change.
-Free (public API). ~10 minutes.
-
-Run:  python E:\\p3\\day7e_clean_placebo.py > E:\\p3\\day7e_output.txt
-Saves: E:\\p3\\data\\clean_placebo_scan.csv   and   E:\\p3\\data\\clean_placebo_coin_days.csv
-
-Why: SOL $100 and XRP $1.00 are round numbers AND tick boundaries. Our 8 placebo levels ($95, $1.30...)
-are not as round, so a pure round-number effect could survive them. The clean placebo is a power of ten
-where the decimals cap (6 - szDecimals) already binds on both sides, so the price is just as round but
-the tick stays the same (e.g. a coin with szDecimals 2 crossing $1.00, or szDecimals 3 crossing $10).
-If makers change behaviour there too, it is the round number, not the tick.
-Prices only - no orders, nothing about results. Same scan as Day 7b with the tick condition reversed.
-"""
+"""Placebo coins: crossed a power of ten where the tick does not change."""
 import math
 import os
 import sys

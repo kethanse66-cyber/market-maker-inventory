@@ -1,12 +1,5 @@
-"""Data inventory: one list of EVERY data file for Project 3, so nothing is forgotten.
-
-Run:  python E:\\p3\\data_inventory.py
-Writes E:\\p3\\docs\\DATA_INVENTORY.md (readable) and E:\\p3\\docs\\DATA_INVENTORY.csv (one row per folder).
-Re-run it any time data is added. Wallet folders are collapsed to <wallet> (no addresses printed).
-
-For each folder: how many files, size, first and last date in the file names, number of distinct days,
-and (for per-wallet folders) how many wallets.
-"""
+"""List every data file used in the project.
+Writes docs/DATA_INVENTORY.md and .csv."""
 import collections
 import os
 import re

@@ -1,21 +1,5 @@
-"""Day 5 (schedule: Wed Nov 4): inventory of every firm account over time, plus firm totals.
-
-Run:  python E:\\p3\\day5_inventory.py > E:\\p3\\day5_output.txt          (SOL, XRP)
-      python E:\\p3\\day5_inventory.py BTC ETH HYPE > E:\\p3\\day5b_output.txt
-(progress on screen, results in the file; about 30-60 minutes)
-
-Idea: every trade row carries the account's position just BEFORE the trade (start_position).
-      position after = before + size (buy) or - size (sell).
-      On Hyperliquid a position only changes through fills (trades, liquidations, deleveraging are all
-      fills), so between two fills it is constant - that is what lets us fill the minutes in between.
-      CHECK: one fill's "after" must equal the account's next fill's "before"  (want >= 99.9%).
-Inputs:  our whole-market trades in E:\\hl_data\\<COIN>\\trades\\  +  E:\\hl_data\\firm_wallets_all.csv
-Outputs (data, not uploaded to GitHub):
-  E:\\p3\\data\\inventory\\<COIN>\\<day>.parquet         every fill of every firm account, position before/after
-  E:\\p3\\data\\inventory\\<COIN>_firm_minute.parquet    each firm's position at the end of every minute,
-      summed over the firm's accounts that have traded in the window so far (an account that never trades
-      in the window is not visible in trade data, so this is "traded-account inventory", not a full audit)
-"""
+"""Rebuild each maker account's position over time from its fills, plus firm totals.
+Usage: python day5_inventory.py [COINS ...]"""
 import os
 import sys
 import time
@@ -41,8 +25,7 @@ def close(a, b):
 
 
 def chain_order(sp, sg, ts, diag):
-    """Order one account's fills so each starts where the previous ended (fills in the same
-    millisecond arrive in unknown order). Counts same-millisecond groups in diag."""
+    """Order one account's fills so each starts where the previous ended (fills in the same millisecond arrive in unknown order)."""
     order, i, n = [], 0, len(sp)
     while i < n:
         j = i
@@ -128,7 +111,7 @@ for coin in COINS:
                 if bad_side.any() or bad_num.any():
                     sys.exit(f"   STOP on {coin} {d}: {int(bad_side.sum())} rows with unknown side "
                              f"{side[bad_side].value_counts().to_dict()}, {int(bad_num.sum())} rows with bad numbers.")
-                # a duplicate = the same execution twice (same tx and trade id). Two fills that only LOOK alike
+                # a duplicate = the same execution twice (same tx and trade id)
                 # (one order hit by two counterparties at once) have different trade ids and are both real.
                 n_dup = int(t.duplicated(["tx_hash", "trade_id", "user_address"]).sum())
                 if n_dup:
@@ -174,7 +157,7 @@ for coin in COINS:
                 empty_days += 1
                 day_df = pd.DataFrame(columns=["ts", "user_address", "sp", "pos_after"])
 
-            # ---- each firm's position at the end of every minute (positions only move on fills) ----
+            # ---- each firm's position at the end of every minute
             day_min0 = int(pd.Timestamp(d, tz="UTC").value // 60_000_000_000)
             minutes = np.arange(day_min0, day_min0 + 1440)
             traded = set(day_df["user_address"]) if len(day_df) else set()
@@ -190,8 +173,8 @@ for coin in COINS:
                 first_sp = day_df.groupby("user_address", sort=False)["sp"].first()
             else:
                 first_sp = pd.Series(dtype=float)
-            # start of the day: position before the account's first fill of the day. If it already traded
-            # earlier in the window, that equals yesterday's end (checked by the chain); else it is the
+            # start of the day
+            # earlier in the window, that equals yesterday's end
             # 'before' of today's first fill, valid because nothing but a fill moves a position.
             start_pos = {w: (first_sp[w] if w in first_sp.index else prev_day_end.get(w, np.nan)) for w in cols}
             piv.iloc[0] = piv.iloc[0].fillna(pd.Series(start_pos, dtype=float))

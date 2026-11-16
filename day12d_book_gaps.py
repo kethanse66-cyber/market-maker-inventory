@@ -1,11 +1,4 @@
-"""Day 12d: check the downloaded order-book prices for the 18 new coins: missing files and gaps. ~2 minutes.
-
-Run:  python E:\\p3\\day12d_book_gaps.py > E:\\p3\\day12d_output.txt
-
-Gap = more than 60 s without a snapshot. Every gap goes to E:\\p3\\data\\book_gaps_new.csv
-(coin, day, gap_start, gap_end, seconds) so later scripts drop those minutes, like delivery-3 gaps.
-Also checks the Binance and day-before fill files exist, and that bid < ask.
-"""
+"""Find missing files and gaps (> 60 s) in the delivery 3 book data."""
 import os
 import sys
 

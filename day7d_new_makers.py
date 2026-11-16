@@ -1,13 +1,4 @@
-"""Day 7d: who makes the market in the 15 new coins? Uses your API credits (trades only). ~1-3 hours.
-
-Run:  python E:\\p3\\day7d_new_makers.py
-Saves: whole-market trades in E:\\hl_data\\<COIN>\\trades\\<COIN>_<day>.parquet (same layout as before,
-       reused later for inventory and counterparties), and
-       E:\\p3\\data\\request_wallets.csv = our 62 firms' accounts + each new coin's top 30 pure makers
-       (>= 90% maker share, by maker-side dollar volume on its crossing days).
-To keep it quick it uses up to 6 crossing days per coin to pick the makers. Safe to stop and re-run:
-finished days are skipped. It reuses the download functions from E:\\sentinel\\hl_dl3.py.
-"""
+"""Download trades for the new coins and find who makes the market there."""
 import argparse
 import functools
 import os
@@ -51,7 +42,7 @@ summary = []
 for coin, g in req.groupby("coin"):
     base = os.path.join(ROOT, coin)
     tdir = os.path.join(base, "trades")
-    # crossing days are the middle of each +-1 block: pick days spread through the list
+    # crossing days are the middle of each +-1 block
     days_all = sorted(g["day"])
     pick_days = days_all[1::3][:MAX_DAYS] or days_all[:MAX_DAYS]
     env["COIN"], env["BASE"] = coin, base

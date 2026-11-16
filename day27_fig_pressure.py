@@ -1,14 +1,4 @@
-"""Day 27 (Nov 14): FIGURE 6 - makers' inventory and the Hyperliquid-minus-Binance price gap (prereg-v7 results).
-
-Run (after day26, both runs):  python -W ignore E:\\p3\\day27_fig_pressure.py
-Reads   E:\\p3\\results\\part1_pressure_minutes.parquet, part1_pressure.csv (+ _replication if present)
-Saves   E:\\p3\\figures\\fig6_price_pressure.png / .pdf
-
-Panel A: the gap B (bp, minus its coin-day mean) by 0.5-sd bins of maker inventory z (also minus its coin-day mean, as in the regression); minutes pooled within a coin,
-         every coin weighted equally; 95% band from resampling days; dashed line = the H7a regression slope.
-Panel B: how much of the gap has closed h minutes later: b(h) / |a| for h = 1, 5, 15, 60 (H7b at each horizon
-         divided by the H7a level), 5 main coins and the replication coins.
-"""
+"""Price pressure figure."""
 import os
 import sys
 
@@ -45,7 +35,7 @@ A["Bd"] = A["B"] - A.groupby(["coin", "day"])["B"].transform("mean")
 edges = np.arange(-3, 3.01, 0.5)
 A["zd"] = A["z"] - A.groupby(["coin", "day"])["z"].transform("mean")    # x within coin-day too, as the regression
 A["bin"] = np.clip(np.searchsorted(edges, A["zd"], side="right") - 1, 0, len(edges) - 2)
-# minutes pooled (as in the regression), every coin equal; 95% band by resampling days (500 draws, seed fixed)
+# minutes pooled (as in the regression), every coin equal
 S = A.groupby(["day", "coin", "bin"])["Bd"].agg(["sum", "count"]).reset_index()
 mid = (edges[:-1] + edges[1:]) / 2
 nb = len(mid)

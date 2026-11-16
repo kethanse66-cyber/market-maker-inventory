@@ -1,32 +1,4 @@
-"""Day 9: group each firm's accounts into SLEEVES - accounts that trade as one unit. About 20-40 minutes.
-
-Run:  python E:\\p3\\day9_sleeves.py > E:\\p3\\day9_output.txt          (all 5 coins)
-Saves: E:\\p3\\data\\sleeves.csv   (coin, wallet, firm, sleeve, fills, quotes) - the 3 clustering rules:
-       account = each wallet alone | sleeve = this file | firm = the on-chain firm label
-
-Why: one firm can run several accounts. If two accounts move together (same engine, same signals) they
-are one decision-maker, and counting them as two makers double-counts it. If they mirror each other
-(one long when the other is short), each account's inventory alone is misleading.
-Two accounts of the SAME firm are linked when either:
-  1. their minute-by-minute trading flows are strongly related, |corr| at or above the threshold
-     (positive = trade together, negative = mirror each other), or
-  2. they place quotes in the same blocks far more than unrelated accounts do (same engine).
-Thresholds come from accounts of DIFFERENT firms (which cannot share an engine): the 99th percentile of
-cross-firm values, and at least |corr| 0.5. Linked accounts form one sleeve (chains count: A-B, B-C ->
-A, B, C). Window Aug 15 - Oct 25 (the test window); accounts with at least 500 fills there.
-Reported per sleeve: net_position_vol_ratio = std of the sleeve's net position CHANGE since the window
-start / sum of the accounts' stds of position change (starting positions set to 0, so it measures how the
-accounts' movements offset, not the volatility of their true combined inventory) (near 0 = strongly offsetting; near 1 = little offset - same direction OR independent, it cannot tell
-those two apart), plus the weakest and median FLOW correlation among all pairs inside the sleeve (low when
-some pairs are joined only through others or by same-block links) and how many of the sleeve's actual
-links came from flow and from same blocks.
-Same-block overlap is computed two ways: shared / blocks of the smaller account (the link rule) and
-Jaccard = shared / all blocks of both (reported). Blocks are keyed by day + block number, and the block
-sample is drawn twice (blocks ending in 0 and in 10 out of 20): a disjoint-sample stability check, not an
-independent replication; each half gets its own cross-firm threshold and both are reported.
-Sleeves are INFERRED coordination units, not verified legal entities. All later results are shown at three
-levels: account (each wallet), sleeve (this file), firm (on-chain label) - sleeves never replace the others.
-"""
+"""Group each firm's accounts into sleeves (accounts that trade as one unit). Writes data/sleeves.csv."""
 import glob
 import os
 import sys
@@ -74,7 +46,7 @@ for coin in COINS:
     if not inv:
         print(f"\n   {coin}: no inventory files")
         continue
-    # ---- minute flow per account: change in position within each minute ----
+    # ---- minute flow per account
     nf = con.execute(f"""SELECT count(*) FROM (SELECT lower(wallet) FROM read_parquet({inv}, union_by_name=true)
                            GROUP BY 1 HAVING count(DISTINCT lower(firm)) > 1)""").fetchone()[0]
     if nf:
@@ -109,7 +81,7 @@ for coin in COINS:
     C = Z.T @ Z / len(Z)
     if not np.isfinite(C).all():
         sys.exit(f"STOP: non-finite correlations in {coin}")
-    # ---- same-block quoting: overlap = shared blocks / blocks of the smaller account ----
+    # ---- same-block quoting
     qf = [f for d in BLOCK_DAYS for f in glob.glob(os.path.join(QUOTES, coin, f"{d}*.parquet"))]
 
     def overlap(half):
@@ -168,7 +140,7 @@ for coin in COINS:
             cols = [idx[w] for w in g["wallet"]]
             cancel[s] = pos[:, cols].sum(1).std() / max(pos[:, cols].std(0).sum(), 1e-12)
     sl["net_position_vol_ratio"] = sl["sleeve"].map(cancel)
-    # weakest / median direct link inside each multi-account sleeve (flow |corr|)
+    # weakest / median direct link inside each multi-account sleeve
     wk, md = {}, {}
     for s_, g in sl.groupby("sleeve"):
         if len(g) > 1:

@@ -1,13 +1,4 @@
-"""Day 6b: an independent check of the book clock shift (decision 6). About 5-10 minutes.
-
-Run:  python E:\\p3\\day6b_clock.py > E:\\p3\\day6b_output.txt
-
-Idea: a post-only (Alo) quote can never cross the real book - the exchange rejects a buy at or above
-the best ask, and a sell at or below the best bid. So if our book looks crossed against a quote, our
-book is out of date at that moment. The right clock shift is the one where FEWEST quotes look crossed.
-We try shifts from -1 s to +1 s (book time minus shift = true time) on 9 sample days.
-Looks only at quote prices vs the book - nothing about inventory or the study's results.
-"""
+"""Check the book clock shift: post-only quotes should never cross the real book."""
 import os
 import sys
 

@@ -1,15 +1,4 @@
-"""Freeze the pre-registration (v2).
-
-  cd E:\\p3
-  python freeze.py            -> writes docs/FREEZE_HASHES.txt
-  (commit + tag)
-  python freeze.py --verify   -> re-hashes everything, compares with the manifest, checks git is clean
-  python freeze.py --verify --raw  -> also re-hashes every raw vendor file against the vendor manifests (slow)
-
-Hashed: every .py / .md / .txt / .toml / .yml in the repo (any folder, incl. freeze.py), every file in
-data/ (csv and parquet), and the vendor manifests that already hold SHA-256s of all raw delivery files.
-Data files are hashed but must be git-ignored; the script stops if any is tracked or not ignored.
-"""
+"""Write SHA-256 hashes of the pre-registration files to docs/FREEZE_HASHES.txt."""
 import hashlib
 import subprocess
 import sys
@@ -135,7 +124,7 @@ def verify():
 
 
 def verify_raw(manifests):
-    """Re-hash every raw delivery file listed in the vendor manifests (path + sha256 columns). Slow: ~220 GB."""
+    """Re-hash every raw delivery file listed in the vendor manifests (path + sha256 columns)."""
     import csv
     bad, n = 0, 0
     for m in manifests:

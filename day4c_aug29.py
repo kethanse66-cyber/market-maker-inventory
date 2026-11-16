@@ -1,12 +1,4 @@
-"""Day 4c: zoom into Aug 29 - when and for which wallets did the order stream lose events? ~3 minutes.
-
-Run:  python E:\\p3\\day4c_aug29.py > E:\\p3\\day4c_output.txt
-
-Two kinds of trouble seen on Aug 29 in the Day 4 rebuild:
-  (a) endings of orders we never saw born       -> an 'open' event is missing
-  (b) orders born that day that never end         -> an ending event is missing
-We find WHEN each happened and WHICH wallets, plus every silence longer than 5 seconds that day.
-"""
+"""Day 4c: zoom into Aug 29 - when and for which wallets did the order stream lose events? ~3 minutes."""
 import os
 
 import duckdb

@@ -1,13 +1,4 @@
-"""Day 26 (Nov 14): DOES MAKERS' INVENTORY MOVE THE PRICE? Pre-registration addendum v7 (tag prereg-v7).
-
-Run:  python -W ignore E:\\p3\\day26_price_pressure.py > E:\\p3\\results\\day26_output.txt
-About 10-30 minutes. Saves E:\\p3\\results\\part1_pressure.csv and part1_pressure_minutes.parquet (no wallets).
-
-Unit: coin x minute. z = all maker firms' summed position / its std over the previous 1,440 minutes (cap +-5).
-B = (log Hyperliquid mid - log Binance price) x 1e4 at minute end (both prices at most 5 s old).
-H7a: B on z (a < 0).  H7b: B(t+5) - B(t) on z + past 5-min HL and Binance returns (b > 0).
-Coin x day fixed effects, every coin weighted equally, standard errors clustered by day.
-"""
+"""Price pressure (prereg-v7): makers' inventory and the Hyperliquid-Binance gap."""
 import glob
 import os
 import re
@@ -123,7 +114,7 @@ for coin in COINS:
     zn = z_of(fm[fm["lab"] == "NATIVE"].groupby("m")["position"].sum(min_count=1).reindex(grid))
     zh = z_of(fm[fm["lab"] == "HEDGER"].groupby("m")["position"].sum(min_count=1).reindex(grid))
 
-    # Hyperliquid mid at minute end (book snapshots), Binance price at minute end
+    # Hyperliquid mid at minute end
     days = sorted({pd.Timestamp(int(m) * 60, unit="s", tz="UTC").strftime("%Y-%m-%d") for m in grid[::1440]} |
                   {pd.Timestamp(int(grid[-1]) * 60, unit="s", tz="UTC").strftime("%Y-%m-%d")})
     hl = []

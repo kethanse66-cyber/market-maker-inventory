@@ -1,20 +1,4 @@
-"""Day 14 (Nov 13): SECONDARY OUTCOMES - pre-registration prereg-v1, section 6 (Holm-corrected family of 3).
-
-Run:  python E:\\p3\\day14_secondary.py > E:\\p3\\results\\day14_output.txt      (about 30-60 minutes)
-Saves E:\\p3\\results\\secondary_result.csv and secondary_draws.csv.
-
-Same sample, episodes, q, vol5, weights (each maker equal) and circular-shift randomization (2,000 draws, seed
-20261112, same offsets as the main test) as day13_main_test.py. Only the outcome changes:
-  1. PRICE SHADING  y = (quote price - mid) / mid in bp.  Model y = b*q + c*a + tau*(q x a) + d*vol5 + e*(vol5 x a)
-     + FE(maker x side x episode). Pre-registered "above" = the quote's OWN price at/above the boundary; that tau is
-     printed. The randomization rotates minute labels, so the p-value compares minute-label taus (as in the main test).
-     tau > 0 on q x a: with the coarse tick makers shade price LESS per unit of inventory (b is negative: long -> lower prices).
-  2. SIZE SKEW      y = log quote size; regressor q*s (s = +1 ask, -1 bid): b > 0 = bigger quotes on the side that
-     unwinds. tau on (q*s) x a. FE maker x side x episode.
-  3. PRESENCE AT THE BEST  y = 1 if the quote is at (or better than) the market best on its side; estimand = the level
-     jump c at the boundary. FE maker x side x episode.
-Each outcome: randomization p (decides), then Holm across the 3; clustered t (13 coin-days) shown, not decisive.
-"""
+"""Secondary outcomes of prereg-v1, Holm-corrected."""
 import glob
 import os
 import sys
@@ -42,7 +26,7 @@ def log(s):
     print(s, file=sys.stderr, flush=True)
 
 
-# ---------------------------------------------------------------- 1. episodes
+# ---------------------------------------------------------------- 1
 ep = pd.read_csv(EPISODES, parse_dates=["start", "end"])
 ep = ep[ep["coin"].isin(LEVEL) & (ep["level"] == ep["coin"].map(LEVEL)) & ep["good"].astype(bool)]
 ep = ep[ep["merge_min"] == 60].sort_values(["coin", "start"]).reset_index(drop=True)
@@ -64,7 +48,7 @@ def near_days(t0, t1):
                   {t1.strftime("%Y-%m-%d")})
 
 
-# ---------------------------------------------------------------- 2. sample, episode by episode
+# ---------------------------------------------------------------- 2
 parts, ep_rows, lab_all, lab_off = [], [], [], []
 drop = dict(no_q=0, no_vol=0, outside_window=0, straddle=0)
 t0 = time.time()
@@ -75,7 +59,7 @@ for e in ep.itertuples():
     M = int(W1 - W0 + 1)
     days = near_days(pd.Timestamp(W0 * MIN_NS, tz="UTC"), pd.Timestamp(W1 * MIN_NS, tz="UTC"))
 
-    # minute labels from the Hyperliquid book: median mid in the minute >= boundary
+    # minute labels from the Hyperliquid book
     bf = [os.path.join(BOOK, coin, f"{coin}_{d}.parquet") for d in days]
     bf = [f for f in bf if os.path.exists(f)]
     if not bf:
@@ -88,7 +72,7 @@ for e in ep.itertuples():
     no_book = int(mids.loc[W0:].isna().sum())
     if no_book > M // 2:
         sys.exit(f"STOP: episode {coin} {e.day}: {no_book} of {M} minutes have no book mid - check {BOOK}")
-    # a minute without a snapshot keeps the LAST KNOWN label (past data only, never a later minute)
+    # a minute without a snapshot keeps the LAST KNOWN label
     mids = mids.ffill().loc[W0:W1]
     if mids.isna().any():
         sys.exit(f"STOP: episode {coin} {e.day}: no book mid in the hour before the window start")
@@ -96,7 +80,7 @@ for e in ep.itertuples():
     n_up, n_dn = int(lab.sum()), int(M - lab.sum())
     rotate = n_up >= MIN_MIN and n_dn >= MIN_MIN
 
-    # quotes: window + 5 min before (volatility), all quotes for the mid series
+    # quotes: window + 5 min before
     qf = files_for(QUOTES, coin, days)
     if not qf:
         sys.exit(f"STOP: no quote files for {coin} on {days} in {QUOTES}")
@@ -195,7 +179,7 @@ for c, g in EP.groupby("coin"):
           f"minutes above {int(g['above_min'].sum())}, below {int(g['below_min'].sum())}")
 
 
-# ---------------------------------------------------------------- 3. the estimator
+# ---------------------------------------------------------------- 3
 
 
 class Fit:

@@ -1,14 +1,4 @@
-"""Day 6c: measure the book's clock delay for EVERY HOUR of every day. About 15-30 minutes.
-
-Run:  python E:\\p3\\day6c_lag.py > E:\\p3\\day6c_output.txt
-Saves: E:\\p3\\data\\book_lag.csv   (coin, day, hour, lag_s, crossed_at_best, quotes, source)
-
-Method (checked on fake data with a planted delay, which it recovered exactly):
-  a post-only (Alo) quote can never cross the real book. For each hour we try delays from -0.5 s to
-  +3.0 s and keep the one where the fewest quotes look crossed against the nearest book photo.
-  Quiet hours with too few quotes use that day's delay; days with too few use 0.25 s (decision 6).
-Looks only at quote prices vs the book - nothing about inventory or the study's results.
-"""
+"""Estimate the book clock delay for every hour. Writes data/book_lag.csv."""
 import os
 import sys
 import time

@@ -1,16 +1,5 @@
-"""Day 8d: June only - is the ~0 inventory response real, or is something wrong in the inventory join?
-About 5-15 minutes per coin.
-
-Run:  python E:\\p3\\day8d_diag.py SOL XRP BTC > E:\\p3\\day8d_output.txt
-
-The Oct 26 BTC pilot saw strong side skew (bid share 91% -> 75% -> 42% as inventory rose). Day 8c found
-almost nothing in June SOL/XRP. If BTC June also shows nothing here, the pipeline is suspect, not the makers.
-Per top-10 maker (by quotes): how often inventory is exactly 0, how much it moves, and raw correlations:
-  corr_side   = corr(quote is a bid, inventory)                     (negative = unwinding by side)
-  corr_px_bid = corr(bid price vs mid, inventory) within bids       (negative = shading)
-  corr_min    = corr(bid share in a minute, inventory) over minutes (the pilot's measure)
-1-in-10 sample by order id (1-in-40 for BTC).
-"""
+"""June only: check the inventory join behind the near-zero response.
+Usage: python day8d_diag.py SOL XRP BTC"""
 import glob
 import os
 import sys

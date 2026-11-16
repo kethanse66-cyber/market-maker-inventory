@@ -1,6 +1,4 @@
-"""Is there any other source of CHIP order-book prices for Apr 21-25? (a few API credits)
-Run:  python E:\\p3\\chip_probe.py
-"""
+"""Look for another source of CHIP book prices (Apr 21-25)."""
 import os
 
 from oxarchive import Client

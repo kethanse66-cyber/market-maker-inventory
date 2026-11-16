@@ -1,18 +1,4 @@
-"""Day 16b (delivery-3 coins): book clock delay per hour - the frozen Day 6c code, delivery-3 orders.
-Run:  python E:\\p3\\day16b_lag_d3.py PENGU > E:\\p3\\results\\day16b_PENGU.txt
-Saves E:\\p3\\data\\book_lag_d3.csv (the frozen book_lag.csv is not touched).
-
-Original Day 6c description:
-
-Run:  python E:\\p3\\day6c_lag.py > E:\\p3\\day6c_output.txt
-Saves: E:\\p3\\data\\book_lag.csv   (coin, day, hour, lag_s, crossed_at_best, quotes, source)
-
-Method (checked on fake data with a planted delay, which it recovered exactly):
-  a post-only (Alo) quote can never cross the real book. For each hour we try delays from -0.5 s to
-  +3.0 s and keep the one where the fewest quotes look crossed against the nearest book photo.
-  Quiet hours with too few quotes use that day's delay; days with too few use 0.25 s (decision 6).
-Looks only at quote prices vs the book - nothing about inventory or the study's results.
-"""
+"""Day 16b (delivery-3 coins): book clock delay per hour - the frozen Day 6c code, delivery-3 orders."""
 import os
 import sys
 import time

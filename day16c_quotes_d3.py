@@ -1,28 +1,4 @@
-"""Day 16c (delivery-3 coins): the QUOTE TABLE - the frozen Day 6 code with delivery-3 inputs.
-Run:  python E:\\p3\\day16c_quotes_d3.py PENGU > E:\\p3\\results\\day16c_PENGU.txt
-Changes vs Day 6 (inputs only): orders from delivery 3; book delay from book_lag_d3.csv; the coin's size
-decimals (which set the tick) are read from the prices themselves and printed; capture gaps from the
-pre-registration (section 8) are flagged in_gap; a run of days starts from the inventory at the end of
-the day before (that day's fills are in the inventory folder), and a gap between runs resets it.
-
-Original Day 6 description: every quote placed by a firm account, joined to the
-market at that moment and to the account's inventory at that moment.
-
-Run:  python E:\\p3\\day6_quotes.py > E:\\p3\\day6_output.txt
-(progress on screen, results in the file; about 30-90 minutes)
-
-The clock delay (Day 6c) is measured on all Alo 'open' events; this table uses the narrower quote
-definition below. Both are 99.9%+ the same orders (decision 5), so the delay applies.
-A quote = an 'open' event of a post-only (Alo) limit order, not reduce-only, not a trigger order
-(pre-analysis decision 5). For each quote we record:
-  - side, price, size
-  - the market at that moment: best bid, best ask, mid, spread (top of book every 0.5 s; the book's
-    clock runs 0.25 s late, so we move it 0.25 s earlier - decision 6), and how old that book row is
-  - distance from mid in basis points, and how many ticks behind the best price on its own side
-  - the account's inventory just before the quote (from Day 5; a position only moves on fills)
-Excluded windows (decision 11) are kept but flagged, so nothing silently disappears.
-Output: E:\\p3\\data\\quotes\\<COIN>\\<day>.parquet   and 20 random quotes printed for a hand check.
-"""
+"""Day 16c (delivery-3 coins): the QUOTE TABLE - the frozen Day 6 code with delivery-3 inputs."""
 import os
 import sys
 import time
@@ -247,12 +223,12 @@ for coin, szd in COINS.items():
                                      by="wallet", direction="backward", allow_exact_matches=False)
                 fwd = pd.merge_asof(q[["ts", "wallet"]], iv[["ts", "wallet", "pos_before"]], on="ts",
                                     by="wallet", direction="forward")
-                # last fill before the quote -> its 'after'; if none yet, the next fill's 'before' (no fill in
+                # last fill before the quote -> its 'after'
                 # between, so the position did not move)
                 q["inventory"] = back["pos_after"].to_numpy()
                 q["inventory"] = q["inventory"].fillna(pd.Series(fwd["pos_before"].to_numpy(), index=q.index))
-            # no fill today before the quote and none after it: the position is still the one after the
-            # account's last fill on an earlier day (the chain across days was checked in Day 5)
+            # no fill today before the quote and none after it
+            # account's last fill on an earlier day
             q["inventory"] = q["inventory"].fillna(q["wallet"].map(carry))
             q["inventory_usd"] = q["inventory"] * q["mid"]
             tot["no_inv"] += int(q["inventory"].isna().sum())
